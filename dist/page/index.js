@@ -1,1 +1,0 @@
-requirejs(["../common"],function(){requirejs(["module/test"],function(e){})}),define("pageindex.js",function(){});
