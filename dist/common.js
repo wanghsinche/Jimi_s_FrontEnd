@@ -1,0 +1,1 @@
+requirejs.config({baseUrl:"/js/",paths:{module:"module",lib:"lib",zepto:"lib/zepto.min",siteData:"lib/siteData_bas"},shim:{zepto:{exports:"Zepto"},siteData:{exports:"arrCity"}}}),define("common.js",function(){});
