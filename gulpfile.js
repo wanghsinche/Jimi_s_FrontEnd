@@ -2,7 +2,6 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var less = require('gulp-less');
 var path = require('path');
-var requirejsOptimize = require('gulp-requirejs-optimize');
 
 // Static Server + watching scss/html files
 
