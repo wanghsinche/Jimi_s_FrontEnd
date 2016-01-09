@@ -1,36 +1,23 @@
 requirejs.config({
     baseUrl: '/js/',
     paths: {
+      "angular" : "lib/angular.min",
+      "angular-ui-route" : "lib/angular-ui-router.min",        
         module:'module',
         lib: 'lib',
-        zepto:'lib/zepto.min',
         siteData:'lib/siteData_bas',
-        text: 'lib/text',
-        underscore: 'lib/underscore-min',
-        backbone: 'lib/backbone',                
     },
     shim:{
-    	zepto:{
-    		exports:'Zepto',//这里的z首字母必须大写，因为zepto.js就是这样定义的
-    	},
-        underscore: {
-            exports: '_'
-        },
-        backbone: {
-            deps: [
-                'underscore',
-                'zepto'
-            ],
-            exports: 'Backbone'
-        },        
+       'angular': {
+          exports: 'angular'
+       },
+       'angular-ui-route':{
+          deps: ["angular"],
+          exports: 'angular-ui-route'
+       },         
         siteData:{
             exports:'arrCity',
         }
     },
-    map: {
-        backbone: {
-            'jquery': 'zepto'
-        },
-    }
 });
 
