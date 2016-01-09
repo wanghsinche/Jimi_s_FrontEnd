@@ -21,7 +21,7 @@
 //----------------------------
 @fontFamily:"Microsoft YaHei",arial,courier new,courier,"\5b8b\4f53",monospace;
 @fontFamilyBtn:monospace;
-
+@baseFontSize:16px;
 //----------------------------
 .rounded-corners (@radius: 5px) {
   border-radius: @radius;
@@ -38,13 +38,15 @@
 .border(@width: 1px,@color:#B9B9B9){
 	border: @width solid @color;
 }
-
+html{
+	font-family:@fontFamily;
+	font-size:@baseFontSize;
+}
 body{
 	position:relative;
 	background-color: @backgroundColor;
 	margin: 0;
 	color:@commonLinkColor;
-	font-family:@fontFamily;
     //  "Helvetica Neue", Helvetica, STHeiTi, sans-serif;	
 }
 div,input,button{
@@ -101,19 +103,20 @@ a{
 	background: @blueColor;
 	line-height: 60px;
 	font-size: 1.5em;
-	span{
+	a,span{
 		color:@commonLinkColorInverse;
 	}
+	&.left{
+		text-align: left;
+	}
+	&.center{
+		text-align: center;
+	}
+	&.right{
+		text-align: right;
+	}
 }
-.x-header.left{
-	text-align: left;
-}
-.x-header.center{
-	text-align: center;
-}
-.x-header.right{
-	text-align: right;
-}
+
 .logo{
 	display: inline-block;
 	width: 14%;
@@ -140,11 +143,11 @@ a{
 		font-size: 1em;
 		color: @commonLinkColor;
 	}
-}
-.navi-li.active{
-	background-color: @activeBackgroundColor;
-	a{
-		color: @activeColor;
+	&.active{
+		background-color: @activeBackgroundColor;
+		a{
+			color: @activeColor;
+		}
 	}
 }
 .user{
@@ -156,7 +159,7 @@ a{
 .user-btn{
 	display: inline-block;
 	a{
-		font-size: 1em;
+		font-size: 0.9em;
 		color: @commonLinkColor;
 	}
 }
@@ -201,7 +204,7 @@ a{
 	text-align: center;
 	a{
 		line-height: 36px;
-		font-size: 1em;
+		font-size: 0.9em;
 		color: @commonLinkColorInverse;
 		font-family: @fontFamily;
 	}
