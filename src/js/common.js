@@ -3,8 +3,6 @@ requirejs.config({
     paths: {
       "angular" : "lib/angular.min",
       "angular-ui-route" : "lib/angular-ui-router.min",        
-        module:'module',
-        lib: 'lib',
         siteData:'lib/siteData_bas',
     },
     shim:{

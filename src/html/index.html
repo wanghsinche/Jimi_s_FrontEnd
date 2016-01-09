@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>oo</title>
-	<link rel="stylesheet" href="/css/index.css">
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>标题</title>
+	<link rel="stylesheet" href="/css/x1.css">
 </head>
-<body>
-changed
-	<div id="container"></div>
-    <script data-main="js/page/index.js" src="js/lib/require.js"></script>
+<body >
+	<div class="header">
+		<div class="x-header left"><span>user</span></div>
+		<div class="x-header center"><span>机密</span></div>
+		<div class="x-header right"><span>menu</span></div>
+		<div class="logo"><div class="pic-logo"><a href="/" ></a></div></div>
+		<div class="navi">
+			<ul class="navi-ul">
+				<li class="navi-li"><a href="#1">首页</a></li>
+				<li class="navi-li"><a href="#2">维修</a></li>
+				<li class="navi-li"><a href="/recycle.html">回收</a></li>
+				<li class="navi-li active"><a href="#4">机密+</a></li>
+				<li class="navi-li"><a href="#5">下载APP</a></li>
+			</ul>
+		</div>
+		<div class="user">
+			<div class="user-btn"><a href="#reg">注册</a></div>
+			<div class="user-btn"><a href="#log">登陆</a></div>
+		</div>
+	</div>
+	<div ng-controller="x1Ctrl">
+		<div class="bigpic" >
+			<img ng-src="{{bigpic}}" alt="">
+		</div>
+		<div class="seperator"><div>热销机型</div></div>		
+	</div>
+	<div class="xfooter">
+		<div class="xnavi-item"><div><a href="">维修</a></div></div>
+		<div class="xnavi-item active"><div><a href="">超值购机</a></div></div>
+		<div class="xnavi-item"><div><a href="">回收</a></div></div>
+	</div>
+	<div class="footer">
+		<ul class="footer-ul">
+			<li class="footer-li"><a href="#1">关于我们</a></li>
+			<li class="footer-li"><a href="#1">招贤纳士</a></li>
+			<li class="footer-li"><a href="#1">商家加盟</a></li>
+			<li class="footer-li"><a href="#1">服务条款</a></li>
+			<li class="footer-li"><a href="#1">帮助中心</a></li>
+			<li class="footer-li"><a href="#1">xxxx有限公司</a></li>
+			<li class="footer-li"><a href="#1">浙ICP备xxxxx号</a></li>
+			<li class="footer-li"><a href="#1">电话 000-00000</a></li>			
+		</ul>
+	</div>	
+    <script data-main="js/x1" src="js/lib/require.js"></script>
 </body>
 </html>
