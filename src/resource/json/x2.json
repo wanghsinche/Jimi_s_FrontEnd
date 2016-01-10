@@ -1,0 +1,15 @@
+{
+	"opt":{
+		"pic":"image/i5s.png",
+		"oripri":"4000",
+		"name":"iphone 6",
+		"version":["DLGH","GH","MG"],
+		"color":["B","R","G"],
+		"storage":["16","64","128"]	
+		},
+	"lst":[
+		{"version":"DLGH","color":"B","storage":"16","id":"23","price":1234},
+		{"version":"DLGH","color":"R","storage":"64","id":"24","price":1224},	
+		{"version":"MG","color":"G","storage":"128","id":"25","price":2234}
+	]	
+}

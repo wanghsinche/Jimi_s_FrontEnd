@@ -1,9 +1,9 @@
 {
 	"lst":[
-	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4},
-	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4},
-	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4},
-	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4},
-	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4}
+	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4,"id":"1234"},
+	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4,"id":"234"},
+	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4,"id":"134"},
+	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4,"id":"124"},
+	{"pic":"image/i5s.png","name":"苹果5s","price":"3035","sold":4,"id":"123"}
 	]
 }

@@ -1,0 +1,20 @@
+<div class="view-row">
+	<h1>{{opt.name}}</h1>
+</div>
+<div class="view-row">
+	<h2>原价 ￥{{opt.oripri}}</h2>
+	<div><span class="view-price-title">xxx价</span><span class="view-price">￥{{good===''?'--':num*good.price}}</span></div>	
+</div>
+<div class="view-row" >
+	<span class="opt-label">版本</span><button ng-repeat="it in opt.version" ng-click="setVer(it)"  class="opt-btn-pill">{{it}}</button>
+</div>
+<div class="view-row" >
+	<span class="opt-label">颜色</span><button ng-repeat="it in opt.color" ng-click="setColor(it)" ng-disabled="!checkColor(it)" class="opt-btn-pill">{{it}}</button>
+</div>
+<div class="view-row" >
+	<span class="opt-label">容量</span><button ng-repeat="it in opt.storage" ng-click="setStrg(it)"ng-disabled="!checkStrg(it)" class="opt-btn-pill">{{it}}</button>
+</div>
+<div class="view-row" >
+	<span class="opt-label">数量</span><button ng-click="addNum(false)" ng-disabled="num<=1"  class="change-num">-</button>{{num}}<button ng-click="addNum(true)" class="change-num">+</button>
+</div>												
+<div class="view-row"><button ng-disabled="!checkPrice()" ng-click="comfirm()" class="comfirm-btn">确认下单</button></div>

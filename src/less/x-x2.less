@@ -1,46 +1,11 @@
 @import 'x-layout.less';
-@import 'x1-common.less';
+@import 'x2-common.less';
 
 @media (max-width: 800px) {
-	.seperator{
-		div{
-			background: @xfooterBackgroundColor;
-		}
-	&.noline{
-		div{
-			background: @backgroundColor;
-		}
-	}
-	&:before{
-		content: "";
-		display:block;
+	.top-left{
 		width: 100%;
-		height: 100%;
-		position: absolute;
-		top:0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: -1;
-		background: @xfooterBackgroundColor;
-		color:@xfooterBackgroundColor; 
 	}
-	&:after{
-		background: @greyColor+10;
-	}
-	&.noline{
-		background: @backgroundColor;		
-	}
-	}	
-	.show-item{
-		width: 48%;
-	}
-	.show-desc-item{
-	   	&.left{
-			font-size: 1em;
-		}
-		&.right{
-			font-size: 0.6em;
-		}
-	}	
+	.top-right{
+		display: none;
+	}		
 }

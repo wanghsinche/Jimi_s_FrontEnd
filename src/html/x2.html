@@ -11,7 +11,7 @@
 </head>
 <body >
 	<div class="header">
-		<div ng-if="uaData.ispc==false" class="x-header left"><a href="#">back</a></div>
+		<div ng-if="uaData.ispc==false" class="x-header left back-btn"><a href="#">&lt;</a></div>
 		<div ng-if="uaData.ispc==false" class="x-header center"><span>商品详情</span></div>
 		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#"></a></div>
 		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ></a></div></div>
@@ -29,6 +29,18 @@
 			<div class="user-btn"><a href="#log">登陆</a></div>
 		</div>
 	</div>
+
+	<div>
+		<div class="topview">
+			<div class="top-left">
+				<img ng-src="{{opt.pic}}" alt="">
+			</div>
+			<div class="top-right" ng-if="uaData.ispc==true" ng-include="t_chose">
+				
+			</div>
+		</div>
+	</div>
+
 
 	<div ng-if="uaData.ispc==false" class="xfooter">
 		<div class="xnavi-item"><div><a href="">维修</a></div></div>
