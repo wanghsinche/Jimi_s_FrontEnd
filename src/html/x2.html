@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-controller="x1Ctrl">
+<html ng-controller="x2Ctrl">
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -11,9 +11,9 @@
 </head>
 <body >
 	<div class="header">
-		<div ng-if="uaData.ispc==false" class="x-header left"><a href="#">user</a></div>
-		<div ng-if="uaData.ispc==false" class="x-header center"><span>机密+</span></div>
-		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#">menu</a></div>
+		<div ng-if="uaData.ispc==false" class="x-header left"><a href="#">back</a></div>
+		<div ng-if="uaData.ispc==false" class="x-header center"><span>商品详情</span></div>
+		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#"></a></div>
 		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ></a></div></div>
 		<div ng-if="uaData.ispc==true" class="navi">
 			<ul class="navi-ul">
@@ -29,36 +29,7 @@
 			<div class="user-btn"><a href="#log">登陆</a></div>
 		</div>
 	</div>
-	<div >
-		<div class="bigpic" >
-			<img ng-src="{{bigpic}}" alt="">
-		</div>
-		<div class="seperator"><div>热销机型</div></div>
-		<div class="showzone">
-			<div class="show-item" ng-repeat=" i in lst">
-				<div class="show-pic">
-					<img ng-src="{{i.pic}}" alt="">
-				</div>
-				<div class="show-title">
-					{{i.name}}
-				</div>
-				<div class="show-desc">
-					<div class="show-desc-item left">
-						<span>￥ {{i.price}}起</span>
-					</div>
-					<div class="show-desc-item right">
-						<span>月销量({{i.sold}})</span>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="seperator"><div>更多品牌</div></div>
-		<div class="showzone">
-			<img ng-src="image/apple.png" alt="">
-		</div>
-		<div class="seperator noline"><div>更多品牌敬请期待.....</div></div>
 
-	</div>
 	<div ng-if="uaData.ispc==false" class="xfooter">
 		<div class="xnavi-item"><div><a href="">维修</a></div></div>
 		<div class="xnavi-item active"><div><a href="">超值购机</a></div></div>
@@ -76,7 +47,7 @@
 			<li class="footer-li"><a href="#1">电话 000-00000</a></li>			
 		</ul>
 	</div>	
-	<link ng-href="{{'/css/'+cssprefix+'x1.css'}}" rel="stylesheet" >	
-    <script data-main="js/x1" src="js/lib/require.js"></script>	
+	<link ng-href="{{'/css/'+cssprefix+'x2.css'}}" rel="stylesheet" >	
+    <script data-main="js/x2" src="js/lib/require.js"></script>	
 </body>
 </html>
