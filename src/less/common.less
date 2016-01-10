@@ -1,0 +1,57 @@
+
+@backgroundColor:#ffffff;
+@footerBackgroundColor:#D3D3D3;
+@xfooterBackgroundColor:#f9f9f9;
+
+@commonLinkColor:#000000;
+@commonLinkColorInverse:#ffffff;
+
+@activeBackgroundColor:#3ACCDB;
+@activeColor:#ffffff;
+
+@activeColorInverse:#3ACCDB;
+
+@greyColor:#D8D8D8;
+@blueColor:#3ACCDB;
+@yellowColor:#F5D318;
+//-----------------------------
+//-----------------------------
+@image:"/image";
+
+//----------------------------
+@fontFamily:"Microsoft YaHei",arial,courier new,courier,"\5b8b\4f53",monospace;
+@fontFamilyBtn:monospace;
+@baseFontSize:16px;
+//----------------------------
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+.circle (@diameter: 10px) {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  height: @diameter;
+  width: @diameter;
+}
+.border(@width: 1px,@color:#B9B9B9){
+	border: @width solid @color;
+}
+html{
+	font-family:@fontFamily;
+	font-size:@baseFontSize;
+}
+body{
+	position:relative;
+	background-color: @backgroundColor;
+	margin: 0;
+	color:@commonLinkColor;
+    //  "Helvetica Neue", Helvetica, STHeiTi, sans-serif;	
+}
+div,input,button{
+	box-sizing:border-box;
+}
+a{
+	text-decoration:none;	
+}

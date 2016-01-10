@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-controller="x1Ctrl">
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -8,15 +8,14 @@
 <meta content="telephone=no" name="format-detection">
 <meta content="email=no" name="format-detection">
 <title>机密+</title>
-	<link rel="stylesheet" href="/css/x1.css">
 </head>
 <body >
 	<div class="header">
-		<div class="x-header left"><a href="#">user</a></div>
-		<div class="x-header center"><span>机密+</span></div>
-		<div class="x-header right"><a href="#">menu</a></div>
-		<div class="logo"><div class="pic-logo"><a href="/" ></a></div></div>
-		<div class="navi">
+		<div ng-if="uaData.ispc==false" class="x-header left"><a href="#">user</a></div>
+		<div ng-if="uaData.ispc==false" class="x-header center"><span>机密+</span></div>
+		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#">menu</a></div>
+		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ></a></div></div>
+		<div ng-if="uaData.ispc==true" class="navi">
 			<ul class="navi-ul">
 				<li class="navi-li"><a href="#1">首页</a></li>
 				<li class="navi-li"><a href="#2">维修</a></li>
@@ -25,25 +24,26 @@
 				<li class="navi-li"><a href="#5">下载APP</a></li>
 			</ul>
 		</div>
-		<div class="user">
+		<div ng-if="uaData.ispc==true" class="user">
 			<div class="user-btn"><a href="#reg">注册</a></div>
 			<div class="user-btn"><a href="#log">登陆</a></div>
 		</div>
 	</div>
-	<div ng-controller="x1Ctrl">
+	<div >
 		<div class="bigpic" >
 			<img ng-src="{{bigpic}}" alt="">
 		</div>
 		<div class="seperator"><div>热销机型</div></div>
-		<div class="showzone"></div>
+		<div class="showzone">
+		</div>
 		<div class="seperator"><div>更多品牌</div></div>				
 	</div>
-	<div class="xfooter">
+	<div ng-if="uaData.ispc==false" class="xfooter">
 		<div class="xnavi-item"><div><a href="">维修</a></div></div>
 		<div class="xnavi-item active"><div><a href="">超值购机</a></div></div>
 		<div class="xnavi-item"><div><a href="">回收</a></div></div>
 	</div>
-	<div class="footer">
+	<div ng-if="uaData.ispc==true" class="footer">
 		<ul class="footer-ul">
 			<li class="footer-li"><a href="#1">关于我们</a></li>
 			<li class="footer-li"><a href="#1">招贤纳士</a></li>
@@ -55,6 +55,7 @@
 			<li class="footer-li"><a href="#1">电话 000-00000</a></li>			
 		</ul>
 	</div>	
-    <script data-main="js/x1" src="js/lib/require.js"></script>
+	<link ng-href="{{'/css/'+cssprefix+'x1.css'}}" rel="stylesheet" >	
+    <script data-main="js/x1" src="js/lib/require.js"></script>	
 </body>
 </html>

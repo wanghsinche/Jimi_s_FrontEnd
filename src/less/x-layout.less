@@ -1,0 +1,64 @@
+//less
+@import 'common.less';
+
+@media (max-width: 800px) {
+	.header{
+		.logo,.navi,.user{
+			display: none;
+		}
+		.x-header{
+			display: inline-block;
+		}
+	}
+	.xfooter{
+		display: block;
+	}
+	.footer{
+		display: none;
+	}
+}
+
+
+.x-header{
+	float: left;
+	width: 33.33%;
+	height: 60px;
+	padding: 0 10px 0 10px;
+	background: @blueColor;
+	line-height: 60px;
+	font-size: 1.5em;
+	a,span{
+		color:@commonLinkColorInverse;
+	}
+	&.left{
+		text-align: left;
+	}
+	&.center{
+		text-align: center;
+	}
+	&.right{
+		text-align: right;
+	}
+}
+
+
+.xfooter{
+	background: @xfooterBackgroundColor;
+	width: 100%;
+	text-align: center; 
+}
+.xnavi-item{
+	display: inline-block;
+	height: 70px;
+	width: 20%;
+	vertical-align: middle;
+	a{
+		line-height: 70px;
+		color:@commonLinkColor;
+	}
+	&.active{
+		a{
+			color:@blueColor;
+		}
+	}
+}

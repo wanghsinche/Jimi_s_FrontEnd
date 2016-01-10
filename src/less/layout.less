@@ -1,77 +1,8 @@
 //less
-@backgroundColor:#ffffff;
-@footerBackgroundColor:#D3D3D3;
-@xfooterBackgroundColor:#f9f9f9;
+@import 'common.less';
 
-@commonLinkColor:#000000;
-@commonLinkColorInverse:#ffffff;
 
-@activeBackgroundColor:#3ACCDB;
-@activeColor:#ffffff;
 
-@activeColorInverse:#3ACCDB;
-
-@greyColor:#D8D8D8;
-@blueColor:#3ACCDB;
-@yellowColor:#F5D318;
-//-----------------------------
-//-----------------------------
-@image:"/image";
-
-//----------------------------
-@fontFamily:"Microsoft YaHei",arial,courier new,courier,"\5b8b\4f53",monospace;
-@fontFamilyBtn:monospace;
-@baseFontSize:16px;
-//----------------------------
-.rounded-corners (@radius: 5px) {
-  border-radius: @radius;
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
-}
-.circle (@diameter: 10px) {
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  height: @diameter;
-  width: @diameter;
-}
-.border(@width: 1px,@color:#B9B9B9){
-	border: @width solid @color;
-}
-html{
-	font-family:@fontFamily;
-	font-size:@baseFontSize;
-}
-body{
-	position:relative;
-	background-color: @backgroundColor;
-	margin: 0;
-	color:@commonLinkColor;
-    //  "Helvetica Neue", Helvetica, STHeiTi, sans-serif;	
-}
-div,input,button{
-	box-sizing:border-box;
-}
-a{
-	text-decoration:none;	
-}
-
-@media (max-width: 800px) {
-	.header{
-		.logo,.navi,.user{
-			display: none;
-		}
-		.x-header{
-			display: inline-block;
-		}
-	}
-	.xfooter{
-		display: block;
-	}
-	.footer{
-		display: none;
-	}
-}
 @media (min-width: 800px) {
 	.header{
 		.logo,.navi,.user{
@@ -88,33 +19,12 @@ a{
 		display: block;
 	}
 }
+
 .header{
 	width: auto;
 	position: relative;
 	border-bottom: 1px solid @greyColor;
 	font-family: @fontFamily;
-}
-
-.x-header{
-	float: left;
-	width: 33.33%;
-	height: 60px;
-	padding: 0 10px 0 10px;
-	background: @blueColor;
-	line-height: 60px;
-	font-size: 1.5em;
-	a,span{
-		color:@commonLinkColorInverse;
-	}
-	&.left{
-		text-align: left;
-	}
-	&.center{
-		text-align: center;
-	}
-	&.right{
-		text-align: right;
-	}
 }
 
 .logo{
@@ -161,27 +71,6 @@ a{
 	a{
 		font-size: 0.9em;
 		color: @commonLinkColor;
-	}
-}
-
-.xfooter{
-	background: @xfooterBackgroundColor;
-	width: 100%;
-	text-align: center; 
-}
-.xnavi-item{
-	display: inline-block;
-	height: 70px;
-	width: 20%;
-	vertical-align: middle;
-	a{
-		line-height: 70px;
-		color:@commonLinkColor;
-	}
-	&.active{
-		a{
-			color:@blueColor;
-		}
 	}
 }
 
