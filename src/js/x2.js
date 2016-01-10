@@ -17,7 +17,7 @@ requirejs(['common'],function(){
 				$scope.$apply();
 			};
 			var id=dectServ.getParameterByName('id');
-			$http.get('json/x2.json')//?id=id
+			$http.get('json/x2.json?id='+id)//?id=id
 			.success(function(data){
 				$scope.lst=data.lst;
 				$scope.opt=data.opt;

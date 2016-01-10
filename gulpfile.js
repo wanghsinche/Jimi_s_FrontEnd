@@ -6,7 +6,10 @@ var path = require('path');
 // Static Server + watching scss/html files
 
 
-
+gulp.task('resource', function () {
+    gulp.src('./src/resource/**/*.*')
+        .pipe(gulp.dest('./dist'));
+});
 gulp.task('html', function () {
     gulp.src('./src/html/**/*.html')
         .pipe(gulp.dest('./dist'));
@@ -36,10 +39,11 @@ gulp.task('server', function() {
     });
     gulp.watch("./src/less/**/*.less", ['less']);
     gulp.watch("./src/html/**/*.html", ['html']);    
-    gulp.watch("./src/js/**/*.*", ['debugJs']);    
+    gulp.watch("./src/js/**/*.*", ['debugJs']); 
+    gulp.watch("./src/resource/**/*.*", ['resource']);        
     gulp.watch(["./dist/*.html","./dist/css/*.css"]).on('change', browserSync.reload);
 
 });
 
 
-gulp.task('default', ['debugJs','less','html','server']);
+gulp.task('default', ['resource','debugJs','less','html','server']);
