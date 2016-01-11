@@ -11,8 +11,8 @@
 </head>
 <body >
 	<div class="header">
-		<div ng-if="uaData.ispc==false" class="x-header left back-btn"><a href="#">&lt;</a></div>
-		<div ng-if="uaData.ispc==false" class="x-header center"><span>商品详情</span></div>
+		<div ng-if="uaData.ispc==false" class="x-header left back-btn"><a my-back href="#">&lt;</a></div>
+		<div ng-if="uaData.ispc==false" class="x-header center head-detail"><span>商品详情</span></div>
 		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#"></a></div>
 		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ></a></div></div>
 		<div ng-if="uaData.ispc==true" class="navi">
@@ -29,22 +29,20 @@
 			<div class="user-btn"><a href="#log">登陆</a></div>
 		</div>
 	</div>
-
-	<div>
-		<div class="topview">
-			<div class="top-left">
-				<img ng-src="{{opt.pic}}" alt="">
-			</div>
-			<div class="top-right" ng-if="uaData.ispc==true" ui-view="choseview">
-				
-			</div>
+	<div class="topview">
+		<div class="top-left">
+			<img ng-src="{{opt.pic}}" alt="" width="100%">
+		</div>
+		<div class="top-right" ng-if="uaData.ispc==true" ui-view="choseview">
+			
 		</div>
 	</div>
 	<div class="bottomview">
+		<div ng-if="uaData.ispc==false" class="seperator">{{opt.name}}</div>
 		<div class="bottom-navi">
-			<a ng-if="uaData.ispc==false" ui-sref="chose">选购</a>
-			<a ui-sref="detail">详情</a>
-			<a ui-sref="comment">评论</a>
+			<a ng-if="uaData.ispc==false" ui-sref="chose" ng-class="{'active':state.name=='chose'}">选购</a>
+			<a ui-sref="detail"ng-class="{'active':state.name=='detail'}">详情</a>
+			<a ui-sref="comment"ng-class="{'active':state.name=='comment'}">评论</a>
 		</div>
 		<div class="bottom-show" ui-view="tagview"></div>
 	</div>

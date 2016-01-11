@@ -7,5 +7,94 @@
 	}
 	.top-right{
 		display: none;
-	}		
+	}
+	.bottomview{
+		width: 100%;
+		margin: 0;
+
+	}
+	.seperator{
+		line-height: 3em;
+		border-top:2px solid @xfooterBackgroundColor;
+		border-bottom:20px solid @xfooterBackgroundColor;  
+		text-align: center;
+		font-size: 1.2em;
+	}	
+	.bottom-navi{
+		a{
+			width: 32%;
+			padding: 0.5em 0 0.5em 0;
+			border: 0;
+			font-size: 1.2em;
+		}
+		a.active{
+			border-bottom:2px solid @orangeColor; 			
+			color: @orangeColor;
+		}
+	}
+	.comment-left{
+		width:20%;
+		text-align: center;
+		img{
+			max-width: 80px;
+			width: 100%;
+		}
+	}	
+	.comment-right-info{
+		&>div{
+			font-size: 0.8em;
+		}
+	}
+	.comment-star-item{
+		width: 30%;
+		font-size: 0.8em;
+		span{
+			font-size: 0.8em;
+		}
+	}			
+	.view-row{
+		margin: 0;
+		h1{
+			display: none;
+		}
+	}
+	.view-row-price-up{
+		display: none;
+	}
+	.opt-label{
+		display: block;
+		// width: 100%; a bug
+		padding: 1em;
+		background: @xfooterBackgroundColor;
+		color: @blueColor;
+		text-align: left;
+		font-size: 1em;
+		line-height: 100%;
+	}
+	.opt-pill{
+		margin-top: 1em;
+		margin-bottom: 1em;
+		width: 28%; 
+	}
+	.change-num{
+		margin-top: 1em;
+		margin-bottom: 1em; 
+	}
+	.view-row-price-down{
+		display: block;
+		margin: 0;
+		background: @backgroundColor;
+		h2{
+			margin: 0;
+		}
+	}	
+	.comfirm-btn{
+	    display: block;
+	    height: 100%;
+	    width: 35%;
+	    margin: 0;
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	}			
 }

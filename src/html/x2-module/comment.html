@@ -1,0 +1,21 @@
+<div class="comment-item" ng-repeat="i in comments">
+	<div class="comment-left">
+		<img ng-src="{{i.portrait}}" alt="">
+	</div>
+	<div class="comment-right">
+		<div class="comment-right-info">
+			<div class="comment-username">{{i.name}}</div>
+			<div class="comment-time">{{i.time}}</div>
+		</div>
+		<div class="comment-right-content">
+			<div class="comment-star">
+				<div class="comment-star-item" style="text-align:left">速度：<span>{{i.speed}}</span></div>
+				<div class="comment-star-item" style="text-align:center">质量：<span>{{i.quality}}</span></div>
+				<div class="comment-star-item" style="text-align:right">价格：<span>{{i.price}}</span></div>							
+			</div>
+			<div class="comment-text">
+				{{i.comment}}
+			</div>
+		</div>
+	</div>
+</div>

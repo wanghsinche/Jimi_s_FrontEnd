@@ -1,12 +1,28 @@
 //less
 @import 'common.less';
-
-
+//common componet
+.btn-pill{
+	height: 3em;
+	width: 8em;
+	margin: 0 8px 0 8px;
+	border: 1px solid @greyColor;
+	.rounded-corners(5px);
+	background: @backgroundColor;
+	cursor: pointer;
+	&.active{
+		background: @blueColor;
+		color:@backgroundColor;
+	}
+	&.disable{
+		cursor: not-allowed;
+	}
+}
 
 @media (min-width: 800px) {
 	.header{
 		.logo,.navi,.user{
 			display: inline-block;
+			vertical-align: middle;
 		}
 		.x-header{
 			display: none;
@@ -32,7 +48,8 @@
 	width: 14%;
 }
 .pic-logo{
-	background: url("@{image}/index.png");	
+    background: url("/image/index.png") no-repeat 50% 50%;
+    height: 80px;	
 }
 .navi{
 	display: inline-block;	

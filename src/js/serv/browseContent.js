@@ -1,6 +1,6 @@
 define(['angular'],function(angular){
   var app=angular.
-  module('dectModule', []);
+  module('dectModule', []);  
   app.factory('dectServ', function($window) {
    
       return {
@@ -32,7 +32,16 @@ define(['angular'],function(angular){
           }      
       };
     });
-
+  app.directive('myBack', function($window) {
+    return {
+      link: function(scope,elems, attrs){
+        console.log(elems);
+        elems.bind('click',function(){
+          $window.history.back();          
+        });
+      }
+    };
+  });   
   // app.directive('myLink', function() {
   //   return {
   //     template: function(elem, attr){

@@ -29,12 +29,13 @@ requirejs(['common'],function(){
 			});
 
 		}]);
-		app.controller('choseCtrl',['$scope','$rootScope','$window','$filter',function($scope,$rootScope,$window,$filter){
+		app.controller('choseCtrl',['$scope','$rootScope','$window','$filter','$state',function($scope,$rootScope,$window,$filter,$state){
 			$scope.ver='';
 			$scope.color='';
 			$scope.strg='';
 			$scope.num=1;
-			$scope.good='';				
+			$scope.good='';
+			$rootScope.state=$state.current;							
 			$scope.checkColor=function(c){
 				var hasColorLst=[];
 				if($scope.ver===''){
@@ -97,9 +98,16 @@ requirejs(['common'],function(){
 				
 			};		
 		}]);					
-		app.controller('detailCtrl',['$scope','$window','$http',function($scope,$window,$http){
+		app.controller('detailCtrl',['$scope','$rootScope','$http','$state',function($scope,$rootScope,$http,$state){
+			$rootScope.state=$state.current;							
 		}]);
-		app.controller('commentCtrl',['$scope','$window','$http',function($scope,$window,$http){
+		app.controller('commentCtrl',['$scope','$rootScope','$http','dectServ','$state',function($scope,$rootScope,$http,dectServ,$state){
+			$rootScope.state=$state.current;										
+			var id=dectServ.getParameterByName('id');
+			$http.get('json/x2-comment.json?id='+id)
+			.success(function(data){
+				$scope.comments=data.lst;
+			});
 		}]);		
 		app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
 		  //
