@@ -11,5 +11,15 @@
 		{"version":"DLGH","color":"B","storage":"16","id":"23","price":1234},
 		{"version":"DLGH","color":"R","storage":"64","id":"24","price":1224},	
 		{"version":"MG","color":"G","storage":"128","id":"25","price":2234}
-	]	
+	],
+	"info":{
+		"name":"iphone 6",
+		"brand":"苹果",
+		"color":"黑 红 金",
+		"location":"中国",
+		"system":"iOS",
+		"bigPics":[
+			"image/i5s.png"
+		]
+	}
 }

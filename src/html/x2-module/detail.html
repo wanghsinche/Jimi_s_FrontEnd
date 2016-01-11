@@ -1,0 +1,11 @@
+<div class="detail-top">
+	<div class="detail-item">商品名称：{{info.name}}</div>
+	<div class="detail-item">商品产地：{{info.location}}</div>
+	<div class="detail-item">品牌：{{info.brand}}</div>
+	<div class="detail-item">系统：{{info.system}}</div>
+	<div class="detail-item">颜色：{{info.color}}</div>
+
+</div>
+<div class="detail-bottom">
+	<img ng-repeat="i in info.bigPics" ng-src="{{i}}" alt="">
+</div>

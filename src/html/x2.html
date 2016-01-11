@@ -35,12 +35,19 @@
 			<div class="top-left">
 				<img ng-src="{{opt.pic}}" alt="">
 			</div>
-			<div class="top-right" ng-if="uaData.ispc==true" ng-include="t_chose">
+			<div class="top-right" ng-if="uaData.ispc==true" ui-view="choseview">
 				
 			</div>
 		</div>
 	</div>
-
+	<div class="bottomview">
+		<div class="bottom-navi">
+			<a ng-if="uaData.ispc==false" ui-sref="chose">选购</a>
+			<a ui-sref="detail">详情</a>
+			<a ui-sref="comment">评论</a>
+		</div>
+		<div class="bottom-show" ui-view="tagview"></div>
+	</div>
 
 	<div ng-if="uaData.ispc==false" class="xfooter">
 		<div class="xnavi-item"><div><a href="">维修</a></div></div>

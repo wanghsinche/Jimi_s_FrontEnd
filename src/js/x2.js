@@ -1,7 +1,7 @@
 requirejs(['common'],function(){
-	requirejs(['angular','serv/browseContent'],function(angular){
-		var app=angular.module('x2App',['dectModule']);
-		app.controller('x2Ctrl',['$scope','dectServ','$window','$http','$filter',function($scope,dectServ,$window,$http,$filter){
+	requirejs(['angular','serv/browseContent','angular-ui-route'],function(angular){
+		var app=angular.module('x2App',['dectModule','ui.router']);
+		app.controller('x2Ctrl',['$scope','$rootScope','$state','dectServ','$window','$http','$filter',function($scope,$rootScope,$state,dectServ,$window,$http,$filter){
 			var dect=function(threshold){
 				var uaData=dectServ.getUA(800);
 				$scope.uaData=uaData;
@@ -15,28 +15,35 @@ requirejs(['common'],function(){
 			$window.onresize=function(){
 				dect(800);
 				$scope.$apply();
+				//if pc is detected then transform 'chose' to 'detail'
+				if($scope.uaData.ispc===true&&$state.current.name==="chose"){
+					$state.go('detail');
+				}
 			};
 			var id=dectServ.getParameterByName('id');
 			$http.get('json/x2.json?id='+id)//?id=id
 			.success(function(data){
-				$scope.lst=data.lst;
-				$scope.opt=data.opt;
+				$rootScope.lst=data.lst;
+				$rootScope.opt=data.opt;
+				$rootScope.info=data.info;
 			});
+
+		}]);
+		app.controller('choseCtrl',['$scope','$rootScope','$window','$filter',function($scope,$rootScope,$window,$filter){
 			$scope.ver='';
 			$scope.color='';
 			$scope.strg='';
 			$scope.num=1;
-			$scope.good='';	
-			$scope.t_chose='/choseGood.html';		
+			$scope.good='';				
 			$scope.checkColor=function(c){
 				var hasColorLst=[];
 				if($scope.ver===''){
 					return false;
 				}else{
-					if ($scope.lst===undefined) {
+					if ($rootScope.lst===undefined) {
 						return false;
 					} else{
-						hasColorLst=$filter('filter')($scope.lst,{'version':$scope.ver,'color':c},true);
+						hasColorLst=$filter('filter')($rootScope.lst,{'version':$scope.ver,'color':c},true);
 					}
 				}
 				if (hasColorLst.length===0) {
@@ -50,10 +57,10 @@ requirejs(['common'],function(){
 				if($scope.ver===''||$scope.color===''){
 					return false;
 				}else{
-					if ($scope.lst===undefined) {
+					if ($rootScope.lst===undefined) {
 						return false;
 					} else{
-						hasStrgLst=$filter('filter')($scope.lst,{'version':$scope.ver,'color':$scope.color,'storage':s},true);
+						hasStrgLst=$filter('filter')($rootScope.lst,{'version':$scope.ver,'color':$scope.color,'storage':s},true);
 					}
 				}
 				if (hasStrgLst.length===0) {
@@ -78,7 +85,7 @@ requirejs(['common'],function(){
 				$scope.checkPrice();				
 			};
 			$scope.checkPrice=function(){
-				var finalLst=$filter('filter')($scope.lst,{'version':$scope.ver,'color':$scope.color,'storage':$scope.strg},true);
+				var finalLst=$filter('filter')($rootScope.lst,{'version':$scope.ver,'color':$scope.color,'storage':$scope.strg},true);
 				$scope.good=(finalLst!==undefined&&finalLst.length!==0)?finalLst[0]:'';
 				return $scope.good!=='';
 			};
@@ -88,7 +95,63 @@ requirejs(['common'],function(){
 			$scope.addNum=function(add){
 				if(add){$scope.num++;}else{$scope.num--;}
 				
-			};
+			};		
+		}]);					
+		app.controller('detailCtrl',['$scope','$window','$http',function($scope,$window,$http){
+		}]);
+		app.controller('commentCtrl',['$scope','$window','$http',function($scope,$window,$http){
+		}]);		
+		app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
+		  //
+		  // For any unmatched url, redirect to /state1
+		  // if($rootScope.uaData.ispc){
+		  // 	$urlRouterProvider.otherwise("/state2");
+		  // }else{
+		  // 	$urlRouterProvider.otherwise("/state1");
+		  // }
+		  //
+		  $urlRouterProvider.otherwise("/detail");		  
+		  // Now set up the states
+		  $stateProvider
+		    .state('chose', {
+		      url: "/chose",
+		      views:{
+		      	'choseview':{
+		      		templateUrl:'x2-module/choseGood.html',
+		      		controller:'choseCtrl'
+		      	},
+		      	'tagview':{
+		      		templateUrl:'x2-module/choseGood.html',
+		      		controller:'choseCtrl'
+		      	}
+		      }
+		    })
+		    .state('detail', {
+		      url: "/detail",
+		      views:{
+		      	'choseview':{
+		      		templateUrl:'x2-module/choseGood.html',
+		      		controller:'choseCtrl'
+		      	},
+		      	'tagview':{
+		      		templateUrl:'x2-module/detail.html',
+		      		controller:'detailCtrl'
+		      	}
+		      }
+		    })
+		    .state('comment', {
+		      url: "/comment",
+		      views:{
+		      	'choseview':{
+		      		templateUrl:'x2-module/choseGood.html',
+		      		controller:'choseCtrl'
+		      	},
+		      	'tagview':{
+		      		templateUrl:'x2-module/comment.html',
+		      		controller:'commentCtrl'
+		      	}
+		      }
+		    });
 		}]);
 		////
 		angular.bootstrap(document,['x2App']);
