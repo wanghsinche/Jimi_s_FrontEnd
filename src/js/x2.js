@@ -27,6 +27,9 @@ requirejs(['common'],function(){
 				$rootScope.opt=data.opt;
 				$rootScope.info=data.info;
 			});
+			$scope.ok=function(){
+				console.log('ok');
+			};
 
 		}]);
 		app.controller('choseCtrl',['$scope','$rootScope','$window','$filter','$state',function($scope,$rootScope,$window,$filter,$state){

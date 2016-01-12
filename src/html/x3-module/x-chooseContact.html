@@ -1,0 +1,7 @@
+<div class="chose-item" ng-repeat="i in contact" ng-class="{'active':i===currContact}" ng-click="setContact(i)">
+	<div class="inner">
+		<span class="left">收货人：{{i.name}}</span>
+		<span class="right">{{i.phone}}</span>
+		<div>收货地址：{{i.location}}</div>
+	</div>
+</div>

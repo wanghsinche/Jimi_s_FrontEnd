@@ -1,6 +1,5 @@
 define(['angular'],function(angular){
-  var app=angular.
-  module('dectModule', []);  
+  var app=angular.module('dectModule', []);  
   app.factory('dectServ', function($window) {
    
       return {
@@ -32,16 +31,16 @@ define(['angular'],function(angular){
           }      
       };
     });
-  app.directive('myBack', function($window) {
+    app.directive('backButton', ['$window',function ($window) {
     return {
-      link: function(scope,elems, attrs){
-        console.log(elems);
-        elems.bind('click',function(){
-          $window.history.back();          
-        });
-      }
+            restrict: 'A',
+            link: function (scope, elem, attrs) {
+                elem.bind('click', function () {
+                    $window.history.back();
+                });
+            }             
     };
-  });   
+  }]);  
   // app.directive('myLink', function() {
   //   return {
   //     template: function(elem, attr){

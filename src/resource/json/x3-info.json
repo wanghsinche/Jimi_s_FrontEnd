@@ -1,0 +1,16 @@
+{
+	"way":"xxxxxxx",
+	"posttime":["工作日配送","双休日配送","均可配送"],
+	"postfee":"",
+	"detail":{
+		"name":"iphone 6",
+		"storage":"16G",
+		"color":"金色",
+		"version":"国行",
+		"pic":"image/i5s.png",
+		"num":2,
+		"price":3000,
+		"oripri":4000
+	},
+	"hongbao":["20 discount","100 discount"]	
+}

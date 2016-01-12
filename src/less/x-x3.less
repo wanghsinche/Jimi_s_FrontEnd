@@ -1,4 +1,31 @@
 @import 'x-layout.less';
 @import 'x3-common.less';
 @media (max-width: 800px) {
+	.order-row{
+		.right{
+			display: inline-block;
+			padding: 10px 0px 10px 20px;
+			vertical-align: middle;
+		}
+		.left{
+			display: inline-block;
+			vertical-align: middle;
+			div{
+				font-size: 1.8em;
+				margin: 20px 0 0 15px;
+			}
+			h3{
+				margin: 15px 0 15px 15px;
+				color: @greyColor;
+			}
+		}
+		&>h3{
+			width: 100%;
+			margin: 0;
+
+		}
+		&>button{
+			margin-top: 15px;
+		}		
+	}	
 }

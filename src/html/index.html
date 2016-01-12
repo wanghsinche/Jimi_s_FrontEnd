@@ -14,7 +14,7 @@
 		<div ng-if="uaData.ispc==false" class="x-header left"><a href="#">user</a></div>
 		<div ng-if="uaData.ispc==false" class="x-header center"><span>机密+</span></div>
 		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#">menu</a></div>
-		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ></a></div></div>
+		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ><img ng-src="/image/index.png" alt=""></a></div></div>
 		<div ng-if="uaData.ispc==true" class="navi">
 			<ul class="navi-ul">
 				<li class="navi-li"><a href="#1">首页</a></li>
@@ -37,7 +37,7 @@
 		<div class="showzone">
 			<div class="show-item" ng-repeat=" i in lst">
 				<div class="show-pic">
-					<a href="/x2.html?id={{i.id}}"><img ng-src="{{i.pic}}" alt=""></a>
+					<a href="/x2.html?id={{i.id}}"><img ng-src="{{i.pic}}" height="200px" width="160px" alt=""></a>
 				</div>
 				<div class="show-title">
 					<a href="/x2.html?id={{i.id}}">{{i.name}} </a>

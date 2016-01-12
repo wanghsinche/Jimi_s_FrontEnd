@@ -1,0 +1,55 @@
+<h1  class="subtitle">填写并核对订单信息</h1>
+<div class="info-frame">
+	<div class="info-item border-bottom">
+		<h2>收货人<a href="javascript:;" ng-click="addContact(true)">新增收货地址</a></h2>
+		<div class="info-row" ng-repeat="i in contact_f">
+			<button class="btn-pill" ng-click="setContact(i)" ng-class="{'active':i===currContact}">{{i.name}}</button><h3>{{i.location}}  {{i.phone}}</h3>
+		</div>
+		<div class="more"><a href="javascript:;" ng-click="getAllContact()">more</a></div>
+	</div>
+	<div class="info-item">
+		<h2>送货清单</h2>
+		<div class="info-row">
+			<div class="info-row-left">
+				<h3>配送方式 {{info.way}}</h3>
+				<button class="btn-pill" ng-click="setPosttime(i)" ng-class="{'active':i===currPosttime}" ng-repeat="i in info.posttime">{{i}}</button>
+			</div>
+			<div class="info-row-right">
+				<div class="right">
+					<img ng-src="{{info.detail.pic}}" alt="" height="100px" >
+				</div>
+				<div class="left">
+					<div>{{info.detail.name}}</div>
+					<h3>{{info.detail.version}} {{info.detail.color}} {{info.detail.storage}}x{{info.detail.num}}</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="module" ng-if="addContactFlag">
+	<div class="module-background" ng-click="addContact(false)"></div>
+	<div class="module-window module-addcontact">
+		<h1>新增收货地址</h1>
+		<div class="module-row">
+			<span>联系人</span>
+			<input type="text" ng-model="newContact.name" placeholder="姓名">
+		</div>
+		<div class="module-row">
+			<span>联系电话</span>
+			<input type="text" ng-model="newContact.phone" placeholder="电话">
+		</div>
+		<div class="module-row ">
+			<span>上门地址</span>
+			<select name="" id="" ng-model="newContact.location.p" ng-options="item as item.n for item in sites track by item.v" ng-change="newContact.location.c='';newContact.location.d='';"></select>
+			<select name="" id=""ng-model="newContact.location.c" ng-options="item as item.n for item in newContact.location.p.s track by item.v" ng-change="newContact.location.d='';"></select>
+			<select name="" id=""ng-model="newContact.location.d" ng-options="item as item.n for item in newContact.location.c.s track by item.v" ></select>
+		</div>				
+		<div class="module-row">
+			<span></span>
+			<textarea ng-model="newContact.location.text"  >{{newContact.location.text}}</textarea>
+		</div>
+		<div class="module-row">
+			<button class="btn-pill comfirm-btn" ng-click="postNewContact()">qrtj</button>
+		</div>								
+	</div>
+</div>

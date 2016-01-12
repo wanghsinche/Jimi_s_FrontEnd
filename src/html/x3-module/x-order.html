@@ -1,0 +1,22 @@
+<div class="order-row">
+	<div class="right">
+		<img ng-src="{{info.detail.pic}}" alt="" height="100px" >
+	</div>
+	<div class="left">
+		<div>{{info.detail.name}}</div>
+		<h3>{{info.detail.version}} {{info.detail.color}} {{info.detail.storage}}x{{info.detail.num}}</h3>
+	</div>	
+</div>
+<div class="order-row">
+	<div class="userinfo">
+		<div class="name-phone">{{currContact.name}}</div>
+		<div class="name-phone">{{currContact.phone}}</div>
+		<div class="location">{{currContact.location}}</div>
+	</div>
+	<div class="addcontact"><a ui-sref="chooseContact">&gt;</a></div>
+</div>
+<div class="order-row">
+	<h3>配送方式 {{info.way}}</h3>
+	<button class="btn-pill" ng-click="setPosttime(i)" ng-class="{'active':i===currPosttime}" ng-repeat="i in info.posttime">{{i}}</button>	
+</div>
+

@@ -10,11 +10,11 @@
 <title>机密+</title>
 </head>
 <body >
-	<div class="header">
-		<div ng-if="uaData.ispc==false" class="x-header left back-btn"><a my-back href="#">&lt;</a></div>
+	<div class="header clearfix">
+		<div ng-if="uaData.ispc==false" class="x-header left back-btn" back-button><a >&lt;</a></div>
 		<div ng-if="uaData.ispc==false" class="x-header center head-detail"><span>商品详情</span></div>
 		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#"></a></div>
-		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ></a></div></div>
+		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ><img ng-src="/image/index.png" alt=""></a></div></div>
 		<div ng-if="uaData.ispc==true" class="navi">
 			<ul class="navi-ul">
 				<li class="navi-li"><a href="#1">首页</a></li>
@@ -31,7 +31,7 @@
 	</div>
 	<div class="topview">
 		<div class="top-left">
-			<img ng-src="{{opt.pic}}" alt="" width="100%">
+			<img ng-src="{{opt.pic}}" alt="" height="320px" >
 		</div>
 		<div class="top-right" ng-if="uaData.ispc==true" ui-view="choseview">
 			
