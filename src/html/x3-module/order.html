@@ -1,11 +1,11 @@
 <h1  class="subtitle">填写并核对订单信息</h1>
 <div class="info-frame">
 	<div class="info-item border-bottom">
-		<h2>收货人<a href="javascript:;" ng-click="addContact(true)">新增收货地址</a></h2>
+		<h2>收货人<a href="javascript:;" ng-click="switchAddContact(true)">新增收货地址</a></h2>
 		<div class="info-row" ng-repeat="i in contact_f">
 			<button class="btn-pill" ng-click="setContact(i)" ng-class="{'active':i===currContact}">{{i.name}}</button><h3>{{i.location}}  {{i.phone}}</h3>
 		</div>
-		<div class="more"><a href="javascript:;" ng-click="getAllContact()">more</a></div>
+		<div class="more"><a href="javascript:;" ng-click="switchAllContact()">more</a></div>
 	</div>
 	<div class="info-item">
 		<h2>送货清单</h2>
@@ -27,7 +27,7 @@
 	</div>
 </div>
 <div class="module" ng-if="addContactFlag">
-	<div class="module-background" ng-click="addContact(false)"></div>
+	<div class="module-background" ng-click="switchAddContact(false)"></div>
 	<div class="module-window module-addcontact">
 		<h1>新增收货地址</h1>
 		<div class="module-row">
