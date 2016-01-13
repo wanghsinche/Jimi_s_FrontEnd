@@ -29,7 +29,7 @@
 			<div class="user-btn"><a href="#log">登陆</a></div>
 		</div>
 	</div>
-	<div  ng-if="uaData.ispc==true" ng-include="'x3-module/order.html'" ng-controller="orderCtrl"></div>
+	<div  ng-if="uaData.ispc==true" ng-include="'x3-module/order.html'"></div>
 	<div  ng-if="uaData.ispc==false" ui-view="xView"></div>
 
 	<div ng-if="uaData.ispc==false" class="xfooter">

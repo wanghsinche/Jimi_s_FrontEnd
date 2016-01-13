@@ -2,9 +2,17 @@
 @import 'x3-common.less';
 @media (max-width: 800px) {
 	.order-row{
+		padding-left: 1em;
+		border-top: 1em solid @greyColor + 30;
+		// border-bottom: 30px solid @greyColor;
+		div{
+			vertical-align: middle;
+		}
 		.right{
 			display: inline-block;
-			padding: 10px 0px 10px 20px;
+			width: 30%;
+			padding: 10px 0px 10px 0px;
+			text-align: center;
 			vertical-align: middle;
 		}
 		.left{
@@ -12,10 +20,10 @@
 			vertical-align: middle;
 			div{
 				font-size: 1.8em;
-				margin: 20px 0 0 15px;
+				margin: 0;
 			}
 			h3{
-				margin: 15px 0 15px 15px;
+				margin: 0.5em 0 0 0;
 				color: @greyColor;
 			}
 		}
@@ -24,8 +32,154 @@
 			margin: 0;
 
 		}
+		&>.btn-pill{
+			width: 30%;
+			margin: 0.5em 0.5em 0.5em 0;
+		}
 		&>button{
 			margin-top: 15px;
+		}
+		
+	}
+	.userinfo{
+		display: inline-block;
+		width: 90%;
+		height: 100%;
+		font-size: 1.2em;
+		.name-phone{
+			display: inline-block;
+			width: 48%;
+		}
+		.location{
+			width: 48%;
+			color:@greyColor;
+			word-wrap: break-word;
+		}
+	}
+	.chose-contact-btn{
+		display: inline-block;
+		width: 5%;
+		// float: right;
+		height: 100%;
+		// margin: 0;
+		font-size: 2em;
+		a{
+			color: @greyColor;
+		}
+		vertical-align: middle;
+	}
+	.chose-item{
+		width: 100%;
+		padding: 0.5em 0 0 0.5em;
+		// border-bottom: 1em solid @greyColor + 30;
+		.inner{
+			border-bottom: 1px solid @greyColor;
+			padding-left: 30px;
+			span{
+				display: inline-block;
+				width: 40%;
+				font-size: 1.2em;
+			}
+			>div{
+				margin: 0.2em 0 0.5em 0;
+			}
+			&.active{
+				background: url('@{image}/xuanze.png') 0% 50% no-repeat ;
+				background-size: 25px;
+			}
+		}
+		.inner.addContact{
+			span{
+				display: inline-block;
+				width: 4em;
+				// height: 2em;
+				font-size: 1em;
+			}
+			input{
+				display: inline-block;
+				width: 10em;
+				line-height: 1.5em;
+				border: 0;
+				font-size: 1.2em;
+			}
+			&.noborder{
+				border: 0;
+			}
+			.location-bar{
+				display: inline-block;
+				width: 16em;
+				span{
+					height: 1.5em;
+					padding-left: 0.5em;
+					vertical-align: middle;
+					overflow: hidden;
+					background: @greyColor + 30;
+				}
+			}
+		}
+		&.add-contact-btn{
+			padding-bottom: 0.5em;
+			text-align: center;
+			&::before{
+				content: '';
+				// position: absolute;
+				display: inline-block;
+				height: 2em;
+				width: 2em;
+				vertical-align: middle;
+				background: url('@{image}/add.png') no-repeat;
+			}
+		}
+	}
+	.comfirm-row{
+		.comfirm-btn{
+				width: 100%;
+				margin: 0;
+
+			}		
+		}
+	.ui-sites{
+		margin: 2em 0 3em 0;
+		position: relative;
+
+		// .rounded-corners (10px);
+		// border-left: 0.3em solid @greyColor + 30;
+		// border-right: 0.3em solid @greyColor + 30;
+		font-size: 1.2em;		
+		&::before,&::after{
+			content: "";
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 1em;
+			background: @greyColor + 30;
+			opacity: 0.6;
+		}
+		&::before{
+			top:0;
+			border-bottom: 1px solid @greyColor - 20;			
+		}
+		&::after{
+			bottom: 0;
+			border-top: 1px solid @greyColor - 20;			
 		}		
+		.ui-col{
+			display: inline-block;
+			height: 5em;
+			width: 30%;
+			overflow-y: scroll;
+			-ms-overflow-style: none;
+			&::-webkit-scrollbar {
+	    		display: none;
+			}
+			ul{
+				padding: 0;
+				li{
+					text-align: center;
+					list-style: none;
+				}
+			}
+		}
+
 	}	
 }

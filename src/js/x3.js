@@ -1,7 +1,59 @@
 requirejs(['common'],function(){
 	requirejs(['angular','serv/browseContent','angular-ui-route'],function(angular){
 		var app=angular.module('x3App',['dectModule','ui.router']);
-		app.controller('x3Ctrl',['$scope','dectServ','$window','$http',function($scope,dectServ,$window,$http){
+
+		//addContact service
+		app.factory('contactServ',['$http','dectServ',function($http,dectServ){
+			return {
+				getInfo:function(callback){
+					var id=dectServ.getParameterByName('id');
+					var num=dectServ.getParameterByName('num');					
+					$http.get('json/x3-info.json?id='+id+'&num='+num)
+					.success(function(data){
+						callback(data);
+					});
+				},
+				postNewContact:function(newContact,callfinish){
+					if(newContact.name===''||newContact.phone===''||newContact.text===''){
+						alert("information is not complete");
+						return;
+					}else{
+						var location='';
+						for(var i in newContact.location){
+							location+=newContact.location[i];
+						}
+						//it should be post
+						console.log(location);
+						$http.get('json/x3-addContact.json',{name:newContact.name,phone:newContact.phone,location:location})
+						.success(function(data){
+							console.log(data);
+							callfinish(data);
+
+						}).error(function(data, status) {
+	  						console.log('Repos error', status, data);
+	  						alert('network error');
+						});
+					}
+				},
+				getContact:function(callback){
+					$http.get('json/x3-contact.json')
+					.success(function(data){
+						callback(data);
+					});					
+				},
+				getEle:function(key,val,objLst){
+					var child;
+					for(var i in objLst){
+						if(objLst[i][key]===val){
+							child=objLst[i];
+							break; 
+						}
+					}
+					return child;
+				}
+			};
+		}]);   
+		app.controller('x3Ctrl',['$scope','$rootScope','dectServ','contactServ','$window','$http',function($scope,$rootScope,dectServ,contactServ,$window,$http){
 			var dect=function(threshold){
 				var uaData=dectServ.getUA(800);
 				$scope.uaData=uaData;
@@ -15,77 +67,10 @@ requirejs(['common'],function(){
 			$window.onresize=function(){
 				dect(800);
 				$scope.$apply();
-			};			
-		}]);
-		//addContact service
-		app.factory('contactServ',['$http','dectServ',function($http,dectServ){
-			return {
-				getInfo:function(callback){
-					var id=dectServ.getParameterByName('id');
-					var num=dectServ.getParameterByName('num');					
-					$http.get('json/x3-info.json?id='+id+'&num='+num)
-					.success(function(data){
-						callback(data);
-					});
-				},
-				postNewContact:function(newContact){
-					if(newContact.name===''||newContact.phone===''||newContact.text===''){
-						alert("information is not complete");
-						return;
-					}else{
-						var location='';
-						for(var i in newContact.location){
-							location+=newContact.location[i].n===undefined?newContact.location[i]:newContact.location[i].n;
-						}
-						//it should be post
-						console.log(location);
-						$http.get('json/x3-addContact.json',{name:newContact.name,phone:newContact.phone,location:location})
-						.success(function(data){
-							console.log(data);
-							if(data==="success"){
-								return "success";
-							}else{
-								alert(data);
-								return "failed";
-							}
-
-						}).error(function(data, status) {
-	  						console.log('Repos error', status, data);
-	  						alert('network error');
-								return "failed";  						
-						});
-					}
-				},
-				getContact:function(callback){
-					$http.get('json/x3-contact.json')
-					.success(function(data){
-						callback(data);
-					});					
-				}
 			};
-		}]);   
-		app.controller('orderCtrl',['$scope','$rootScope','contactServ','$http',function($scope,$rootScope,contactServ,$http){
+			
 			$rootScope.title="确认下单";
-			// $scope.value="ok";
 			$scope.newContact={name:'',phone:'',location:{p:'',c:'',d:'',text:''}};
-			// $scope.currPosttime='';
-			// var id=dectServ.getParameterByName('id');
-			// var num=dectServ.getParameterByName('num');
-			// var updateContact=function(){
-			// 	$http.get('json/x3-contact.json')
-			// 	.success(function(data){
-			// 		$rootScope.contact=data.contact;
-			// 		$rootScope.currContact=$rootScope.currContact===undefined?data.contact[0]:$rootScope.currContact;
-			// 		sliceContact(3);
-			// 	});				
-			// };
-			// var updateInfo=function(){
-			// 	$http.get('json/x3-info.json?id='+id+'&num='+num)
-			// 	.success(function(data){
-			// 		$scope.info=data;
-			// 		$scope.currPosttime=data.posttime[0];
-			// 	});				
-			// };
 			var sliceContact=function(lenght){
 				$scope.contact_f=$rootScope.contact===undefined?[]:$rootScope.contact.slice(0,lenght);
 			};
@@ -100,7 +85,7 @@ requirejs(['common'],function(){
 			if ($rootScope.contact===undefined) {
 				contactServ.getContact(function(data){
 					$rootScope.contact=data.contact;
-					sliceContact(3);
+					// sliceContact(3);
 					//if user has set currcontact, don't rewrite currcontact
 					if ($rootScope.currContact===undefined) {
 						$rootScope.currContact=data.contact[0];
@@ -125,34 +110,63 @@ requirejs(['common'],function(){
 				}
 			};
 			$scope.switchAddContact=function(flag){
-				if(flag){					
-					$http.get("json/x3-siteData.json").success(function(data){
-						$scope.sites=data;
-						$scope.addContactFlag=flag;					
-					});
-				}else{
-					$scope.addContactFlag=flag;					
-				}
+				$scope.addContactFlag=flag;
+			};
+			$scope.$on('addevent',function(e,msg){
+				if(msg==='done'){$scope.addContactFlag=false;}
+			});
+			
 
-			};
-			$scope.postNewContact=function(){
-				switch(contactServ.postNewContact($scope.newContact)){
-					case 'success':
-					$rootScope.currContact=$scope.newContact;
-					contactServ.getContact(function(data){
-						$rootScope.contact=data.contact;
-						sliceContact(3);
-					});
-					$scope.switchAddContact(false);
-					break;
-					case 'failed':
-					alert('failed');
-					break;
-				}
-			};
 
 		}]);
-		app.controller('xchooseContact',['$scope','$rootScope','contactServ',function($scope,$rootScope,contactServ){
+		app.controller('addContCtrl',['$scope','$rootScope','contactServ','$http',function($scope,$rootScope,contactServ,$http){
+			$rootScope.title="添加地址";
+			
+			if($rootScope.sites===undefined){
+				$http.get("json/x3-siteData.json").success(function(data){
+					$rootScope.sites=data;
+				});				
+			}
+			$scope.t_c='';
+			$scope.t_d='';
+			$scope.showOpt=true;
+			$scope.switchOpt=function(){
+				// $scope.showOpt=!$scope.showOpt;
+			};
+			//short hand to get child with attr of a list
+			$scope.f_n=function(val,objLst){
+				return contactServ.getEle('n',val,objLst);
+			};
+			$scope.set_p=function(i){
+				$scope.newContact.location.p=i;
+				$scope.t_c=$scope.f_n($scope.newContact.location.p,$rootScope.sites).s;
+				$scope.newContact.location.c='';
+				$scope.newContact.location.d='';
+			};
+			$scope.set_c=function(i){
+				$scope.newContact.location.c=i;
+				$scope.t_d=$scope.f_n($scope.newContact.location.c,$scope.t_c).s;
+				$scope.newContact.location.d='';				
+			};
+			$scope.set_d=function(i){
+				$scope.newContact.location.d=i;
+			};									
+			$scope.postNewContact=function(){
+				contactServ.postNewContact($scope.newContact,function(data){
+					if (data==='success') {
+						console.log(data);
+						contactServ.getContact(function(data){
+							$rootScope.contact=data.contact;
+							alert('成功');
+							$scope.$emit('addevent','done');
+						});
+					} else{
+						alert(data);
+					}
+				});
+			};									
+		}]);
+		app.controller('chooseContact',['$scope','$rootScope','contactServ',function($scope,$rootScope,contactServ){
 			$rootScope.title="选择地址";
 			$scope.setContact=function(i){
 				$rootScope.currContact=i;
@@ -167,17 +181,6 @@ requirejs(['common'],function(){
 				});				
 			}						
 
-			// var updateContact=function(){
-			// 	$http.get('json/x3-contact.json')
-			// 	.success(function(data){
-			// 		$rootScope.contact=data.contact;
-			// 		$rootScope.currContact=data.contact[0];
-			// 	});				
-			// };
-			// if ($rootScope.currContact===undefined) {
-			// 	updateContact();
-			// }
-
 		}]);
 
 		app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
@@ -189,7 +192,7 @@ requirejs(['common'],function(){
 		      views:{
 		      	'xView':{
 		      		templateUrl:'x3-module/x-order.html',
-		      		controller:'orderCtrl'
+		      		// controller:'orderCtrl'
 		      	},
 		      }
 		    })
@@ -198,7 +201,7 @@ requirejs(['common'],function(){
 		      views:{
 		      	'xView':{
 		      		templateUrl:'x3-module/x-addContact.html',
-		      		controller:'xaddContact'
+		      		controller:'addContCtrl'
 		      	},
 		      }
 		    })
@@ -207,7 +210,7 @@ requirejs(['common'],function(){
 		      views:{
 		      	'xView':{
 		      		templateUrl:'x3-module/x-chooseContact.html',
-		      		controller:'xchooseContact'
+		      		controller:'chooseContact'
 		      	},
 		      }
 		    });

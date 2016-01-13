@@ -2,10 +2,10 @@
 <div class="info-frame">
 	<div class="info-item border-bottom">
 		<h2>收货人<a href="javascript:;" ng-click="switchAddContact(true)">新增收货地址</a></h2>
-		<div class="info-row" ng-repeat="i in contact_f">
+		<div class="info-row" ng-repeat="i in contact.slice(0,showlength===undefine?3:showlength)">
 			<button class="btn-pill" ng-click="setContact(i)" ng-class="{'active':i===currContact}">{{i.name}}</button><h3>{{i.location}}  {{i.phone}}</h3>
 		</div>
-		<div class="more"><a href="javascript:;" ng-click="switchAllContact()">more</a></div>
+		<div class="more"><a href="javascript:;" ng-click="showlength=contact.length">more</a></div>
 	</div>
 	<div class="info-item">
 		<h2>送货清单</h2>
@@ -26,7 +26,7 @@
 		</div>
 	</div>
 </div>
-<div class="module" ng-if="addContactFlag">
+<div class="module" ng-if="addContactFlag" ng-controller="addContCtrl">
 	<div class="module-background" ng-click="switchAddContact(false)"></div>
 	<div class="module-window module-addcontact">
 		<h1>新增收货地址</h1>
@@ -40,9 +40,15 @@
 		</div>
 		<div class="module-row ">
 			<span>上门地址</span>
-			<select name="" id="" ng-model="newContact.location.p" ng-options="item as item.n for item in sites track by item.v" ng-change="newContact.location.c='';newContact.location.d='';"></select>
-			<select name="" id=""ng-model="newContact.location.c" ng-options="item as item.n for item in newContact.location.p.s track by item.v" ng-change="newContact.location.d='';"></select>
-			<select name="" id=""ng-model="newContact.location.d" ng-options="item as item.n for item in newContact.location.c.s track by item.v" ></select>
+			<select name="" id="" ng-model="newContact.location.p"  ng-change="newContact.location.c='';newContact.location.d='';t_c=f_n(newContact.location.p,sites).s;">
+				<option value="{{i.n}}" ng-repeat="i in sites">{{i.n}}</option>
+			</select>
+			<select name="" id="" ng-model="newContact.location.c"  ng-change="t_d=f_n(newContact.location.c,t_c).s;newContact.location.d='';">
+				<option value="{{i.n}}" ng-repeat="i in t_c">{{i.n}}</option>
+			</select>
+			<select name="" id="" ng-model="newContact.location.d"  ng-change="">
+				<option value="{{i.n}}" ng-repeat="i in t_d">{{i.n}}</option>
+			</select>						
 		</div>				
 		<div class="module-row">
 			<span></span>
