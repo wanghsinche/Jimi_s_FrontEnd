@@ -20,3 +20,25 @@
 	<button class="btn-pill" ng-click="setPosttime(i)" ng-class="{'active':i===currPosttime}" ng-repeat="i in info.posttime">{{i}}</button>	
 </div>
 
+<div class="order-row">
+	<div class="price-row">
+		<span class="title">原价</span>
+		<span class="value price-ori">{{info.detail.oripri}}</span>
+	</div>
+	<div class="price-row">
+		<span class="title">邮费</span>
+		<span class="value">{{info.detail.postfee}}</span>
+	</div>
+	<div class="price-row">
+		<span class="title">红包</span>
+		<select class="value" name="" id="" ng-model="hongBao"  ng-change="totalPrice=info.detail.price*info.detail.num-hongBao;">
+			<option value="{{i}}" ng-repeat="i in info.hongbao">{{i}}</option>
+		</select>
+	</div>
+	<div class="price-row">
+		<span class="price-total">合计￥{{totalPrice}}</span>
+	</div>	
+</div>	
+<div class="comfirm-row">
+	<button class="btn-pill comfirm-btn" ng-click="postOrder();">支付</button>	
+</div>

@@ -70,7 +70,7 @@ requirejs(['common'],function(){
 			};
 			
 			$rootScope.title="确认下单";
-			$scope.newContact={name:'',phone:'',location:{p:'',c:'',d:'',text:''}};
+			$scope.hongBao=0;
 			var sliceContact=function(lenght){
 				$scope.contact_f=$rootScope.contact===undefined?[]:$rootScope.contact.slice(0,lenght);
 			};
@@ -78,7 +78,8 @@ requirejs(['common'],function(){
 			if ($rootScope.info===undefined) {
 				contactServ.getInfo(function(data){
 					$rootScope.info=data;
-					$rootScope.currPosttime=data.posttime[0];				
+					$rootScope.currPosttime=data.posttime[0];
+					$scope.getTotalPrice();				
 				});				
 			}
 			//get contact when it is first time load controller
@@ -112,6 +113,30 @@ requirejs(['common'],function(){
 			$scope.switchAddContact=function(flag){
 				$scope.addContactFlag=flag;
 			};
+			$scope.useHongBao=function(i){
+				$scope.hongBao=i;
+				$scope.getTotalPrice();
+			};
+			$scope.getTotalPrice=function(){
+				$scope.totalPrice=$scope.info.detail.price*$scope.info.detail.num-$scope.hongBao;
+			};
+			$scope.logvalue=function(){
+				console.log($scope.value);
+			};
+			$scope.postOrder=function(){
+				var id=dectServ.getParameterByName('id');
+				var num=dectServ.getParameterByName('num');
+				var hongBao=parseInt($scope.hongBao);
+				var contact=$scope.currContact;
+				var postTime=$scope.currPosttime;
+				//it should be post
+				$http.get('json/x3-postOrder.json',{id:id,num:num,hongBao:hongBao,postTime:postTime,contactName:contact.name,contactPhone:contact.phone,contactLocation:contact.location})
+				.success(function(data){
+					if (data==="success") {
+						$window.location.replace('/x4.html');
+					}
+				});
+			};
 			$scope.$on('addevent',function(e,msg){
 				if(msg==='done'){$scope.addContactFlag=false;}
 			});
@@ -121,7 +146,7 @@ requirejs(['common'],function(){
 		}]);
 		app.controller('addContCtrl',['$scope','$rootScope','contactServ','$http',function($scope,$rootScope,contactServ,$http){
 			$rootScope.title="添加地址";
-			
+			$scope.newContact={name:'',phone:'',location:{p:'',c:'',d:''}};
 			if($rootScope.sites===undefined){
 				$http.get("json/x3-siteData.json").success(function(data){
 					$rootScope.sites=data;
@@ -192,7 +217,7 @@ requirejs(['common'],function(){
 		      views:{
 		      	'xView':{
 		      		templateUrl:'x3-module/x-order.html',
-		      		// controller:'orderCtrl'
+		      		controller:'x3Ctrl'
 		      	},
 		      }
 		    })
