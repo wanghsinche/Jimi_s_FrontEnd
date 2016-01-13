@@ -133,7 +133,7 @@ requirejs(['common'],function(){
 				$http.get('json/x3-postOrder.json',{id:id,num:num,hongBao:hongBao,postTime:postTime,contactName:contact.name,contactPhone:contact.phone,contactLocation:contact.location})
 				.success(function(data){
 					if (data==="success") {
-						$window.location.replace('/x4.html');
+						$window.location.replace('/x4.html?code=xxxxxxxxx');
 					}
 				});
 			};

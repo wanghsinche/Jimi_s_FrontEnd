@@ -8,12 +8,16 @@
 	</div>	
 </div>
 <div class="order-row">
-	<div class="userinfo">
+	<div ng-if='currContact!==undefined' class="userinfo">
 		<div class="name-phone">{{currContact.name}}</div>
 		<div class="name-phone">{{currContact.phone}}</div>
 		<div class="location">{{currContact.location}}</div>
 	</div>
-	<div class="chose-contact-btn"><a ui-sref="chooseContact">&gt;</a></div>
+	<div ng-if='currContact===undefined' class="userinfo">
+		<div class="location ">添加地址</div>
+	</div>
+	<div ng-if='currContact===undefined'class="chose-contact-btn"><a ui-sref="addContact">&gt;</a></div>
+	<div ng-if='currContact!==undefined'class="chose-contact-btn"><a ui-sref="chooseContact">&gt;</a></div>
 </div>
 <div class="order-row">
 	<h3>配送方式 {{info.way}}</h3>
@@ -40,5 +44,5 @@
 	</div>	
 </div>	
 <div class="comfirm-row">
-	<button class="btn-pill comfirm-btn" ng-click="postOrder();">支付</button>	
+	<button class="btn-pill comfirm-btn" ng-click="postOrder();">下单</button>	
 </div>
