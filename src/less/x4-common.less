@@ -5,17 +5,80 @@
 	width: 89%;
 	margin: auto;
 	border: 1px solid @greyColor;
+	.code{
+		// margin: 
+		font-size: 1em;
+	}
 }
 .info-item{
 	margin: 0em 1em 0 1em;
+	cursor: pointer;
 	.left{
 		float: left;
-		width: 60px;
-		height: 60px;
+		width: 3em;
+		height: 3em;
+	}
+	.icon{
+		background: url('@{image}/pay.png') ;
+		background-size: 100%;
+	}
+	.ali{
+		background-position: 0 0;
+	}
+	.cash{
+		background-position: 0 -97%;
+	}
+	.weixin{
+		background-position: 0 -62%;
+	}
+	.app{
+		background-position: 0 -300px;
 	}
 	.right{
 		width: auto;
 		margin-left: 60px;
-
+		border-bottom:1px solid @greyColor;
+		&.active{
+			background: url('@{image}/xuanze.png') 100% 50% no-repeat ;
+		}
+		h1{
+			margin: 0.8em 0 0.8em 0;
+			font-size: 1em;
+		} 
+		h2{
+			margin: 0.8em 0 0.8em 0;
+			font-size: 0.8em;
+			color:@greyColor;
+		}
 	}
 }	
+.price-row{
+	width: 100%;
+	margin-top: 5px; 
+	text-align: right;
+	span,button{
+		vertical-align: middle;
+	}
+	span{
+		display: inline-block;
+	}
+	.title{
+		font-size: 1.2em;
+		width: 4em;
+		margin-right: 1em;
+	}
+	.value{
+		width: 5em;
+		font-size: 1.2em;
+		color:@orangeColor;
+	}
+	.comfirm-btn{
+		height: 1.6em;
+		width: 6em;
+		margin-right: 0;
+	}
+	.price-total{
+		color:@orangeColor;
+		font-size: 2em;
+	}
+}

@@ -17,7 +17,36 @@ requirejs(['common'],function(){
 			$window.onresize=function(){
 				dect(800);
 				$scope.$apply();
-			};			
+			};	
+			var code=dectServ.getParameterByName('code');
+			//it should be post
+			$http.get('json/x4.json',{code:code})
+			.success(function(data){
+				$scope.info=data;
+			});
+			$scope.payby=function(val){
+				$scope.paybyFlag=val;
+			};
+			$scope.postPay=function(){
+				if ($scope.paybyFlag===undefined) {
+					alert('请选择支付方式');
+				}else{
+					switch($scope.paybyFlag){
+						case'ali':
+						$scope.payDialog=true;
+						$window.open($scope.info.ali);
+						break;
+						case'weixin':
+						$scope.payDialog=true;
+						$window.open($scope.info.weixin);
+						break;						
+						case'cash':
+						alert('成功下单，采用货到付款');
+						$window.location.replace('/x5.html');
+						break;						
+					}
+				}
+			};
 		}]);
 		////
 		angular.bootstrap(document,['x4App']);

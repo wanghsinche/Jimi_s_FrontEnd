@@ -29,30 +29,56 @@
 			<div class="user-btn"><a href="#log">登陆</a></div>
 		</div>
 	</div>
+<div class="info-frame noborder">
+	<h1 class="code">订单:{{info.code}}</h1>
+</div>
 <div class="info-frame">
-	<div class="info-item">
-		<div class="left"></div>
-		<div class="right">
+	<div class="info-item clearfix" ng-click="payby('ali');">
+		<div class="left icon ali"></div>
+		<div class="right" ng-class="{'active':paybyFlag==='ali'}">
 			<h1>支付宝</h1>
-			<h2></h2>
+			<h2>推荐支付宝用户使用</h2>
 		</div>
 	</div>
-	<div class="info-item">
-		<div class="left"></div>
-		<div class="right">
+	<div class="info-item clearfix" ng-click="payby('weixin');">
+		<div class="left icon weixin"></div>
+		<div class="right" ng-class="{'active':paybyFlag==='weixin'}">
 			<h1>微信</h1>
-			<h2></h2>			
+			<h2>推荐微信用户使用</h2>			
 		</div>
 	</div>
-	<div class="info-item">
-		<div class="left"></div>
-		<div class="right">
+	<div class="info-item clearfix" ng-click="payby('cash');">
+		<div class="left icon cash"></div>
+		<div class="right noborder" ng-class="{'active':paybyFlag==='cash'}">
 			<h1>现金支付</h1>
 			<h2>仅支持杭州主城区</h2>			
 		</div>
 	</div>		
 </div>
-
+<div class="info-frame noborder">
+		<div class="price-row">
+			<span class="title">原价:</span>
+			<span class="value price-ori">{{info.oripri}}</span>
+		</div>
+		<div class="price-row">
+			<span class="title">邮费:</span>
+			<span class="value">{{info.postfee}}</span>
+		</div>
+		<div class="price-row">
+			<span class="title">红包:</span>
+			<span class="value">{{info.hongbao}}</span>
+		</div>
+		<div class="price-row">
+			<span class="price-total">合计￥{{info.totalPrice}}</span>
+			<button class="btn-pill comfirm-btn" ng-click="postPay();">支付</button>	
+		</div>	
+</div>
+<div class="module" ng-if="payDialog">
+	<div class="module-background" ng-click="payDialog=false;"></div>
+	<div class="module-window ">
+		<h1>新增收货地址</h1>							
+	</div>
+</div>
 	<div ng-if="uaData.ispc==false" class="xfooter">
 		<div class="xnavi-item"><div><a href="">维修</a></div></div>
 		<div class="xnavi-item active"><div><a href="">超值购机</a></div></div>
