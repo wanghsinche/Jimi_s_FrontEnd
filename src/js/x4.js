@@ -27,6 +27,12 @@ requirejs(['common'],function(){
 			$scope.payby=function(val){
 				$scope.paybyFlag=val;
 			};
+			$scope.setpayDialog=function(flag){
+				$scope.payDialog=flag;
+			};
+			$scope.goCenter=function(){
+				$window.location.replace('/x5.html');
+			};
 			$scope.postPay=function(){
 				if ($scope.paybyFlag===undefined) {
 					alert('请选择支付方式');
@@ -42,7 +48,7 @@ requirejs(['common'],function(){
 						break;						
 						case'cash':
 						alert('成功下单，采用货到付款');
-						$window.location.replace('/x5.html');
+						$scope.goCenter();
 						break;						
 					}
 				}

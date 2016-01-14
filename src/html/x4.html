@@ -74,9 +74,15 @@
 		</div>	
 </div>
 <div class="module" ng-if="payDialog">
-	<div class="module-background" ng-click="payDialog=false;"></div>
+	<div class="module-background" ng-click="setpayDialog(false)"></div>
 	<div class="module-window ">
-		<h1>新增收货地址</h1>							
+		<h1>付款中</h1>	
+		<h2>扫码下载机密手机APP，更多精彩等着您</h2>
+		<div class="icon QRcode"></div>
+		<div class="btn-row">
+			<div class="btn-pill comfirm-btn" ng-click="goCenter()">成功</div>
+			<div class="btn-pill comfirm-btn" ng-click="setpayDialog(false)">失败</div>
+		</div>
 	</div>
 </div>
 	<div ng-if="uaData.ispc==false" class="xfooter">

@@ -10,6 +10,10 @@
 		font-size: 1em;
 	}
 }
+.icon{
+	background: url('@{image}/pay.png') ;
+	background-size: 100%;
+}
 .info-item{
 	margin: 0em 1em 0 1em;
 	cursor: pointer;
@@ -17,10 +21,6 @@
 		float: left;
 		width: 3em;
 		height: 3em;
-	}
-	.icon{
-		background: url('@{image}/pay.png') ;
-		background-size: 100%;
 	}
 	.ali{
 		background-position: 0 0;
@@ -80,5 +80,35 @@
 	.price-total{
 		color:@orangeColor;
 		font-size: 2em;
+	}
+}
+.module-window{
+	text-align: center;
+	padding: 1em;
+	color: @blueColor;
+	h1{
+		margin: 0;
+		font-size: 2em;
+	}
+	h2{
+		margin: 1em;
+		font-size: 1em;
+	}
+	.QRcode{
+		width: 8em;
+		height: 8em;
+		margin: auto;
+		background-position: 0 100%;
+	}
+	.btn-row{
+		margin-top: 1em;
+		text-align: center;
+		.comfirm-btn{
+			display: inline-block;
+			width: 6em;
+			height: 2.4em;
+			line-height: 2.4em;
+			font-size: 1.2em;
+		}
 	}
 }
