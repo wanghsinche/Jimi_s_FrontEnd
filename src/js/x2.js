@@ -1,7 +1,7 @@
 requirejs(['common'],function(){
 	requirejs(['angular','serv/browseContent','angular-ui-route'],function(angular){
 		var app=angular.module('x2App',['dectModule','ui.router']);
-		app.controller('x2Ctrl',['$scope','$rootScope','$state','dectServ','$window','$http','$filter',function($scope,$rootScope,$state,dectServ,$window,$http,$filter){
+		app.controller('xCtrl',['$scope','$rootScope','$state','dectServ','$window','$http','$filter',function($scope,$rootScope,$state,dectServ,$window,$http,$filter){
 			var dect=function(threshold){
 				var uaData=dectServ.getUA(800);
 				$scope.uaData=uaData;

@@ -1,7 +1,7 @@
 requirejs(['common'],function(){
 	requirejs(['angular','serv/browseContent'],function(angular){
 		var app=angular.module('x4App',['dectModule']);
-		app.controller('x4Ctrl',['$scope','dectServ','$window','$http',function($scope,dectServ,$window,$http){
+		app.controller('xCtrl',['$scope','dectServ','$window','$http',function($scope,dectServ,$window,$http){
 			var dect=function(threshold){
 				var uaData=dectServ.getUA(800);
 				$scope.uaData=uaData;

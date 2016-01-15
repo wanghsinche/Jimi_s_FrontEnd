@@ -1,0 +1,49 @@
+<div class="view-item" ng-repeat="i in orderLst">
+	<div ng-if="uaData.ispc==true" class="time-row">
+		<time>{{i.orderTime}}</time>
+	</div>
+	<div ng-if="uaData.ispc==false" class="x-state-row">
+		<span class="cate">{{i.cate}}</span><span class="state">订单状态：{{i.orderDetail}}</span>
+	</div>
+	<div class="content-row">
+		<div class="info-col">
+			<div class="left"><img ng-src="{{i.pic}}" alt=""></div>
+			<div class="right">
+				<div class="right-row">
+					<span class="title">品牌：</span>
+					<span class="value">{{i.brand}}</span>
+				</div>
+				<div class="right-row">
+					<span class="title">型号：</span>
+					<span class="value">{{i.name}}</span>
+				</div>
+				<div class="right-row">
+					<span class="title">版本：</span>
+					<span class="value">{{i.version}}{{i.color}}{{i.storage}}</span>
+				</div>								
+			</div>
+		</div>
+		<div ng-if="uaData.ispc==true" class="state-col"><h1>￥{{i.price}}</h1><p>{{i.cate}}</p></div>
+		<div ng-if="uaData.ispc==true" class="state-col"><h1>{{i.orderDetail}}</h1><p>订单详情</p></div>
+		<div ng-if="uaData.ispc==true" class="button-col">
+			<button ng-if="i.orderDetail=='待发货'||i.orderDetail=='待回收'" ng-click="action(1,i.code)"class="btn-pill custom-btn">取消订单</button>
+			<button ng-if="i.orderDetail=='待支付'" ng-click="action(2,i.code)"class="btn-pill custom-btn">确认支付</button>
+			<button ng-if="i.orderDetail=='待收货'" ng-click="action(3,i.code)"class="btn-pill custom-btn">确认收货</button>
+			<button ng-if="i.orderDetail=='回收完成'" ng-click="action(4,i.code)"class="btn-pill custom-btn">评价</button>				
+		</div>
+	</div>
+	<div ng-if="uaData.ispc==false" class="x-time-row">
+		<time>{{i.orderTime}}</time>
+		<button ng-if="i.orderDetail=='待发货'||i.orderDetail=='待回收'" ng-click="action(1)"class="btn-pill custom-btn">取消订单</button>
+		<button ng-if="i.orderDetail=='待支付'" ng-click="action(2)"class="btn-pill custom-btn">确认支付</button>
+		<button ng-if="i.orderDetail=='待收货'" ng-click="action(3)"class="btn-pill custom-btn">确认收货</button>
+		<button ng-if="i.orderDetail=='回收完成'" ng-click="action(4)"class="btn-pill custom-btn">评价</button>
+	</div>
+</div>
+<div class="view-item clearfix">
+	<div class="pager">
+		<button class="btn-pager btn-pre" ng-click="toPage(curr-1)" ng-class="{'disabled':curr==1}"ng-disabled="curr==1">&lt;</button>
+		<button class="btn-pager" ng-class="{'active':$index+1==curr,'disabled':curr==$index+1}" ng-click="toPage($index+1)" ng-disabled="curr==$index+1" ng-repeat="i in getNumber(allPage) track by $index">{{$index+1}}</button>
+		<button class="btn-pager btn-next" ng-class="{'disabled':curr==allPage}" ng-click="toPage(curr+1)" ng-disabled="curr==allPage">&gt;</button>
+	</div>
+</div>

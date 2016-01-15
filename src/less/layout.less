@@ -13,9 +13,9 @@
 		background: @blueColor;
 		color:@backgroundColor;
 	}
-	&.disable{
-		cursor: not-allowed;
-	}
+}
+.disabled{
+		cursor: not-allowed !important;
 }
 .comfirm-btn{
 	.rounded-corners(0);
@@ -59,6 +59,8 @@
 .noborder{
 	border: 0 !important;
 }
+
+
 @media (min-width: 800px) {
 	.header{
 		.logo,.navi,.user{
@@ -132,7 +134,29 @@
 		color: @commonLinkColor;
 	}
 }
-
+.tabview{
+	width: 90%;
+	margin: auto;
+}
+.tab-navi{
+	border-bottom: 1px solid @greyColor;
+	a{
+		display: inline-block;
+		width: 10%;
+		border-right:1px solid @greyColor; 
+		padding: 0.5em;
+		text-align: center;
+		font-size: 1.6em;
+	}
+}
+.tab-navi{
+	a.active{
+		color: @blueColor;
+	}
+}	
+.tabview{
+	border: 1px solid @greyColor;
+}
 .footer{
 	position: relative;
 	height: 110px;

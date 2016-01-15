@@ -53,7 +53,7 @@ requirejs(['common'],function(){
 				}
 			};
 		}]);   
-		app.controller('x3Ctrl',['$scope','$rootScope','dectServ','contactServ','$window','$http',function($scope,$rootScope,dectServ,contactServ,$window,$http){
+		app.controller('xCtrl',['$scope','$rootScope','dectServ','contactServ','$window','$http',function($scope,$rootScope,dectServ,contactServ,$window,$http){
 			var dect=function(threshold){
 				var uaData=dectServ.getUA(800);
 				$scope.uaData=uaData;
@@ -132,9 +132,9 @@ requirejs(['common'],function(){
 				//it should be post
 				$http.get('json/x3-postOrder.json',{id:id,num:num,hongBao:hongBao,postTime:postTime,contactName:contact.name,contactPhone:contact.phone,contactLocation:contact.location})
 				.success(function(data){
-					if (data==="success") {
-						$window.location.replace('/x4.html?code=xxxxxxxxx');
-					}
+					// if (data==="success") {
+						$window.location.replace('/x4.html?code='+data);
+					// }
 				});
 			};
 			$scope.$on('addevent',function(e,msg){
@@ -217,7 +217,7 @@ requirejs(['common'],function(){
 		      views:{
 		      	'xView':{
 		      		templateUrl:'x3-module/x-order.html',
-		      		controller:'x3Ctrl'
+		      		controller:'xCtrl'
 		      	},
 		      }
 		    })

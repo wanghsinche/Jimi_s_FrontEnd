@@ -1,10 +1,10 @@
-{
-	"contact":[
-		{"name":"xxx","location":"xxxxxxxxxxxxxxxxxxxxx","phone":"123xxxxxxxx"},
-		{"name":"xdx","location":"xxxwewwwdsssxxxxxxxxx","phone":"123xxxxxxxx"},
-		{"name":"xx","location":"xxxxxxxxxsdfxxxxxxxxxx","phone":"123xxxxxxxx"},
-		{"name":"xa","location":"xxxxxxxxxxxxxxxxxxxxx","phone":"123xxxxxxxx"},
-		{"name":"xdz","location":"xxxwewwwdsssxxxxxxxxx","phone":"123xxxxxxxx"},
-		{"name":"aa","location":"xxxxxxxxxsdfxxxxxxxxxx","phone":"123xxsxxxxx"}	
-	]
-}
+	{
+		"contact":[
+			{"name":"xxx","location":{"p":"浙江省","c":"杭州市","d":"西湖区","text":"浙大路39号"},"phone":"123xxxxxxxx"},
+			{"name":"xdx","location":{"p":"浙江省","c":"杭州市","d":"西湖区","text":"浙大路39号"},"phone":"123xxxxxxxx"},
+			{"name":"xx","location":{"p":"浙江省","c":"杭州市","d":"西湖区","text":"浙大路39号"},"phone":"123xxxxxxxx"},
+			{"name":"xa","location":{"p":"浙江省","c":"杭州市","d":"西湖区","text":"浙大路39号"},"phone":"123xxxxxxxx"},
+			{"name":"xdz","location":{"p":"浙江省","c":"杭州市","d":"西湖区","text":"浙大路39号"},"phone":"123xxxxxxxx"},
+			{"name":"aa","location":{"p":"浙江省","c":"杭州市","d":"西湖区","text":"浙大路39号"},"phone":"123xxsxxxxx"}	
+		]
+	}
