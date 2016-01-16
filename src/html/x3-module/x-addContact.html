@@ -1,15 +1,15 @@
 <div class="chose-item">
-	<div class="inner addContact noborder">
+	<div class=" addContact noborder">
 		<span>姓名</span>
 		<input type="text" ng-model="newContact.name">
 	</div>
-	<div class="inner addContact ">
+	<div class=" addContact ">
 		<span>电话</span>
 		<input type="tel" ng-model="newContact.phone">
 	</div>	
 </div>
 <div class="chose-item">
-	<div class="inner addContact noborder" ng-click="switchOpt()">
+	<div class=" addContact noborder clearfix" ng-click="switchOpt()">
 		<span>地区</span>
 		<div class="location-bar">
 		<span >{{newContact.location.p}}</span>-
@@ -17,7 +17,7 @@
 		<span >{{newContact.location.d}}</span>			
 		</div>
 	</div>
-	<div class="inner addContact ">
+	<div class=" addContact ">
 		<span>详细地址</span>
 		<input type="text" ng-model="newContact.location.text">
 	</div>	

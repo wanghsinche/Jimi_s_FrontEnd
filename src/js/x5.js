@@ -1,7 +1,7 @@
 requirejs(['common'],function(){
 	requirejs(['angular','serv/browseContent','angular-ui-route'],function(angular){
 		var app=angular.module('x5App',['dectModule','ui.router']);
-		app.controller('xCtrl',['$scope','$rootScope','$state','dectServ','$window','$http','$filter',function($scope,$rootScope,$state,dectServ,$window,$http,$filter){
+		app.controller('xCtrl',['$scope','$rootScope','$state','dectServ','$window','$http','$anchorScroll',function($scope,$rootScope,$state,dectServ,$window,$http,$anchorScroll){
 			var dect=function(threshold){
 				var uaData=dectServ.getUA(800);
 				$scope.uaData=uaData;
@@ -23,7 +23,33 @@ requirejs(['common'],function(){
 			$rootScope.getNumber = function(num) {
 		        return new Array(num);   
 		    };
-
+		    $rootScope.cancelOrderDialog=false;
+		    $rootScope.currOrderCode='';
+		    $rootScope.switchCancelDialog=function(flag){
+		    	$rootScope.cancelOrderDialog=flag;
+		    };
+		    $rootScope.postCancel=function(){
+		    	$http.post('json/cancelorder.json',{code:$rootScope.currOrderCode})
+		    	.success(function(data){
+		    		alert('取消成功');
+		    		$rootScope.switchCancelDialog(false);
+		    	})
+		    	.error(function(data){
+		    		alert('取消失败');
+		    	});
+		    };
+		    $rootScope.action=function(i,code){
+		    	switch(i){
+		    		case 1:
+		    		$rootScope.switchCancelDialog(true);
+		    		$rootScope.currOrderCode=code;
+		    		
+		    		break;
+		    		case 2:
+		    		$window.location.replace('/x4.html?code='+code);
+		    		break;
+		    	}
+		    };
 
 		}]);
 		app.controller('doingCtrl',['$scope','$rootScope','$window','$state','$http',function($scope,$rootScope,$window,$state,$http){

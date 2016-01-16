@@ -53,7 +53,7 @@ requirejs(['common'],function(){
 				}
 			};
 		}]);   
-		app.controller('xCtrl',['$scope','$rootScope','dectServ','contactServ','$window','$http',function($scope,$rootScope,dectServ,contactServ,$window,$http){
+		app.controller('xCtrl',['$scope','$rootScope','dectServ','contactServ','$window','$http','$state',function($scope,$rootScope,dectServ,contactServ,$window,$http,$state){
 			var dect=function(threshold){
 				var uaData=dectServ.getUA(800);
 				$scope.uaData=uaData;
@@ -138,7 +138,7 @@ requirejs(['common'],function(){
 				});
 			};
 			$scope.$on('addevent',function(e,msg){
-				if(msg==='done'){$scope.addContactFlag=false;}
+				if(msg==='done'){$state.go('chooseContact');}
 			});
 			
 

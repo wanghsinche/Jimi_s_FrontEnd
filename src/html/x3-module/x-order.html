@@ -11,7 +11,7 @@
 	<div ng-if='currContact!==undefined' class="userinfo">
 		<div class="name-phone">{{currContact.name}}</div>
 		<div class="name-phone">{{currContact.phone}}</div>
-		<div class="location">{{currContact.location}}</div>
+		<div class="location">{{currContact.location.p}}{{currContact.location.c}}{{currContact.location.d}}{{currContact.location.text}}</div>
 	</div>
 	<div ng-if='currContact===undefined' class="userinfo">
 		<div class="location ">添加地址</div>

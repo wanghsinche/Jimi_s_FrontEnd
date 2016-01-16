@@ -32,12 +32,12 @@
 			<button ng-if="i.orderDetail=='回收完成'" ng-click="action(4,i.code)"class="btn-pill custom-btn">评价</button>				
 		</div>
 	</div>
-	<div ng-if="uaData.ispc==false" class="x-time-row">
+	<div ng-if="uaData.ispc==false" class="x-time-row clearfix">
 		<time>{{i.orderTime}}</time>
-		<button ng-if="i.orderDetail=='待发货'||i.orderDetail=='待回收'" ng-click="action(1)"class="btn-pill custom-btn">取消订单</button>
-		<button ng-if="i.orderDetail=='待支付'" ng-click="action(2)"class="btn-pill custom-btn">确认支付</button>
-		<button ng-if="i.orderDetail=='待收货'" ng-click="action(3)"class="btn-pill custom-btn">确认收货</button>
-		<button ng-if="i.orderDetail=='回收完成'" ng-click="action(4)"class="btn-pill custom-btn">评价</button>
+		<button ng-if="i.orderDetail=='待发货'||i.orderDetail=='待回收'" ng-click="action(1,i.code)"class="btn-pill custom-btn">取消订单</button>
+		<button ng-if="i.orderDetail=='待支付'" ng-click="action(2,i.code)"class="btn-pill custom-btn">确认支付</button>
+		<button ng-if="i.orderDetail=='待收货'" ng-click="action(3,i.code)"class="btn-pill custom-btn">确认收货</button>
+		<button ng-if="i.orderDetail=='回收完成'" ng-click="action(4,i.code)"class="btn-pill custom-btn">评价</button>
 	</div>
 </div>
 <div class="view-item clearfix">
@@ -45,5 +45,17 @@
 		<button class="btn-pager btn-pre" ng-click="toPage(curr-1)" ng-class="{'disabled':curr==1}"ng-disabled="curr==1">&lt;</button>
 		<button class="btn-pager" ng-class="{'active':$index+1==curr,'disabled':curr==$index+1}" ng-click="toPage($index+1)" ng-disabled="curr==$index+1" ng-repeat="i in getNumber(allPage) track by $index">{{$index+1}}</button>
 		<button class="btn-pager btn-next" ng-class="{'disabled':curr==allPage}" ng-click="toPage(curr+1)" ng-disabled="curr==allPage">&gt;</button>
+	</div>
+</div>
+<div class="module" ng-if="cancelOrderDialog" >
+	<div class="module-background" ng-click="switchCancelDialog(false)"></div>
+	<div class="module-window">
+		<h3>取消成功后，退款将在24h后退回原账号，确认取消？</h3>
+		<h2 ng-if="uaData.ispc==true">扫码下载机密手机APP，更多精彩等着您</h2>
+		<div ng-if="uaData.ispc==true" class="icon QRcode"></div>
+		<div class="btn-row">
+			<div class="btn-pill comfirm-btn" ng-click="switchCancelDialog(false)">不取消</div>
+			<div class="btn-pill comfirm-btn no" ng-click="postCancel()">取消订单</div>
+		</div>
 	</div>
 </div>

@@ -2,7 +2,7 @@
 	<div class="inner" ng-class="{'active':i===currContact}" ng-click="setContact(i)">
 		<span class="left">收货人：{{i.name}}</span>
 		<span class="right">{{i.phone}}</span>
-		<div>收货地址：{{i.location}}</div>
+		<div>收货地址：{{i.location.p}}{{i.location.c}}{{i.location.d}}{{i.location.text}}</div>
 	</div>
 </div>
 <div class="chose-item add-contact-btn">

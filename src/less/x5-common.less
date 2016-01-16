@@ -9,4 +9,66 @@
 		display: inline-block;
 	}
 }
+.pager{
+	float: right;
+	.btn-pager{
+		vertical-align: middle;
+		margin: 0.3em;
+		border: 1px solid @blueColor;
+		color:@blueColor;
+		background: none;
+		cursor: pointer;
+		&.active{
+			color:@backgroundColor;
+			background: @blueColor;
+		}
+	}
+	.btn-pre,.btn-next{
+		// width: 1.5em;
+		// height: 1.5em;
+		// background: url('@{image}/ico.png') no-repeat 100%;
+	}
+	.btn-next{
 
+	}		
+}
+
+.icon{
+	background: url('@{image}/pay.png') ;
+	background-size: 100%;
+}
+.module-window{
+	text-align: center;
+	padding: 1em;
+	h3{
+		margin: 0;
+		font-size: 1.2em;
+	}
+	h2{
+			color: @blueColor;
+		margin: 1em;
+		font-size: 1em;
+	}
+	.QRcode{
+		width: 8em;
+		height: 8em;
+		margin: auto;
+		background-position: 0 100%;
+	}
+	.btn-row{
+		margin-top: 1em;
+		text-align: center;
+		.comfirm-btn{
+			display: inline-block;
+			width: 6em;
+			height: 2.4em;
+			line-height: 2.4em;
+			font-size: 1.2em;
+		}
+		.no{
+			border-color: @blueColor;
+			color:@blueColor;
+			background-color: @backgroundColor;
+		}
+	}
+}

@@ -2,5 +2,69 @@
 @import 'x5-common.less';
 
 @media (max-width: 800px) {
-
+	.view-item{
+		border-top: 1em solid @greyColor + 30;
+		>div{
+			padding: 0 1em 0 1em;
+		}
+	}
+	.x-state-row{
+		line-height: 2em;
+		.cate{
+			font-size: 1em;
+		}
+		.state{
+			float: right;
+			font-size: 1em;
+			color:@blueColor;
+		}
+	}
+	.content-row{
+		border-top: 1px solid @greyColor;
+		border-bottom: 1px solid @greyColor;
+		.info-col{
+			width: 100%;
+			>div{
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.left{
+				width: 6em;
+				text-align: center;
+				img{
+					width: 100%;
+					// height: 100%;
+				}
+			}
+			.right{
+				display: inline-block;
+				vertical-align: middle;
+				.right-row{
+					margin-bottom: 1em;
+					font-size: 0.8em;
+					.title{
+						color: @blueColor;
+					}
+					.value{
+						color:@greyColor;
+					}				
+				}
+			}			
+		}
+	}	
+	.x-time-row{
+		time{
+			line-height: 3em;
+			font-size: 0.8em;
+			color:@greyColor;
+		}
+		.custom-btn{
+			float: right;
+			width: 6em;
+			height: 2em;
+			margin: 0.5em 0 0.5em 0;
+			color:@blueColor;
+			border-color:@blueColor;
+		}	
+	}
 }
