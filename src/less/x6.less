@@ -1,0 +1,66 @@
+@import 'layout.less';
+@import 'x6-common.less';
+
+@media (min-width: 800px) {
+	.tabview{
+		margin-top: 2em;
+	}	
+	.view-item{
+		// margin-top: 1em;
+		// border-bottom:1px solid @greyColor; 
+	}
+	.time-row{
+		background: @greyColor + 30;
+		padding: 8px 16px 8px 16px; 
+		time{
+		}
+	}
+	.content-row{
+		>div{
+			height: 8em;
+			vertical-align: bottom;
+		}
+		.info-col{
+			position: relative;
+			width: 47%;
+			border-right: 1px solid @greyColor;
+			.left{
+				display: inline-block;
+				height: 100%;
+				width: 20%;
+				vertical-align: middle;
+				text-align: center;
+				img{
+					height: 100%;
+				}
+			}
+			.right{
+				display: inline-block;
+				vertical-align: middle;
+				.right-row{
+					margin-bottom: 1em;
+					.title{
+						color: @blueColor;
+					}
+					.value{
+						color:@greyColor;
+					}				
+				}
+			}
+		}
+		.state-col{
+			width: 47%;
+			// border-right: 1px solid @greyColor;
+			text-align: center;
+			h1{
+				margin: 2em 0 0.5em 0;
+				font-size: 1.2em;
+				color:@greyColor;
+			}
+			p{
+				margin: 0;
+				font-size: 1em;
+			}
+		}
+	}
+}

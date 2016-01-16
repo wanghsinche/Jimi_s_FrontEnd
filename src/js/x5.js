@@ -40,14 +40,19 @@ requirejs(['common'],function(){
 		    };
 		    $rootScope.action=function(i,code){
 		    	switch(i){
-		    		case 1:
+		    		case 1://取消订单
 		    		$rootScope.switchCancelDialog(true);
 		    		$rootScope.currOrderCode=code;
 		    		
 		    		break;
-		    		case 2:
+		    		case 2://支付
 		    		$window.location.replace('/x4.html?code='+code);
 		    		break;
+		    		
+		    		case 4://评论
+		    		$window.location.replace('/x6-comment.html?code='+code);
+		    		break;
+
 		    	}
 		    };
 
