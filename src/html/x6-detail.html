@@ -12,7 +12,7 @@
 <body >
 	<div class="header clearfix">
 		<div ng-if="uaData.ispc==false" class="x-header left back-btn" back-button><a >&lt;</a></div>
-		<div ng-if="uaData.ispc==false" class="x-header center head-detail"><span>评价</span></div>
+		<div ng-if="uaData.ispc==false" class="x-header center head-detail"><span>订单详情</span></div>
 		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#"></a></div>
 		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ><img ng-src="/image/index.png" alt=""></a></div></div>
 		<div ng-if="uaData.ispc==true" class="navi">
@@ -83,14 +83,15 @@
 	<div class="tab-show express-content">
 		<h1>物流跟踪</h1>
 		<div class="process">
-			<h2 ng-if="uaData.ispc==true"><span>company:</span><span>{{express.company}}</span></h2>
-			<h2 ng-if="uaData.ispc==true"><span>expresscode:</span><span>{{express.code}}</span></h2>
-			<h2 ng-if="uaData.ispc==true"><span>tracking:</span></h2>
+			<h2 ng-if="uaData.ispc==true"><span>物流公司：</span><span>{{express.company}}</span></h2>
+			<h2 ng-if="uaData.ispc==true"><span>物流编号：</span><span>{{express.code}}</span></h2>
+			<h2 ng-if="uaData.ispc==true"><span>物流追踪：</span></h2>
 			<ul ng-if="uaData.ispc==true" >
 				<li ng-repeat="i in express.process" class="pc" ng-class="{'now':$index==0}">{{i.time}} {{i.text}}</li>
 			</ul>
 			<ul ng-if="uaData.ispc==false" >
 				<li ng-repeat="i in express.process" class="mobile"ng-class="{'now':$index==0}"><h3>{{i.text}}</h3><time>{{i.time}}</time></li>
+				<li ng-if="express.process.length==0" class="mobile"><h3>暂无物流信息</h3></li>
 			</ul>
 		</div>
 	</div>

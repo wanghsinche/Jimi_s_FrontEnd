@@ -1,29 +1,29 @@
 @import 'common.less';
 .view-item{
 	position: relative; 
-}
-.content-row{
-	position: relative;
-	>div{
-		display: inline-block;
-	}
-}
-.comment-row{
-	padding: 8px 16px 8px 16px;
-	.item{
-		>span{
+	.content-row{
+		position: relative;
+		>div{
 			display: inline-block;
 		}
-		textarea{
-			width: 90%;
-			margin: 1em 0 0 0;
-			border: 1px solid @greyColor;
-			padding: 0.5em 1em 0.5em 1em;
-			resize: none;
-			font-size: 0.8em;
-			// background-color: @greyColor;
-			.rounded-corners(5px)
+	}
+	.comment-row{
+		padding: 8px 16px 8px 16px;
+		.item{
+			>span{
+				display: inline-block;
+			}
+			textarea{
+				width: 90%;
+				margin: 1em 0 0 0;
+				border: 1px solid @greyColor;
+				padding: 0.5em 1em 0.5em 1em;
+				resize: none;
+				font-size: 0.8em;
+				// background-color: @greyColor;
+				.rounded-corners(5px)
 
+			}
 		}
 	}
 }
