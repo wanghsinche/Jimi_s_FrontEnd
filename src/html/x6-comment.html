@@ -87,7 +87,7 @@
 					</span>
 				</div>
 				<div class="item">
-					<textarea name="" id="" cols="30" rows="8" placeholder="输入你的评论"></textarea>
+					<textarea name="" id="" cols="30" rows="8" ng-model="rating.text"placeholder="输入你的评论"></textarea>
 				</div>								
 			</div>
 		</div>	
@@ -95,7 +95,7 @@
 </div>
 <div class="tabview noborder">
 	<div class="tab-show clearfix">
-		<button class="btn-pill comfirm-btn">发表评论</button>
+		<button class="btn-pill comfirm-btn" ng-click="postRating()">发表评论</button>
 	</div>
 </div>
 	<div ng-if="uaData.ispc==false" class="xfooter">

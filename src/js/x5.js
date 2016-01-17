@@ -48,7 +48,11 @@ requirejs(['common'],function(){
 		    		case 2://支付
 		    		$window.location.replace('/x4.html?code='+code);
 		    		break;
-		    		
+					
+					case 3://确认收货
+		    		$window.location.replace('/x6-detail.html?code='+code);
+		    		break;
+		    				    		
 		    		case 4://评论
 		    		$window.location.replace('/x6-comment.html?code='+code);
 		    		break;

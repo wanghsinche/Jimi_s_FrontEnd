@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html ng-controller="xCtrl">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>机密+</title>
+</head>
+<body >
+	<div class="header clearfix">
+		<div ng-if="uaData.ispc==false" class="x-header left back-btn" back-button><a >&lt;</a></div>
+		<div ng-if="uaData.ispc==false" class="x-header center head-detail"><span>评价</span></div>
+		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#"></a></div>
+		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ><img ng-src="/image/index.png" alt=""></a></div></div>
+		<div ng-if="uaData.ispc==true" class="navi">
+			<ul class="navi-ul">
+				<li class="navi-li"><a href="#1">首页</a></li>
+				<li class="navi-li"><a href="#2">维修</a></li>
+				<li class="navi-li"><a href="/recycle.html">回收</a></li>
+				<li class="navi-li active"><a href="#4">机密+</a></li>
+				<li class="navi-li"><a href="#5">下载APP</a></li>
+			</ul>
+		</div>
+		<div ng-if="uaData.ispc==true" class="user">
+			<div class="user-btn"><a href="#reg">注册</a></div>
+			<div class="user-btn"><a href="#log">登陆</a></div>
+		</div>
+	</div>
+<div class="tabview">
+	<div class="tab-show" >
+<div class="view-item" >
+	<div ng-if="uaData.ispc==true" class="time-row">
+		<time>{{i.orderTime}}</time>
+	</div>
+	<div ng-if="uaData.ispc==false" class="x-state-row">
+		<span class="cate">{{i.cate}}</span><span class="state">订单状态：{{i.orderDetail}}</span>
+	</div>
+	<div class="content-row">
+		<div class="info-col">
+			<div class="left"><img ng-src="{{i.pic}}" alt=""></div>
+			<div class="right">
+				<div class="right-row">
+					<span class="title">品牌：</span>
+					<span class="value">{{i.brand}}</span>
+				</div>
+				<div class="right-row">
+					<span class="title">型号：</span>
+					<span class="value">{{i.name}}</span>
+				</div>
+				<div class="right-row">
+					<span class="title">版本：</span>
+					<span class="value">{{i.version}}{{i.color}}{{i.storage}}</span>
+				</div>								
+			</div>
+		</div>
+		<div ng-if="uaData.ispc==true" class="state-col"><h1>￥{{i.price}}</h1><p>{{i.cate}}</p></div>
+		<div ng-if="uaData.ispc==true" class="state-col"><h1>{{i.orderDetail}}</h1><p>订单详情</p></div>
+		<div ng-if="uaData.ispc==true" class="button-col">
+			<button ng-if="i.orderDetail=='待收货'" ng-click="action(3,i.code)"class="btn-pill custom-btn">确认收货</button>
+			<button ng-if="i.orderDetail=='回收完成'" ng-click="action(4,i.code)"class="btn-pill custom-btn">评价</button>				
+		</div>
+	</div>
+	<div ng-if="uaData.ispc==false" class="x-time-row clearfix">
+		<time>{{i.orderTime}}</time>
+		<button ng-if="i.orderDetail=='待收货'" ng-click="action(3,i.code)"class="btn-pill custom-btn">确认收货</button>
+		<button ng-if="i.orderDetail=='回收完成'" ng-click="action(4,i.code)"class="btn-pill custom-btn">评价</button>
+	</div>
+</div>
+	</div>
+</div>
+<div class="tabview noborder express">
+	<div class="tab-show express-title">
+		<h1 ng-if="uaData.ispc==true">收货人</h1>
+		<div class="left">
+			<div class="item">{{express.contact.name}}</div>
+			<div class="item">{{express.contact.location.p}}{{express.contact.location.c}}{{express.contact.location.d}}{{express.contact.location.text}}</div>
+		</div>
+		<div class="right">{{express.contact.phone}}</div>
+	</div>
+	<div class="tab-show express-content">
+		<h1>物流跟踪</h1>
+		<div class="process">
+			<h2 ng-if="uaData.ispc==true"><span>company:</span><span>{{express.company}}</span></h2>
+			<h2 ng-if="uaData.ispc==true"><span>expresscode:</span><span>{{express.code}}</span></h2>
+			<h2 ng-if="uaData.ispc==true"><span>tracking:</span></h2>
+			<ul ng-if="uaData.ispc==true" >
+				<li ng-repeat="i in express.process" class="pc" ng-class="{'now':$index==0}">{{i.time}} {{i.text}}</li>
+			</ul>
+			<ul ng-if="uaData.ispc==false" >
+				<li ng-repeat="i in express.process" class="mobile"ng-class="{'now':$index==0}"><h3>{{i.text}}</h3><time>{{i.time}}</time></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+	<div ng-if="uaData.ispc==false" class="xfooter">
+		<div class="xnavi-item"><div><a href="">维修</a></div></div>
+		<div class="xnavi-item active"><div><a href="">超值购机</a></div></div>
+		<div class="xnavi-item"><div><a href="">回收</a></div></div>
+	</div>
+	<div ng-if="uaData.ispc==true" class="footer">
+		<ul class="footer-ul">
+			<li class="footer-li"><a href="#1">关于我们</a></li>
+			<li class="footer-li"><a href="#1">招贤纳士</a></li>
+			<li class="footer-li"><a href="#1">商家加盟</a></li>
+			<li class="footer-li"><a href="#1">服务条款</a></li>
+			<li class="footer-li"><a href="#1">帮助中心</a></li>
+			<li class="footer-li"><a href="#1">xxxx有限公司</a></li>
+			<li class="footer-li"><a href="#1">浙ICP备xxxxx号</a></li>
+			<li class="footer-li"><a href="#1">电话 000-00000</a></li>			
+		</ul>
+	</div>	
+	<link ng-href="{{'/css/'+cssprefix+'x6.css'}}" rel="stylesheet" >	
+    <script data-main="js/x6" src="js/lib/require.js"></script>	
+</body>
+</html>
