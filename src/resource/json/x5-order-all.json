@@ -1,0 +1,123 @@
+{
+	"curr":1,
+	"allPage":3,	
+	"lst":[
+		{
+			"orderTime":"2015-09-22 20:35:05",
+			"cate":"购机订单",
+			"orderDetail":"待发货",
+			"price":3000,
+			"pic":"image/i5s.png",
+			"brand":"苹果",
+			"name":"iphone 5",
+			"version":"国行",
+			"color":"金色",
+			"storage":"16GB",
+			"code":"xxxxxx99999"
+		},		
+		{
+			"orderTime":"2015-12-22 20:35:05",
+			"cate":"回收订单",
+			"orderDetail":"待回收",
+			"price":3000,
+			"pic":"image/i5s.png",
+			"brand":"苹果",
+			"name":"iphone 5",
+			"version":"国行",
+			"color":"金色",
+			"storage":"16GB",
+			"code":"xdxxxx99999"
+		},
+		{
+			"orderTime":"2015-09-22 20:35:05",
+			"cate":"回收订单",
+			"orderDetail":"回收完成",
+			"price":3000,
+			"pic":"image/i5s.png",
+			"brand":"苹果",
+			"name":"iphone 5",
+			"version":"国行",
+			"color":"金色",
+			"storage":"16GB",
+			"code":"xxxxxx99999"
+		},
+		{
+			"orderTime":"2015-12-22 20:35:05",
+			"cate":"回收订单",
+			"orderDetail":"已取消",
+			"price":3000,
+			"pic":"image/i5s.png",
+			"brand":"苹果",
+			"name":"iphone 5",
+			"version":"国行",
+			"color":"金色",
+			"storage":"16GB",
+			"code":"xdxxxx99999"
+		},				
+		{
+			"orderTime":"2015-09-22 20:35:05",
+			"cate":"购机订单",
+			"orderDetail":"待收货",
+			"price":3000,
+			"pic":"image/i5s.png",
+			"brand":"苹果",
+			"name":"iphone 5",
+			"version":"国行",
+			"color":"金色",
+			"storage":"16GB",
+			"code":"xxxxx099999"
+		},
+		{
+			"orderTime":"2015-09-22 20:35:05",
+			"cate":"回收订单",
+			"orderDetail":"回收完成",
+			"price":3000,
+			"pic":"image/i5s.png",
+			"brand":"苹果",
+			"name":"iphone 5",
+			"version":"国行",
+			"color":"金色",
+			"storage":"16GB",
+			"code":"xxxxxx99999"
+		},		
+		{
+			"orderTime":"2014-09-22 20:35:05",
+			"cate":"购机订单",
+			"orderDetail":"待支付",
+			"price":3000,
+			"pic":"image/i5s.png",
+			"brand":"苹果",
+			"name":"iphone 5",
+			"version":"国行",
+			"color":"金色",
+			"storage":"16GB",
+			"code":"xxxxxx99991"
+		},
+		{
+			"orderTime":"2015-09-22 20:35:05",
+			"cate":"购机订单",
+			"orderDetail":"待收货",
+			"price":3000,
+			"pic":"image/i5s.png",
+			"brand":"苹果",
+			"name":"iphone 5",
+			"version":"国行",
+			"color":"金色",
+			"storage":"16GB",
+			"code":"xxxxx099999"
+		},
+		{
+			"orderTime":"2015-09-22 20:35:05",
+			"cate":"回收订单",
+			"orderDetail":"回收完成",
+			"price":3000,
+			"pic":"image/i5s.png",
+			"brand":"苹果",
+			"name":"iphone 5",
+			"version":"国行",
+			"color":"金色",
+			"storage":"16GB",
+			"code":"xxxxxx99999"
+		}	
+	]
+}

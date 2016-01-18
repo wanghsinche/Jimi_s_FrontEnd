@@ -20,7 +20,7 @@
 <span ng-if="uaData.ispc==false" class="opt-label"></span>								
 <div class="view-row">
 <div ng-if="uaData.ispc==false" class="view-row-price view-row-price-down">
-	<h2>原价  ￥{{opt.oripri}}</h2>
+	<h2>原价  ￥<strike>{{opt.oripri}}</strike></h2>
 	<div><span class="view-price-title">合计  </span><span class="view-price">￥{{good===''?'--':num*good.price}}</span></div>	
 </div>
 <button ng-disabled="!checkPrice()" ng-click="comfirm()" class="btn-pill comfirm-btn">确认下单</button>

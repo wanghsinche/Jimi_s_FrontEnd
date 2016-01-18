@@ -6,161 +6,163 @@
 	display: block;
 	width: 100%;
 	text-align: center;
-}
-.top-left{
-	display: inline-block;
-	position: relative;
-	vertical-align: middle;
-	max-width: 500px;
-	&:after{//for img vertical-middle
-		content: "";
-		display:inline-block;
-		height: 100%;
+	.top-left{
+		display: inline-block;
+		position: relative;
 		vertical-align: middle;
+		max-width: 500px;
+		&:after{//for img vertical-middle
+			content: "";
+			display:inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+		img{
+			vertical-align: middle;
+		}
 	}
-	img{
-		vertical-align: middle;
-	}
+	.top-right{
+		display: inline-block;
+		position: relative;
+		vertical-align: middle;	
+		max-width: 500px;
+		margin-left: 6%;
+		text-align: left;
+		.view-row{
+			display: block;
+			position: relative;
+			width: 100%;
+			margin: 1em 0 1em 0; 
+			h1{
+				margin: 0;
+				font-size:2em;
+			}
+			.view-row-price{
+				background: @greyColor + 10;
+				margin: 16px 0 16px 0;
+				h2{
+					margin-bottom: 0;
+					padding-left: 0.5em;
+					padding-top: 0.5em;
+					font-size: 1em;
+				}
+				&>div{
+					color:@blueColor;
+					padding-left: 0.5em;
+				}
+				.view-price.title{
+					vertical-align: middle;
+					font-size: 1em;
+				}
+				.view-price{
+					vertical-align: middle;
+					font-size: 2em;
+				}
+			}
+			.opt-label{
+				padding: 1em;
+				text-align: center;
+				font-size: 1em;
+				line-height: 100%;
+						}
+		}				
+	}	
 }
-.top-right{
-	display: inline-block;
-	position: relative;
-	vertical-align: middle;	
-	max-width: 500px;
-	margin-left: 6%;
-	text-align: left;		
-}
-.view-row{
-	display: block;
-	position: relative;
-	width: 100%;
-	margin: 1em 0 1em 0; 
-	h1{
-		margin: 0;
-		font-size:2em;
-	}
-}
-.view-row-price{
-	background: @greyColor + 10;
-	margin: 16px 0 16px 0;
-	h2{
-		margin-bottom: 0;
-		padding-left: 0.5em;
-		padding-top: 0.5em;
-		font-size: 1em;
-	}
-	&>div{
-		color:@blueColor;
-		padding-left: 0.5em;
-	}
-	.view-price.title{
-		vertical-align: middle;
-		font-size: 1em;
-	}
-	.view-price{
-		vertical-align: middle;
-		font-size: 2em;
-	}
-}
-.opt-label{
-	padding: 1em;
-	text-align: center;
-	font-size: 1em;
-	line-height: 100%;
-}
-.change-num{
-	text-align: center;
-	height: 1.5em;
-	width: 1.5em;
-	margin: 0 8px 0 8px;
-	font-size: 1.2em;
-	background: @backgroundColor;
-	color: @greyColor - 50;
-	border: 1px solid @greyColor;
-	.rounded-corners(50%);
-	cursor: pointer;
+.tabview{
+	.tab-show{
+		//@detail-view
+		.detail-top{
+			border-bottom: 1px solid @greyColor;
+			.detail-item{
+				display: inline-block;
+				width: 25%;
+				margin: 1% 12% 1% 12%;
+			}
+		}
+		.detail-bottom{
+			display: block;
+			width: 100%;
+			max-width: 800px;
+			margin: auto;
+		}
+		//@comment-view
+		.comment-item{
+			display: block;
+			position: relative;
+			width: 100%;
+			border-bottom:1px solid @greyColor;	
+			.comment-left{
+				display: inline-block;
+				vertical-align: middle; 
+				&:after{//for img vertical-middle
+					content: "";
+					display: inline-block;
+					height: 100%;
+					vertical-align: middle;
+				}
+				img{
+					vertical-align: middle;
+					border-radius: 50%;
+				}
+			}
+			.comment-right{
+				display: inline-block;
+				position: relative;
+				width: 70%;
+				vertical-align: middle;
+				&>div{
+					display: block;
+				}
+				.comment-right-info{
+					border-bottom:1px solid @greyColor; 
+					&>div{
+						font-size: 1.2em;
+						margin-top: 0.5em;
+						margin-bottom: 0.5em;
+						vertical-align: middle;
+					}
+					.comment-username{
+						display: inline-block;
+						width: 40%;
+						color:@blueColor;
+					}
+					.comment-time{
+						float:right;
+						color: @greyColor;
+					}		
+				}
+				.comment-right-content{
+					.comment-star{
+						position: relative;
+						margin-top: 0.5em;
+						margin-bottom: 0.5em;	
+						.comment-star-item{
+							display: inline-block;
+							width: 32%;
+							color: @greyColor;
+							span{
+								font-size: 1.2em;
+								color: @orangeColor;
+							}
+						}
+					}
+					.comment-text{
+						margin-top: 0.8em;
+						margin-bottom: 0.8em;
+						font-size: 1.2em;
+						word-wrap: break-word;
+					}
+				}		
+			}
+		}
+	}	
 }
 
-.detail-top{
-	border-bottom: 1px solid @greyColor;
-}
-.detail-item{
-	display: inline-block;
-	width: 25%;
-	margin: 1% 12% 1% 12%;
-}
-.detail-bottom{
-	display: block;
-	width: 100%;
-	max-width: 800px;
-	margin: auto;
-}
-.comment-item{
-	display: block;
-	position: relative;
-	width: 100%;
-	border-bottom:1px solid @greyColor;	
-}
-.comment-right{
-	display: inline-block;
-	position: relative;
-	width: 70%;
-	vertical-align: middle;
-	&>div{
-		display: block;
-	}
-}
-.comment-right-info{
-	border-bottom:1px solid @greyColor; 
-	&>div{
-		font-size: 1.2em;
-		margin-top: 0.5em;
-		margin-bottom: 0.5em;
-		vertical-align: middle;
-	}
-}
-.comment-username{
-	display: inline-block;
-	width: 40%;
-	color:@blueColor;
-}
-.comment-time{
-	float:right;
-	color: @greyColor;
-}
-.comment-star{
-	position: relative;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;	
-}
-.comment-star-item{
-	display: inline-block;
-	width: 32%;
-	color: @greyColor;
-	span{
-		font-size: 1.2em;
-		color: @orangeColor;
-	}
-}
-.comment-right-content{
-}
-.comment-text{
-	margin-top: 0.8em;
-	margin-bottom: 0.8em;
-	font-size: 1.2em;
-	word-wrap: break-word;
-}
-.comment-left{
-	display: inline-block;
-	vertical-align: middle; 
-	&:after{//for img vertical-middle
-		content: "";
-		display: inline-block;
-		height: 100%;
-		vertical-align: middle;
-	}
-	img{
-		vertical-align: middle;
-		border-radius: 50%;
-	}
-}
+
+
+
+
+
+
+
+

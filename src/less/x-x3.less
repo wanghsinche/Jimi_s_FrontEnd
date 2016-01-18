@@ -1,12 +1,26 @@
 @import 'x-layout.less';
 @import 'x3-common.less';
+
 @media (max-width: 800px) {
+	//x-order-view
 	.order-row{
 		padding-left: 1em;
 		border-top: 1em solid @greyColor + 30;
 		// border-bottom: 30px solid @greyColor;
 		div{
 			vertical-align: middle;
+		}
+		&>h3{
+			width: 100%;
+			margin: 0;
+
+		}
+		&>.btn-pill{
+			width: 30%;
+			margin: 0.5em 0.5em 0.5em 0;
+		}
+		&>button{
+			margin-top: 15px;
 		}
 		.right{
 			display: inline-block;
@@ -26,70 +40,69 @@
 				margin: 0.5em 0 0 0;
 				color: @greyColor;
 			}
-		}
-		&>h3{
-			width: 100%;
-			margin: 0;
-
-		}
-		&>.btn-pill{
-			width: 30%;
-			margin: 0.5em 0.5em 0.5em 0;
-		}
-		&>button{
-			margin-top: 15px;
-		}
-		
-	}
-	.userinfo{
-		display: inline-block;
-		width: 90%;
-		height: 100%;
-		font-size: 1.2em;
-		.name-phone{
+		}		
+		.userinfo{
 			display: inline-block;
-			width: 48%;
+			width: 90%;
+			height: 100%;
+			font-size: 1.2em;
+			.name-phone{
+				display: inline-block;
+				width: 48%;
+			}
+			.location{
+				// width: 48%;
+				color:@greyColor;
+				word-wrap: break-word;
+			}
 		}
-		.location{
-			// width: 48%;
-			color:@greyColor;
-			word-wrap: break-word;
-		}
-	}
-	.order-row{
+		.chose-contact-btn{
+			display: inline-block;
+			width: 5%;
+			// float: right;
+			height: 100%;
+			// margin: 0;
+			font-size: 2em;
+			a{
+				color: @greyColor;
+			}
+			vertical-align: middle;
+		}		
 		.price-row{
-			text-align: left;
+			text-align: right;
 			span{
 			}
 			.title{
-
+				float:left;
+				text-align: left;
+				font-size: 1em;
 			}
 			.value{
-				float:right;
+				width: 7em;
+				margin-right: 1em;
 			}
 			select{
 				
 			}
 			.comfirm-btn{
+				display: block;
+				height: 2em;
+				width: 100%;
+				margin: 0;
+
 			}
 			.price-total{
-				
+				margin-right: 0.5em;
 			}
-		}			
+		}	
 	}
-
-	.chose-contact-btn{
-		display: inline-block;
-		width: 5%;
-		// float: right;
-		height: 100%;
-		// margin: 0;
-		font-size: 2em;
-		a{
-			color: @greyColor;
-		}
-		vertical-align: middle;
-	}
+	.comfirm-row{
+		.comfirm-btn{
+			width: 100%;
+			margin: 0;
+		}		
+	}	
+	//x-chooseContact-view
 	.chose-item{
 		width: 100%;
 		padding: 0.5em 0 0 0.5em;
@@ -156,20 +169,10 @@
 			}
 		}
 	}
-	.comfirm-row{
-		.comfirm-btn{
-				width: 100%;
-				margin: 0;
-
-			}		
-		}
+	//x-addContact-view
 	.ui-sites{
 		margin: 2em 0 3em 0;
 		position: relative;
-
-		// .rounded-corners (10px);
-		// border-left: 0.3em solid @greyColor + 30;
-		// border-right: 0.3em solid @greyColor + 30;
 		font-size: 1.2em;		
 		&::before,&::after{
 			content: "";
@@ -206,5 +209,71 @@
 			}
 		}
 
-	}	
+	}
+	//x-hongbao-view
+	.tabview{
+		.tab-show{
+			.hongbao{
+				// text-align: center;
+				.item{
+					position: relative;
+					max-width: 300px;
+					padding-left: 30px;
+					margin:0 auto 1em auto;
+					&.active{
+						background: url('@{image}/xuanze.png') 0% 50% no-repeat ;
+						background-size: 25px;
+					}
+					.left,.right{
+						display: inline-block;
+						// height: 130px;
+						vertical-align: middle;
+					}
+					&.used{
+						*{color:@greyColor !important;}
+					}
+					.left{
+						width: 30%;
+						text-align: center;
+						color:@blueColor;
+						span{
+							vertical-align: bottom;
+							&.large{
+								font-size: 1.5em;
+							}
+							&.small{
+								font-size: 1em;
+							}
+						}
+					}
+					.right{
+						width: auto;
+						h1,h2,h3{
+							margin: 1em 0 0 0;
+							font-size: 0.8em;
+							font-weight: normal;
+						}
+						h2{
+							color:@greyColor;
+						}
+					}
+				}		
+			}
+			.pager{
+				float: right;
+				.btn-pager{
+					vertical-align: middle;
+					margin: 0.3em;
+					border: 1px solid @blueColor;
+					color:@blueColor;
+					background: none;
+					cursor: pointer;
+					&.active{
+						color:@backgroundColor;
+						background: @blueColor;
+					}
+				}	
+			}
+		}		
+	}
 }

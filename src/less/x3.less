@@ -1,6 +1,7 @@
 @import 'layout.less';
 @import 'x3-common.less';
 @media (min-width: 800px) {
+	//@pc-view
 	.subtitle{
 		width: 89%;
 		margin: 1.5em auto 1em auto; 
@@ -12,133 +13,135 @@
 		width: 89%;
 		margin: auto;
 		border: 1px solid @greyColor;
-	}
-	.info-item{
-		margin: 0em 1em 0 1em;
-		h2{
-			margin: 1em 0 1em 0;
-			font-size: 1em;
-			a{
-				float: right;
-				color: @blueColor;
-				font-size: 0.8em;
+		.info-item{
+			margin: 0em 1em 0 1em;
+			h2{
+				margin: 1em 0 1em 0;
+				font-size: 1em;
+				a{
+					float: right;
+					color: @blueColor;
+					font-size: 0.8em;
+				}
 			}
-		}
-		.more{
-			width: 100%;
-			text-align: center;
-			a{
-				line-height: 2em;
-				color:@greyColor;
+			.more{
+				width: 100%;
+				text-align: center;
+				a{
+					line-height: 2em;
+					color:@greyColor;
+				}
 			}
-		}
-		&.border-bottom{
-			border-bottom:1px solid @greyColor; 
+			&.border-bottom{
+				border-bottom:1px solid @greyColor; 
+			}
+			.info-row{
+				display: block;
+				position: relative;
+				margin: 0.5em 0 0 1em;
+				>div{
+					position: relative;
+					display: inline-block;
+					margin: 0;
+					vertical-align: middle;
+				}
+				button{
+					height: 2em;
+					width: 6em;
+					// margin: 0 3em 0 3em 0;
+					font-size: 1.2em;
+					color: @greyColor;
+				}
+				h3{
+					display: inline-block;
+					margin: 0 0 0 2em;
+					color: @greyColor;
+				}
+				.info-row-left{
+					width: 55%;
+					h3{
+						width: 100%;
+						margin: 0;
+
+					}
+					button{
+						margin-top: 15px;
+					}
+				}
+				.info-row-right{
+					width: 40%;
+					background: @greyColor + 30;
+					.right{
+						display: inline-block;
+						padding: 10px 0px 10px 20px;
+						vertical-align: middle;
+					}
+					.left{
+						display: inline-block;
+						vertical-align: middle;
+						div{
+							font-size: 1.8em;
+							margin: 20px 0 0 15px;
+						}
+						h3{
+							margin: 15px 0 15px 15px;
+							color: @greyColor;
+						}
+					}
+				}				
+			}
 		}		
 	}
-}
-.info-row{
-	display: block;
-	position: relative;
-	margin: 0.5em 0 0 1em;
-	>div{
-		position: relative;
-		display: inline-block;
-		margin: 0;
-		vertical-align: middle;
-	}
-	button{
-		height: 2em;
-		width: 6em;
-		// margin: 0 3em 0 3em 0;
-		font-size: 1.2em;
-		color: @greyColor;
-	}
-	h3{
-		display: inline-block;
-		margin: 0 0 0 2em;
-		color: @greyColor;
-	}
-}
-.info-row-left{
-	width: 55%;
-	h3{
-		width: 100%;
-		margin: 0;
 
-	}
-	button{
-		margin-top: 15px;
-	}
-}
-.info-row-right{
-	width: 40%;
-	background: @greyColor + 30;
-	.right{
-		display: inline-block;
-		padding: 10px 0px 10px 20px;
-		vertical-align: middle;
-	}
-	.left{
-		display: inline-block;
-		vertical-align: middle;
-		div{
-			font-size: 1.8em;
-			margin: 20px 0 0 15px;
+
+	.module-window.module-addcontact{
+			width: 700px;
+			padding: 20px;
+			margin-left:-350px;
+			h1{
+				margin: 0;
+				color:@orangeColor;
+				font-size: 0.8em;
+			}
+			.module-row{
+				width: 100%;
+				margin: 2.5% 0 0 2%;
+				font-size: 1.2em;
+				span{
+					 display: inline-block;
+					 width: 15%;
+					 vertical-align: middle;
+				}
+				input,select{
+					width: 180px;
+					height: 2em;
+					vertical-align: middle;
+					font-size: 1em;
+					padding: 0.2em; 
+				}
+				select{
+					width:150px;
+					margin-right:2%;
+				   background: transparent;
+				   padding-left: 5px;
+				   border: 1px solid #ccc;
+				   -webkit-appearance: none;
+				   -moz-appearance: none;
+				   appearance: none;
+				    background: url('@{image}/Triangle.png')  no-repeat 98% 50% #eee;
+
+				}	
+				textarea{
+			    	resize: none;
+			    	width: 490px;
+			    	height: 100px;
+				    padding: 1em;
+			   	}
+				.comfirm-btn{
+					font-size: 1em;
+					margin-left: 485px;
+				}
+			}
 		}
-		h3{
-			margin: 15px 0 15px 15px;
-			color: @greyColor;
-		}
-	}
-}
-.module-addcontact{
-	width: 700px;
-	padding: 20px;
-	margin-left:-350px;
-	h1{
-		margin: 0;
-		color:@orangeColor;
-		font-size: 0.8em;
-	}
 
-}
-.module-row{
-	width: 100%;
-	margin: 2.5% 0 0 2%;
-	font-size: 1.2em;
-	span{
-		 display: inline-block;
-		 width: 15%;
-		 vertical-align: middle;
-	}
-	input,select{
-		width: 180px;
-		height: 2em;
-		vertical-align: middle;
-		font-size: 1em;
-		padding: 0.2em; 
-	}
-	select{
-		width:150px;
-		margin-right:2%;
-	   background: transparent;
-	   padding-left: 5px;
-	   border: 1px solid #ccc;
-	   -webkit-appearance: none;
-	   -moz-appearance: none;
-	   appearance: none;
-	    background: url('@{image}/Triangle.png')  no-repeat 98% 50% #eee;
-
-	}	
-	textarea{
-    	resize: none;
-    	width: 490px;
-    	height: 100px;
-	    padding: 1em;
-   	}
-	.comfirm-btn{
-		font-size: 1em;
-		margin-left: 485px;
-	}
 }

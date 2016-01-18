@@ -4,7 +4,7 @@ requirejs(['common'],function(){
 		app.controller('xCtrl',['$scope','$rootScope','$state','dectServ','$window','$http','$anchorScroll',function($scope,$rootScope,$state,dectServ,$window,$http,$anchorScroll){
 			var dect=function(threshold){
 				var uaData=dectServ.getUA(800);
-				$scope.uaData=uaData;
+				$rootScope.uaData=uaData;
 				if(uaData.ispc===true){
 					$scope.cssprefix="";
 				}else{
@@ -78,7 +78,46 @@ requirejs(['common'],function(){
 				});				
 			};
 
-		}]);					
+		}]);
+		app.controller('allCtrl',['$scope','$rootScope','$window','$state','$http',function($scope,$rootScope,$window,$state,$http){
+			$rootScope.state=$state.current;
+			if ($rootScope.uaData.ispc===false) {
+				$state.go('doing');
+			}										
+			$http.get('json/x5-order-all.json')
+			.success(function(data){
+				$scope.orderLst=data.lst;
+				$scope.curr=data.curr;
+				$scope.allPage=data.allPage;
+			});
+			$scope.toPage=function(i){
+				$http.get('json/x5-order-all.json?page='+i)
+				.success(function(data){
+					$scope.orderLst=data.lst;
+					$scope.curr=data.curr;
+					$scope.allPage=data.allPage;
+				});				
+			};
+
+		}]);
+		app.controller('hongbaoCtrl',['$scope','$rootScope','$http','$state',function($scope,$rootScope,$http,$state){
+			$rootScope.state=$state.current;
+			$http.get('json/x5-hongbao.json')
+			.success(function(data){
+				$scope.hongbaoLst=data.lst;
+				$scope.curr=data.curr;
+				$scope.allPage=data.allPage;				
+			});
+			$scope.toPage=function(i){
+				$http.get('json/x5-hongbao.json?page='+i)
+				.success(function(data){
+					$scope.hongbaoLst=data.lst;
+					$scope.curr=data.curr;
+					$scope.allPage=data.allPage;
+				});				
+			};			
+											
+		}]);									
 		app.controller('doneCtrl',['$scope','$rootScope','$http','$state',function($scope,$rootScope,$http,$state){
 			$rootScope.state=$state.current;
 			$http.get('json/x5-order-done.json')
@@ -120,6 +159,19 @@ requirejs(['common'],function(){
 		  $urlRouterProvider.otherwise("/doing");		  
 		  // Now set up the states
 		  $stateProvider
+		    .state('all', {
+		      url: "/all",
+		      views:{
+		      	'tagview':{
+		      		templateUrl:'x5-module/orderLst.html',
+		      		controller:'allCtrl'
+		      	},
+		      	'hongbaoview':{
+		      		templateUrl:'x5-module/hongbaoLst.html',
+		      		controller:'hongbaoCtrl'
+		      	}
+		      }
+		    })
 		    .state('doing', {
 		      url: "/doing",
 		      views:{

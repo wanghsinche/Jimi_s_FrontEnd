@@ -4,31 +4,34 @@
 @media (min-width: 800px) {
 	.topview{
 		margin: 30px 0 30px 0;
+		.top-left{
+			width: 45%;
+			max-width: 382px;
+			border: 1px solid @greyColor;					
+			// img{
+			// border: 1px solid @greyColor;					
+			// }
+		}
+		.top-right{
+			width: 45%;
+			.view-row-price-down{
+				display: none;
+			}
+		}
 		
 	}
-	.top-left{
-		width: 45%;
-		max-width: 382px;
-		border: 1px solid @greyColor;					
-		// img{
-		// border: 1px solid @greyColor;					
-		// }
-	}
-	.top-right{
-		width: 45%;
-	}
-	.view-row-price-down{
-		display: none;
-	}
-
-	.comment-left{
-		position: relative;
-		width: 25%;
-		img{
-			max-width: 80px;
-			width: 100%;			
-			margin-left: 20%;
+	.tabview{
+		.tab-show{
+			.comment-left{
+				position: relative;
+				width: 25%;
+				img{
+					max-width: 80px;
+					width: 100%;			
+					margin-left: 20%;
+				}
+			}			
 		}
-	}			
+	}	
 }
 

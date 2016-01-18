@@ -1,0 +1,10 @@
+{
+	"curr":1,
+	"allPage":3,		
+	"lst":[
+		{"id":"333","name":"100元红包","price":100,"title":"手机修理代金券（满1000可用）","expr":"2015-11-12","available":true},
+		{"id":"335","name":"100元红包","price":100,"title":"手机修理代金券（满1000可用）","expr":"2015-11-12","available":false},
+		{"id":"331","name":"100元红包","price":100,"title":"手机修理代金券（满1000可用）","expr":"2015-11-12","available":true},
+		{"id":"332","name":"贴膜券","price":0,"title":"贴膜券","expr":"2016-3-8","available":true}		
+	]
+}

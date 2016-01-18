@@ -32,12 +32,19 @@
 
 	<div class="tabview">
 		<div class="tab-navi">
+			<a ui-sref="all" ng-if="uaData.ispc==true" ng-class="{'active':state.name=='all'}">全部订单</a>		
 			<a ui-sref="doing" ng-class="{'active':state.name=='doing'}">进行中</a>
 			<a ui-sref="done"ng-class="{'active':state.name=='done'}">已完成</a>
 			<a ui-sref="canceled"ng-class="{'active':state.name=='canceled'}">已取消</a>
 		</div>
 		<div class="tab-show" ui-view="tagview"></div>
 	</div>
+	<div class="tabview" ng-if="uaData.ispc==true&&state.name=='all'">
+		<div class="tab-navi">
+			<a class="active">红包</a>
+		</div>
+		<div class="tab-show" ui-view="hongbaoview"></div>
+	</div>	
 
 	<div ng-if="uaData.ispc==false" class="xfooter">
 		<div class="xnavi-item"><div><a href="">维修</a></div></div>

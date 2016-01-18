@@ -2,106 +2,126 @@
 @import 'x2-common.less';
 
 @media (max-width: 800px) {
-	.top-left{
-		width: 100%;
-	}
-	.top-right{
-		display: none;
-	}
-	.tabview{
-		width: 100%;
-		margin: 0;
-
-	}
-	.seperator{
-		line-height: 3em;
-		border-top:2px solid @xfooterBackgroundColor;
-		border-bottom:20px solid @xfooterBackgroundColor;  
-		text-align: center;
-		font-size: 1.2em;
-	}	
-	// .tab-navi{
-	// 	a{
-	// 		width: 32%;
-	// 		padding: 0.5em 0 0.5em 0;
-	// 		border: 0;
-	// 		font-size: 1.2em;
-	// 	}
-	// 	a.active{
-	// 		border-bottom:2px solid @orangeColor; 			
-	// 		color: @orangeColor;
-	// 	}
-	// }
-	.detail-item{
-		width: 100%;
-		margin-left: 0;
-		margin-right: 0;
-		padding-left: 10%;  	
-		font-size: 0.8em;			
-	}	
-	.comment-left{
-		width:20%;
-		text-align: center;
-		img{
-			max-width: 80px;
+	.top-view{
+		.top-left{
 			width: 100%;
 		}
-	}	
-	.comment-right-info{
-		&>div{
-			font-size: 0.8em;
-		}
-	}
-	.comment-star-item{
-		width: 30%;
-		font-size: 0.8em;
-		span{
-			font-size: 0.8em;
-		}
-	}			
-	.view-row{
-		margin: 0;
-		h1{
+		.top-right{
 			display: none;
 		}
 	}
-	.view-row-price-up{
-		display: none;
-	}
-	.opt-label{
-		display: block;
-		// width: 100%; a bug
-		padding: 1em;
-		background: @xfooterBackgroundColor;
-		color: @blueColor;
-		text-align: left;
-		font-size: 1em;
-		line-height: 100%;
-	}
-	.opt-pill{
-		margin-top: 1em;
-		margin-bottom: 1em;
-		width: 28%; 
-	}
-	.change-num{
-		margin-top: 1em;
-		margin-bottom: 1em; 
-	}
-	.view-row-price-down{
-		display: block;
+
+	.tabview{
+		width: 100%;
 		margin: 0;
-		background: @backgroundColor;
-		h2{
-			margin: 0;
+		.seperator{
+			line-height: 3em;
+			border-top:2px solid @xfooterBackgroundColor;
+			border-bottom:20px solid @xfooterBackgroundColor;  
+			text-align: center;
+			font-size: 1.2em;
 		}
-	}	
-	.comfirm-btn{
-	    display: block;
-	    height: 100%;
-	    width: 35%;
-	    margin: 0;
-	    position: absolute;
-	    top: 0;
-	    right: 0;
-	}			
+		.tab-show{
+			//@detail-view
+			.detail-item{
+				width: 100%;
+				margin-left: 0;
+				margin-right: 0;
+				padding-left: 10%;  	
+				font-size: 0.8em;			
+			}
+			//@comment-view
+			.comment-item{
+				.comment-left{
+					width:20%;
+					text-align: center;
+					img{
+						max-width: 80px;
+						width: 100%;
+					}
+				}
+				.comment-right{
+					.comment-right-info{
+						&>div{
+							font-size: 0.8em;
+						}
+
+					}
+					.comment-right-content{
+						.comment-star-item{
+							width: 30%;
+							font-size: 0.8em;
+							span{
+								font-size: 0.8em;
+							}
+						}						
+					}					
+				}					
+			}
+			//@choose-view
+			.view-row{
+				position: relative;
+				margin: 0;
+				h1{
+					display: none;
+				}
+				.view-row-price-up{
+					display: none;
+				}
+				.opt-label{
+					display: block;
+					// width: 100%; a bug
+					padding: 1em;
+					background: @xfooterBackgroundColor;
+					color: @blueColor;
+					text-align: left;
+					font-size: 1em;
+					line-height: 100%;
+				}
+				.opt-pill{
+					margin-top: 1em;
+					margin-bottom: 1em;
+					width: 28%; 
+				}
+				.change-num{
+					margin-top: 1em;
+					margin-bottom: 1em; 
+				}
+				.view-row-price-down{
+					display: block;
+					background: @backgroundColor;
+					margin:0;
+					h2{
+						padding-left: 0.5em;
+						padding-top: 0.5em;
+						margin: 0;
+						font-weight: normal;
+						font-size: 1em;
+						color:@greyColor;						
+					}
+					&>div{
+						color:@blueColor;
+						padding-left: 0.5em;
+					}
+					.view-price.title{
+						vertical-align: middle;
+						font-size: 1em;
+					}
+					.view-price{
+						vertical-align: middle;
+						font-size: 2em;
+					}					
+				}	
+				.comfirm-btn{
+				    display: block;
+				    height: 100%;
+				    width: 35%;
+				    margin: 0;
+				    position: absolute;
+				    top: 0;
+				    right: 0;
+				}						
+			}			
+		}
+	}
 }

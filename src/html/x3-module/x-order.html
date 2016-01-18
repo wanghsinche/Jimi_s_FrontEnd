@@ -9,12 +9,14 @@
 </div>
 <div class="order-row">
 	<div ng-if='currContact!==undefined' class="userinfo">
-		<div class="name-phone">{{currContact.name}}</div>
-		<div class="name-phone">{{currContact.phone}}</div>
-		<div class="location">{{currContact.location.p}}{{currContact.location.c}}{{currContact.location.d}}{{currContact.location.text}}</div>
+		<a ui-sref="chooseContact">
+			<div class="name-phone">{{currContact.name}}</div>
+			<div class="name-phone">{{currContact.phone}}</div>
+			<div class="location">{{currContact.location.p}}{{currContact.location.c}}{{currContact.location.d}}{{currContact.location.text}}</div>			
+		</a>
 	</div>
 	<div ng-if='currContact===undefined' class="userinfo">
-		<div class="location ">添加地址</div>
+		<a ui-sref="chooseContact"><div class="location ">添加地址</div></a>
 	</div>
 	<div ng-if='currContact===undefined'class="chose-contact-btn"><a ui-sref="addContact">&gt;</a></div>
 	<div ng-if='currContact!==undefined'class="chose-contact-btn"><a ui-sref="chooseContact">&gt;</a></div>
@@ -35,12 +37,13 @@
 	</div>
 	<div class="price-row">
 		<span class="title">红包</span>
-		<select class="value" name="" id="" ng-model="hongBao"  ng-change="totalPrice=info.detail.price*info.detail.num-hongBao;">
+		<a ui-sref='hongbao.available'><span class="value">{{hongBao.name}}&gt;</span></a>
+<!-- 		<select class="value" name="" id="" ng-model="hongBao"  ng-change="totalPrice=info.detail.price*info.detail.num-hongBao;">
 			<option value="{{i}}" ng-repeat="i in info.hongbao">{{i}}</option>
-		</select>
+		</select> -->
 	</div>
-	<div class="price-row">
-		<span class="price-total">合计￥{{totalPrice}}</span>
+	<div class="price-row clearfix">
+		<span class="price-total">合计￥{{info.detail.price*info.detail.num-hongBao.price}}</span>
 	</div>	
 </div>	
 <div class="comfirm-row">

@@ -1,0 +1,20 @@
+<div class="view-item hongbao"> 
+	<div class="item" ng-class="{'active':i===hongBao,'used':i.available==false}"ng-repeat="i in hongbaoLst" ng-click="useHongBao(i)">
+		<div class="left">
+			<span class="large">{{i.price!==0?i.price:i.title}}</span>
+			<span class="small">{{i.price!==0?"元":""}}</span>
+		</div>
+		<div class="right">
+			<h1>{{i.title}}</h1>
+			<h2>使用时请出示商家</h2>
+			<h3>有效期至：{{i.expr}}</h3>
+		</div>
+	</div>
+</div>
+<div class="view-item clearfix noborder">
+	<div class="pager">
+		<button class="btn-pager btn-pre" ng-click="toPage(curr-1)" ng-class="{'disabled':curr==1}"ng-disabled="curr==1">&#9664;</button>
+		<button class="btn-pager" ng-class="{'active':$index+1==curr,'disabled':curr==$index+1}" ng-click="toPage($index+1)" ng-disabled="curr==$index+1" ng-repeat="i in getNumber(allPage) track by $index">{{$index+1}}</button>
+		<button class="btn-pager btn-next" ng-class="{'disabled':curr==allPage}" ng-click="toPage(curr+1)" ng-disabled="curr==allPage">&#9654;</button>
+	</div>
+</div>

@@ -1,0 +1,8 @@
+<div class="tabview" >
+	<div class="tab-navi">
+		<a ng-class="{'active':state.name==='hongbao.available'}" ui-sref="hongbao.available">可用红包</a>
+		<a ng-class="{'active':state.name==='hongbao.history'}" ui-sref="hongbao.history">历史红包</a>
+	</div>
+	<div class="tab-show" ui-view="hongbaoView">
+	</div>
+</div>	

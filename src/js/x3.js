@@ -54,6 +54,7 @@ requirejs(['common'],function(){
 			};
 		}]);   
 		app.controller('xCtrl',['$scope','$rootScope','dectServ','contactServ','$window','$http','$state',function($scope,$rootScope,dectServ,contactServ,$window,$http,$state){
+			console.log('init');
 			var dect=function(threshold){
 				var uaData=dectServ.getUA(800);
 				$scope.uaData=uaData;
@@ -70,7 +71,6 @@ requirejs(['common'],function(){
 			};
 			
 			$rootScope.title="确认下单";
-			$scope.hongBao=0;
 			var sliceContact=function(lenght){
 				$scope.contact_f=$rootScope.contact===undefined?[]:$rootScope.contact.slice(0,lenght);
 			};
@@ -79,7 +79,7 @@ requirejs(['common'],function(){
 				contactServ.getInfo(function(data){
 					$rootScope.info=data;
 					$rootScope.currPosttime=data.posttime[0];
-					$scope.getTotalPrice();				
+					$rootScope.hongBao={'id':'000','name':'不使用红包',"price":0,"title":"不使用红包","expr":"2116-3-8","available":true};
 				});				
 			}
 			//get contact when it is first time load controller
@@ -113,12 +113,10 @@ requirejs(['common'],function(){
 			$scope.switchAddContact=function(flag){
 				$scope.addContactFlag=flag;
 			};
-			$scope.useHongBao=function(i){
-				$scope.hongBao=i;
-				$scope.getTotalPrice();
-			};
+
 			$scope.getTotalPrice=function(){
-				$scope.totalPrice=$scope.info.detail.price*$scope.info.detail.num-$scope.hongBao;
+				console.log('run total');
+				$rootScope.totalPrice=$rootScope.info.detail.price*$rootScope.info.detail.num-$rootScope.hongBao.price;
 			};
 			$scope.logvalue=function(){
 				console.log($scope.value);
@@ -130,7 +128,7 @@ requirejs(['common'],function(){
 				var contact=$scope.currContact;
 				var postTime=$scope.currPosttime;
 				//it should be post
-				$http.get('json/x3-postOrder.json',{id:id,num:num,hongBao:hongBao,postTime:postTime,contactName:contact.name,contactPhone:contact.phone,contactLocation:contact.location})
+				$http.get('json/x3-postOrder.json',{id:id,num:num,hongBao:hongBao.id,postTime:postTime,contactName:contact.name,contactPhone:contact.phone,contactLocation:contact.location})
 				.success(function(data){
 					// if (data==="success") {
 						$window.location.replace('/x4.html?code='+data);
@@ -207,7 +205,40 @@ requirejs(['common'],function(){
 			}						
 
 		}]);
-
+		app.controller('hongbaoCtrl',['$scope','$rootScope','$http','$state',function($scope,$rootScope,$http,$state){
+			$rootScope.state=$state.current;
+			$rootScope.title="选择红包";	
+			var type='';
+			switch($state.current.name){
+				case 'hongbao.available':
+				type='available';
+				break;
+				case 'hongbao.history':
+				type='history';
+				break;
+			}
+			$scope.useHongBao=function(i){
+				$rootScope.hongBao=i;
+				console.log(i);
+			};			
+			$scope.getNumber = function(num) {
+		        return new Array(num);   
+		    };
+			$http.get('json/x5-hongbao.json?type='+type)
+			.success(function(data){
+				$scope.hongbaoLst=data.lst;
+				$scope.curr=data.curr;
+				$scope.allPage=data.allPage;				
+			});
+			$scope.toPage=function(i){
+				$http.get('json/x5-hongbao.json?'+'?type='+type+'&page='+i)
+				.success(function(data){
+					$scope.hongbaoLst=data.lst;
+					$scope.curr=data.curr;
+					$scope.allPage=data.allPage;
+				});				
+			};									
+		}]);	
 		app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
 		  $urlRouterProvider.otherwise("/order");		  
 		  // Now set up the states
@@ -230,6 +261,33 @@ requirejs(['common'],function(){
 		      	},
 		      }
 		    })
+		    .state('hongbao', {
+		      	url: "/hongbao",
+		    	views:{
+		    		'xView':{
+		    			templateUrl:'x3-module/x-hongbao.html',
+		    			controller:'hongbaoCtrl'
+		    		},
+		    	}		      
+		    })
+		    .state('hongbao.available',{
+		    	url:"/available",
+		    	views:{
+		    		'hongbaoView':{
+		    			templateUrl:'x5-module/hongbaoLst.html',
+		    			controller:'hongbaoCtrl'
+		    		}
+		    	}
+		    })
+		    .state('hongbao.history',{
+		    	url:"/history",
+		    	views:{
+		    		'hongbaoView':{
+		    			templateUrl:'x5-module/hongbaoLst.html',
+		    			controller:'hongbaoCtrl'
+		    		}
+		    	}
+		    })		    	    
 		    .state('chooseContact', {
 		      url: "/chooseContact",
 		      views:{
