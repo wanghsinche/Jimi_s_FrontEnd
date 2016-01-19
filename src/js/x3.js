@@ -93,8 +93,15 @@ requirejs(['common'],function(){
 					}
 				});				
 			}						
+			//get hongbaoLst when it is pc
+			if ($scope.uaData.ispc===true) {
+				$http.get('json/x5-hongbao.json?type=available')
+				.success(function(data){
+					$scope.hongbaoLst=data.lst;				
+				});			
+			}	
 
-			
+
 			$scope.addContactFlag=false;
 			// sliceContact(3);
 			$scope.setContact=function(i){
@@ -113,14 +120,9 @@ requirejs(['common'],function(){
 			$scope.switchAddContact=function(flag){
 				$scope.addContactFlag=flag;
 			};
-
-			$scope.getTotalPrice=function(){
-				console.log('run total');
-				$rootScope.totalPrice=$rootScope.info.detail.price*$rootScope.info.detail.num-$rootScope.hongBao.price;
-			};
-			$scope.logvalue=function(){
-				console.log($scope.value);
-			};
+			$scope.useHongBao=function(i){
+				$rootScope.hongBao=i;
+			};	
 			$scope.postOrder=function(){
 				var id=dectServ.getParameterByName('id');
 				var num=dectServ.getParameterByName('num');

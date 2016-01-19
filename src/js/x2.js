@@ -27,9 +27,8 @@ requirejs(['common'],function(){
 				$rootScope.opt=data.opt;
 				$rootScope.info=data.info;
 			});
-			$scope.ok=function(){
-				console.log('ok');
-			};
+			$rootScope.title="购机详情";
+
 
 		}]);
 		app.controller('choseCtrl',['$scope','$rootScope','$window','$filter','$state',function($scope,$rootScope,$window,$filter,$state){

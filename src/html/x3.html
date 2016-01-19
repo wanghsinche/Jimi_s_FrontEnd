@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-controller="xCtrl">
+<html>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
@@ -9,46 +9,14 @@
 <meta content="email=no" name="format-detection">
 <title>机密+</title>
 </head>
-<body >
-	<div class="header clearfix">
-		<div ng-if="uaData.ispc==false" class="x-header left back-btn" back-button><a >&lt;</a></div>
-		<div ng-if="uaData.ispc==false" class="x-header center head-detail"><span>{{title}}</span></div>
-		<div ng-if="uaData.ispc==false" class="x-header right"><a href="#"></a></div>
-		<div ng-if="uaData.ispc==true" class="logo"><div class="pic-logo"><a href="/" ><img ng-src="/image/index.png" alt=""></a></div></div>
-		<div ng-if="uaData.ispc==true" class="navi">
-			<ul class="navi-ul">
-				<li class="navi-li"><a href="#1">首页</a></li>
-				<li class="navi-li"><a href="#2">维修</a></li>
-				<li class="navi-li"><a href="/recycle.html">回收</a></li>
-				<li class="navi-li active"><a href="#4">机密+</a></li>
-				<li class="navi-li"><a href="#5">下载APP</a></li>
-			</ul>
-		</div>
-		<div ng-if="uaData.ispc==true" class="user">
-			<div class="user-btn"><a href="#reg">注册</a></div>
-			<div class="user-btn"><a href="#log">登陆</a></div>
-		</div>
-	</div>
+<body ng-controller="xCtrl">
+	<div ng-if="uaData.ispc==true" ng-include="'public-Module/header.html'" class="header clearfix"></div>
+	<div ng-if="uaData.ispc==false&&uaData.ua!='unknow'" ng-include="'public-Module/x-header.html'" class="header clearfix"></div>
+
 	<div  ng-if="uaData.ispc==true" ng-include="'x3-module/order.html'"></div>
 	<div  ng-if="uaData.ispc==false" ui-view="xView"></div>
-
-	<div ng-if="uaData.ispc==false" class="xfooter">
-		<div class="xnavi-item"><div><a href="">维修</a></div></div>
-		<div class="xnavi-item active"><div><a href="">超值购机</a></div></div>
-		<div class="xnavi-item"><div><a href="">回收</a></div></div>
-	</div>	
-	<div ng-if="uaData.ispc==true" class="footer">
-		<ul class="footer-ul">
-			<li class="footer-li"><a href="#1">关于我们</a></li>
-			<li class="footer-li"><a href="#1">招贤纳士</a></li>
-			<li class="footer-li"><a href="#1">商家加盟</a></li>
-			<li class="footer-li"><a href="#1">服务条款</a></li>
-			<li class="footer-li"><a href="#1">帮助中心</a></li>
-			<li class="footer-li"><a href="#1">xxxx有限公司</a></li>
-			<li class="footer-li"><a href="#1">浙ICP备xxxxx号</a></li>
-			<li class="footer-li"><a href="#1">电话 000-00000</a></li>			
-		</ul>
-	</div>	
+	<div ng-if="uaData.ispc==true" ng-include="'public-Module/footer.html'" class="footer"></div>
+	
 	<link ng-href="{{'/css/'+cssprefix+'x3.css'}}" rel="stylesheet" >	
     <script data-main="js/x3" src="js/lib/require.js"></script>	
 </body>

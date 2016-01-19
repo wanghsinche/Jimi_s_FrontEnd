@@ -23,6 +23,7 @@ requirejs(['common'],function(){
 			$rootScope.getNumber = function(num) {
 		        return new Array(num);   
 		    };
+		    $rootScope.title="我的订单";
 		    $rootScope.cancelOrderDialog=false;
 		    $rootScope.currOrderCode='';
 		    $rootScope.switchCancelDialog=function(flag){

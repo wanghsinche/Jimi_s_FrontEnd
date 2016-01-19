@@ -4,7 +4,7 @@ define(['angular'],function(angular){
    
       return {
         getUA:function(threshold){
-            var data={ua:'unknow',ispc:true,width:800};          
+            var data={ua:'unknow',ispc:false,width:360};          
                 var screenWidth = $window.innerWidth;
                 if (screenWidth < threshold) {
                     data.ispc=false;
@@ -14,14 +14,16 @@ define(['angular'],function(angular){
                 data.width=screenWidth;
                 var userAgent = $window.navigator.userAgent;
 
-                    var browsers = {chrome: /chrome/i, safari: /safari/i, firefox: /firefox/i, ie: /internet explorer/i};
+                    var browsers = {chrome: /chrome/i, safari: /safari/i, firefox: /firefox/i, ie: /internet explorer/i, IEMobile:/IEMobile/i};
 
                     for(var key in browsers) {
                         if (browsers[key].test(userAgent)) {
-                      data.ua=key;
+                          data.ua=key;
+                          break;
                         }
                     }
                     return data;
+                    // return userAgent;
               },
         getParameterByName:function (name) {
               name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

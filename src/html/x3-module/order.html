@@ -38,12 +38,15 @@
 	</div>
 	<div class="price-row">
 		<span class="title">红包</span>
-		<select class="value"name="" id="" ng-model="hongBao"  ng-change="totalPrice=info.detail.price*info.detail.num-hongBao;">
-			<option value="{{i}}" ng-repeat="i in info.hongbao">{{i}}</option>
-		</select>
+		<div class="custom-dropdown">
+			<div class="dropdown-show">{{hongBao.name}}</div>
+			<ul>
+				<li ng-repeat="i in hongbaoLst" ng-click="useHongBao(i)">{{i.name}}</li>
+			</ul>
+		</div>
 	</div>
 	<div class="price-row">
-		<span class="price-total">合计￥{{totalPrice}}</span>
+		<span class="price-total">合计￥{{info.detail.price*info.detail.num-hongBao.price}}</span>
 		<button class="btn-pill comfirm-btn" ng-click="postOrder();">下单</button>	
 	</div>	
 </div>	

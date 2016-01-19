@@ -18,6 +18,7 @@ requirejs(['common'],function(){
 				dect(800);
 				$scope.$apply();
 			};	
+			$scope.title="订单详情";
 			var code=dectServ.getParameterByName('code');
 			//it should be post
 			$http.get('json/x6.json',{code:code})

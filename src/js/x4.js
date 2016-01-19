@@ -13,6 +13,7 @@ requirejs(['common'],function(){
 			};
 
 			dect(800);
+			$scope.title="支付";
 
 			$window.onresize=function(){
 				dect(800);
