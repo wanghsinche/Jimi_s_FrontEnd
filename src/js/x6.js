@@ -1,4 +1,4 @@
-requirejs(['common'],function(){
+requirejs(['common'],function(common){
 	requirejs(['angular','serv/browseContent'],function(angular){
 		var app=angular.module('x6App',['dectModule']);
 		app.controller('xCtrl',['$scope','dectServ','$window','$http',function($scope,dectServ,$window,$http){

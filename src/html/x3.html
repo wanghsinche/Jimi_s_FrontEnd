@@ -7,6 +7,8 @@
 <meta content="black" name="apple-mobile-web-app-status-bar-style">
 <meta content="telephone=no" name="format-detection">
 <meta content="email=no" name="format-detection">
+<link href="/css/x3.css" rel="stylesheet" media="screen and (min-width:800px)">	
+<link href="/css/x-x3.css" rel="stylesheet" media="screen and (max-width:800px)">	
 <title>机密+</title>
 </head>
 <body ng-controller="xCtrl">
@@ -17,7 +19,6 @@
 	<div  ng-if="uaData.ispc==false" ui-view="xView"></div>
 	<div ng-if="uaData.ispc==true" ng-include="'public-Module/footer.html'" class="footer"></div>
 	
-	<link ng-href="{{'/css/'+cssprefix+'x3.css'}}" rel="stylesheet" >	
     <script data-main="js/x3" src="js/lib/require.js"></script>	
 </body>
 </html>
