@@ -28,7 +28,7 @@
 		cursor: pointer;
 	}
 	.icon{
-		background: url('@{image}/pay.png') ;
+		background: url('@{image}/sprite.png') ;
 		background-size: 100%;
 	}		
 	.disabled{
@@ -77,6 +77,9 @@
 	.noborder{
 		border: 0 !important;
 	}
+	.blue{
+		color:@blueColor !important;
+	}
 	ul.rating {
 		display: inline-block;
 	    color: #a9a9a9;
@@ -96,74 +99,109 @@
 	    }
 	}
 
-
-		.header{
-			width: auto;
-			position: relative;
-			border-bottom: 1px solid @greyColor;
-			font-family: @fontFamily;		
-			.logo,.navi,.user{
-				display: inline-block;
-				vertical-align: middle;
-
+	.custom-dropdown{
+		position: relative;
+		width: 6em;
+		padding-right: 1em;
+		cursor: pointer;
+		// overflow: hidden;
+		.custom-show{
+			height: 100%;
+			width: 100%;
+		}
+		ul{
+			position: absolute;
+			display: none;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			border: 1px solid @greyColor;
+			.rounded-corners;
+			background: @backgroundColor;
+			&.active{
+				display: block;
+				z-index: 999;
 			}
-			.logo{
-				display: inline-block;
-				width: 14%;
-				.pic-logo{
-					text-align: center;
-				    // background: url("/image/index.png") no-repeat 50% 50%;
-				    // height: 80px;	
+			li{
+				padding: 0 1em 0 0;
+				margin: 0;
+				list-style: none;
+				&:hover{
+					background: @greyColor;
 				}
 			}
-			.navi{
-				display: inline-block;	
-				width: 73%;
-				.navi-ul{
-					display: block;
-					position: relative;
-					margin:0;
-					padding: 0;
-					.navi-li{
-						display: inline-block;
-						padding: 3% 6% 3% 6%;
-						list-style: none;
-						margin: 0;
-						a{
-							font-size: 1em;
-							color: @commonLinkColor;
-						}
-						&.active{
-							background-color: @activeBackgroundColor;
-							a{
-								color: @activeColor;
-							}
-						}
-					}
-				}
+		}
+	}
+
+	.header{
+		width: auto;
+		position: relative;
+		border-bottom: 1px solid @greyColor;
+		font-family: @fontFamily;		
+		.logo,.navi,.user{
+			display: inline-block;
+			vertical-align: middle;
+
+		}
+		.logo{
+			display: inline-block;
+			width: 14%;
+			.pic-logo{
+				text-align: center;
+			    // background: url("/image/index.png") no-repeat 50% 50%;
+			    // height: 80px;	
 			}
-			.user{
-				display: inline-block;	
-				margin-top: 30px;
-				width: 10%;
-				.user-btn{
+		}
+		.navi{
+			display: inline-block;	
+			width: 73%;
+			.navi-ul{
+				display: block;
+				position: relative;
+				margin:0;
+				padding: 0;
+				.navi-li{
 					display: inline-block;
+					padding: 3% 6% 3% 6%;
+					list-style: none;
+					margin: 0;
 					a{
-						font-size: 0.9em;
+						font-size: 1em;
 						color: @commonLinkColor;
 					}
+					&.active{
+						background-color: @activeBackgroundColor;
+						a{
+							color: @activeColor;
+						}
+					}
 				}
 			}
-			.x-header{
-				display: none;
+		}
+		.user{
+			display: inline-block;	
+			margin-top: 30px;
+			width: 10%;
+			.user-btn{
+				display: inline-block;
+				a{
+					font-size: 0.9em;
+					color: @commonLinkColor;
+				}
 			}
 		}
-		.xfooter{
+		.x-header{
 			display: none;
 		}
-		.footer{
-			display: block;
-		}
+	}
+	.xfooter{
+		display: none;
+	}
+	.footer{
+		display: block;
+	}
 	.tabview{
 		width: 90%;
 		margin: auto;	
@@ -172,13 +210,25 @@
 			border-bottom: 1px solid @greyColor;
 			a{
 				display: inline-block;
-				width: 10%;
+				position: relative;
+				min-width: 15%;
 				border-right:1px solid @greyColor; 
 				padding: 0.5em;
 				text-align: center;
 				font-size: 1.6em;
 				&.active{
 					color:@blueColor;
+					&:after{
+						content: ' ';
+						position: absolute;
+						display: block;
+						top: 0;
+						left: 50% - 4px;
+					    border-top:8px solid  @blueColor;
+					    border-bottom: 0;
+					    border-left: 8px solid transparent;
+					    border-right: 8px solid transparent;
+					}
 				}
 			}
 		}	

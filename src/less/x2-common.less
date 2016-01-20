@@ -37,19 +37,28 @@
 				margin: 0;
 				font-size:2em;
 			}
-			.view-row-price{
-				background: @greyColor + 10;
-				margin: 16px 0 16px 0;
-				h2{
-					margin-bottom: 0;
-					padding-left: 0.5em;
-					padding-top: 0.5em;
-					font-size: 1em;
-				}
-				&>div{
-					color:@blueColor;
-					padding-left: 0.5em;
-				}
+			.opt-label{
+				padding: 1em;
+				text-align: center;
+				font-size: 1em;
+				line-height: 100%;
+						}
+		}
+		.view-row-price{
+			background: @greyColor + 10;
+			margin: 16px 0 16px 0;
+			h2{
+				margin-bottom: 0;
+				padding-left: 0.5em;
+				padding-top: 0.5em;
+				font-size: 1em;
+				font-weight: normal;
+			}
+			h3{
+				margin: 0;
+				color:@blueColor;
+				padding-left: 0.5em;
+				font-weight: normal;
 				.view-price.title{
 					vertical-align: middle;
 					font-size: 1em;
@@ -59,13 +68,7 @@
 					font-size: 2em;
 				}
 			}
-			.opt-label{
-				padding: 1em;
-				text-align: center;
-				font-size: 1em;
-				line-height: 100%;
-						}
-		}				
+		}						
 	}	
 }
 .tabview{
@@ -76,7 +79,7 @@
 			.detail-item{
 				display: inline-block;
 				width: 25%;
-				margin: 1% 12% 1% 12%;
+				margin: 0.5em 12% 0.5em 12%;
 			}
 		}
 		.detail-bottom{
@@ -108,7 +111,7 @@
 			.comment-right{
 				display: inline-block;
 				position: relative;
-				width: 70%;
+				// width: 70%;
 				vertical-align: middle;
 				&>div{
 					display: block;

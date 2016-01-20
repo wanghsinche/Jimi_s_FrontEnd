@@ -16,9 +16,9 @@ requirejs(['common'],function(){
 				dect(800);
 				$scope.$apply();
 				//if pc is detected then transform 'chose' to 'detail'
-				if($scope.uaData.ispc===true&&$state.current.name==="chose"){
-					$state.go('detail');
-				}
+				// if($scope.uaData.ispc===true&&$state.current.name==="chose"){
+				// 	$state.go('detail');
+				// }
 			};
 			$rootScope.getNumber = function(num) {
 		        return new Array(num);   

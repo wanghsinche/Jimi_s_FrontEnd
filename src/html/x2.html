@@ -26,7 +26,7 @@
 		<div class="tab-navi">
 			<a ng-if="uaData.ispc==false" ui-sref="chose" ng-class="{'active':state.name=='chose'}">选购</a>
 			<a ui-sref="detail"ng-class="{'active':state.name=='detail'}">详情</a>
-			<a ui-sref="comment"ng-class="{'active':state.name=='comment'}">评论</a>
+			<a ui-sref="comment"ng-class="{'active':state.name=='comment'}">评论 <span class="num">{{info.commentNum}}</span></a>
 		</div>
 		<div class="tab-show" ui-view="tagview"></div>
 	</div>

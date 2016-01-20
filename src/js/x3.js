@@ -120,8 +120,13 @@ requirejs(['common'],function(){
 			$scope.switchAddContact=function(flag){
 				$scope.addContactFlag=flag;
 			};
+			$scope.dropdownActive=false;
+			$scope.switchDropdown=function(){
+				$scope.dropdownActive=!$scope.dropdownActive;
+			};
 			$scope.useHongBao=function(i){
 				$rootScope.hongBao=i;
+				$scope.switchDropdown();
 			};	
 			$scope.postOrder=function(){
 				var id=dectServ.getParameterByName('id');
@@ -221,7 +226,7 @@ requirejs(['common'],function(){
 			}
 			$scope.useHongBao=function(i){
 				$rootScope.hongBao=i;
-				console.log(i);
+				// $state.go('order');
 			};			
 			$scope.getNumber = function(num) {
 		        return new Array(num);   

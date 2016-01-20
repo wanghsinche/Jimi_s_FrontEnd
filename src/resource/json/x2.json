@@ -3,14 +3,15 @@
 		"pic":"image/i5s.png",
 		"oripri":"4000",
 		"name":"iphone 6",
-		"version":["DLGH","GH","MG"],
-		"color":["B","R","G"],
+		"version":["国行","美版","港版"],
+		"color":["黑色","白色","金色"],
 		"storage":["16","64","128"]	
 		},
 	"lst":[
-			{"version":"DLGH","color":"B","storage":"16","cateid":"23","price":1234},
-			{"version":"DLGH","color":"R","storage":"64","cateid":"24","price":1224},	
-			{"version":"MG","color":"G","storage":"128","cateid":"25","price":2234}
+			{"version":"国行","color":"黑色","storage":"16","cateid":"23","price":1234},
+			{"version":"国行","color":"白色","storage":"64","cateid":"24","price":1224},	
+			{"version":"美版","color":"金色","storage":"128","cateid":"25","price":2234},
+			{"version":"港版","color":"金色","storage":"128","cateid":"25","price":2234}
 	],
 	"info":{
 		"name":"iphone 6",
@@ -20,6 +21,7 @@
 		"system":"iOS",
 		"bigPics":[
 			"image/ip-big.jpg"
-		]
+		],
+		"commentNum":999
 	}
 }

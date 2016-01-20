@@ -10,13 +10,13 @@
 <div class="order-row">
 	<div ng-if='currContact!==undefined' class="userinfo">
 		<a ui-sref="chooseContact">
-			<div class="name-phone">{{currContact.name}}</div>
-			<div class="name-phone">{{currContact.phone}}</div>
+			<div class="name"><span class="icon"></span>{{currContact.name}}</div>
+			<div class="phone"><span class="icon"></span>{{currContact.phone}}</div>
 			<div class="location">{{currContact.location.p}}{{currContact.location.c}}{{currContact.location.d}}{{currContact.location.text}}</div>			
 		</a>
 	</div>
-	<div ng-if='currContact===undefined' class="userinfo">
-		<a ui-sref="chooseContact"><div class="location ">添加地址</div></a>
+	<div ng-if='currContact===undefined' class="userinfo addAddress">
+		<a ui-sref="chooseContact"><div class="location">添加地址</div></a>
 	</div>
 	<div ng-if='currContact===undefined'class="chose-contact-btn"><a ui-sref="addContact">&gt;</a></div>
 	<div ng-if='currContact!==undefined'class="chose-contact-btn"><a ui-sref="chooseContact">&gt;</a></div>
@@ -29,11 +29,11 @@
 <div class="order-row">
 	<div class="price-row">
 		<span class="title">原价</span>
-		<span class="value price-ori">{{info.detail.oripri}}</span>
+		<span class="value price-ori">￥{{info.detail.oripri}}</span>
 	</div>
 	<div class="price-row">
 		<span class="title">邮费</span>
-		<span class="value">{{info.detail.postfee}}</span>
+		<span class="value">￥{{info.detail.postfee}}</span>
 	</div>
 	<div class="price-row">
 		<span class="title">红包</span>

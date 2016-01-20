@@ -12,7 +12,9 @@
 		}
 		&>h3{
 			width: 100%;
-			margin: 0;
+			margin: 0 0 0.5em 0;
+			padding: 0.5em 0 0.5em 0;
+			border-bottom:1px solid @greyColor; 
 
 		}
 		&>.btn-pill{
@@ -46,14 +48,51 @@
 			width: 90%;
 			height: 100%;
 			font-size: 1.2em;
-			.name-phone{
+			&.addAddress:before{
+				content: "";
 				display: inline-block;
-				width: 48%;
+				vertical-align: middle;
+				height: 30px;
+				width: 30px;
+				background-size: 30px;
+				background-image: url('@{image}/sprite.png');
+				background-repeat: no-repeat;
+				background-position: 100% 34%;
 			}
+			&.addAddress{
+				text-align: center;
+				.location{
+					display: inline-block;
+					vertical-align: middle;
+					line-height: 3em;
+				}
+			}		
+			.name,.phone{
+				display: inline-block;
+				line-height: 1.5em;
+				width: 48%;
+				// .icon{
+				// 	display: inline-block;
+				// 	height: 1em;
+				// 	vertical-align: middle;
+				// 	width: 1em;
+				// }				
+			}
+			.name{
+				.icon{
+					background-position: 100% 72%;
+				}
+			}
+			.phone{
+				.icon{
+					background-position: 100% 49.15%;
+				}
+			}			
 			.location{
 				// width: 48%;
 				color:@greyColor;
 				word-wrap: break-word;
+				
 			}
 		}
 		.chose-contact-btn{
@@ -70,6 +109,8 @@
 		}		
 		.price-row{
 			text-align: right;
+			border-bottom:1px solid @greyColor; 
+			padding: 0.5em 0 0.5em 0;
 			span{
 			}
 			.title{

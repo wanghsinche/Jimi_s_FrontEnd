@@ -39,8 +39,8 @@
 	<div class="price-row">
 		<span class="title">红包</span>
 		<div class="custom-dropdown">
-			<div class="dropdown-show">{{hongBao.name}}</div>
-			<ul>
+			<div class="dropdown-show" ng-click="switchDropdown()">{{hongBao.name}}</div>
+			<ul ng-class="{'active':dropdownActive}">
 				<li ng-repeat="i in hongbaoLst" ng-click="useHongBao(i)">{{i.name}}</li>
 			</ul>
 		</div>

@@ -13,6 +13,7 @@
 		width: 89%;
 		margin: auto;
 		border: 1px solid @greyColor;
+		padding: 0 0 1em 0;
 		.info-item{
 			margin: 0em 1em 0 1em;
 			h2{
@@ -51,6 +52,9 @@
 					// margin: 0 3em 0 3em 0;
 					font-size: 1.2em;
 					color: @greyColor;
+					&.active{
+						color:@backgroundColor;
+					}
 				}
 				h3{
 					display: inline-block;
@@ -90,7 +94,19 @@
 					}
 				}				
 			}
-		}		
+
+		}
+		.order-row{
+			.price-row{
+				.custom-dropdown{
+					display: inline-block;
+					background: url('@{image}/Triangle.png')  no-repeat 98% 50% ;
+					.dropdown-show{
+					}
+					color: @orangeColor;
+				}					
+			}
+		}				
 	}
 
 

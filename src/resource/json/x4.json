@@ -8,7 +8,8 @@
 	"num":2,
 	"totalPrice":5000,
 	"oripri":4000,
-	"hongbao":20,
+	"hongbao":{"id":"333","name":"100元红包","price":100,"title":"手机修理代金券（满1000可用）","expr":"2015-11-12","available":true},
+
 	"postfee":10,
 	"ali":"http://www.taobao.com",
 	"weixin":"http://www.weixin.com"	

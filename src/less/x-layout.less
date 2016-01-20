@@ -14,11 +14,11 @@
 		cursor: pointer;
 		&.active{
 			background: @blueColor;
-			color:@backgroundColor;
+			color: @backgroundColor !important;
 		}
 	}
 	.icon{
-		background: url('@{image}/pay.png') ;
+		background: url('@{image}/sprite.png') ;
 		background-size: 100%;
 	}	
 	.change-num{
@@ -36,6 +36,9 @@
 	.disabled{
 			cursor: not-allowed !important;
 	}
+	.blue{
+		color:@blueColor !important;
+	}	
 	.comfirm-btn{
 		.rounded-corners(0);
 		height: 2.6em;
