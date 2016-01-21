@@ -31,12 +31,14 @@
 						vertical-align: middle;
 					}
 					.left{
+						
 						width: 6em;
 						text-align: center;
 						img{
 							width: 100%;
 							// height: 100%;
 						}
+
 					}
 					.right{
 						display: inline-block;
@@ -56,9 +58,23 @@
 			}
 			.x-time-row{
 				time{
+					position: relative;
+					padding-left: 30px;
 					line-height: 3em;
 					font-size: 0.8em;
 					color:@greyColor;
+					&:before{
+					    content: '';
+					    position: absolute;
+					    display: block;
+					    height: 25px;
+					    width: 25px;
+					    top: -5px;
+					    left: 0;
+					    background: url('/image/sprite.png') no-repeat;
+					    background-size: 25px;
+					    background-position: 00% 65%	
+					}
 				}
 				.custom-btn{
 					float: right;
@@ -75,15 +91,61 @@
 			width: 100%;
 		}
 		.express-title{
-			padding: 1em 0 1em 1em;
+			padding: 0.5em 0 0.5em 3em;
+			position: relative;
+			:before{
+			    content: '';
+			    position: absolute;
+			    display: block;
+			    height: 35px;
+			    width: 25px;
+			    top: calc(40% - 12.5px);
+			    left: 0.5em;
+			    background: url('/image/sprite.png') no-repeat;
+			    background-size: 25px;
+			    background-position: 00% 57%				
+			}
 			.left{			
 				width: 53%;
+				// .name{
+				// 	padding-left: 2em;
+				// 	position: relative;
+				// 	&:before{
+				// 		content: '';
+				// 		position: absolute;
+				// 		display: block;
+				// 		height: 25px;
+				// 		width: 25px;
+				// 		top:0;
+				// 		left: 0;
+				// 		background: url('@{image}/sprite.png') no-repeat;						
+				// 		background-size: 100%;
+				// 		background-position: 100% 72%;
+				// 	}
+				// }			
 			}
+			// .phone{
+			// 	padding-left: 25px;
+			// 	position: relative;
+			// 	&:before{
+			// 		content: '';
+			// 		position: absolute;
+			// 		display: block;
+			// 		height: 25px;
+			// 		width: 25px;
+			// 		top:0;
+			// 		left: 0;
+			// 		background: url('@{image}/sprite.png') no-repeat;						
+			// 	    background-size: 70% 900%;
+			// 	    background-position: 10% 83%;
+			// 	}
+			// }		
 			.left,.right{
 				display: inline-block;
 				vertical-align: top;
 				.item{
 					display: block;
+
 					margin-bottom: 0.5em;
 				}
 			}
@@ -117,7 +179,7 @@
 							font-weight: normal;
 						}
 						time{
-							font-size: 0.5em;
+							font-size: 0.8em;
 						}
 					}
 				}

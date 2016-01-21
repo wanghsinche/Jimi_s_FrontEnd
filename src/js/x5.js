@@ -82,9 +82,9 @@ requirejs(['common'],function(){
 		}]);
 		app.controller('allCtrl',['$scope','$rootScope','$window','$state','$http',function($scope,$rootScope,$window,$state,$http){
 			$rootScope.state=$state.current;
-			if ($rootScope.uaData.ispc===false) {
-				$state.go('doing');
-			}										
+			// if ($rootScope.uaData.ispc===false) {
+			// 	$state.go('doing');
+			// }										
 			$http.get('json/x5-order-all.json')
 			.success(function(data){
 				$scope.orderLst=data.lst;

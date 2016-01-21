@@ -72,23 +72,34 @@
 					}
 					.button-col{
 						width: 17%;
+						text-align: center;
+						&:before{
+							content: '';
+							display: inline-block;
+							height: 100%;
+							vertical-align: middle;
+						}
 						.custom-btn{
 							width: 6em;
 							height: 2em;
-							margin: 3em 0 0 3.5em;
+							// margin: 3em 0 0 3.5em;
 							border-color:@blueColor;
 							color: @blueColor;
 							font-size: 1em;
+							vertical-align: middle;
 						}					
 					}
 				}		 
 			}
 			.hongbao{
+				text-align: center;
 				.item{
 					display: inline-block;
 					position: relative;
-					width: 43%;
-					margin:0 0 1em 4%;
+					width: 440px;
+					margin:0 0 1em 1em;
+					background: url('@{image}/hongbao.png');
+					background-size:  100% 100%;
 					.left,.right{
 						display: inline-block;
 						// height: 130px;
@@ -96,10 +107,15 @@
 					}
 					&.used{
 						*{color:@greyColor !important;}
+						.right{
+							background: url('/image/used.png') no-repeat;
+						    background-position-x: 100%;
+						    background-size: auto 100%;
+						}
 					}
 					.left{
-						width: 38%;
-						text-align: center;
+						width: 145px;
+						// text-align: center;
 						color:@blueColor;
 						span{
 							vertical-align: bottom;
@@ -112,7 +128,7 @@
 						}
 					}
 					.right{
-						width: auto;
+						width: 250px;
 						h1,h2,h3{
 							margin: 1em 0 0 0;
 							font-size: 1em;
@@ -120,6 +136,9 @@
 						}
 						h2{
 							color:@greyColor;
+						}
+						h3{
+							margin: 1em 0 1em 0;
 						}
 					}
 				}

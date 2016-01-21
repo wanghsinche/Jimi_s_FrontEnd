@@ -37,7 +37,7 @@
 				</div>
 				<div class="right-row">
 					<span class="title">版本：</span>
-					<span class="value">{{i.version}}{{i.color}}{{i.storage}}</span>
+					<span class="value">{{i.version}}&nbsp;{{i.color}}&nbsp;{{i.storage}}</span>
 				</div>								
 			</div>
 		</div>
@@ -60,10 +60,10 @@
 	<div class="tab-show express-title">
 		<h1 ng-if="uaData.ispc==true">收货人</h1>
 		<div class="left">
-			<div class="item">{{express.contact.name}}</div>
+			<div class="item name">{{express.contact.name}}</div>
 			<div class="item">{{express.contact.location.p}}{{express.contact.location.c}}{{express.contact.location.d}}{{express.contact.location.text}}</div>
 		</div>
-		<div class="right">{{express.contact.phone}}</div>
+		<div class="right phone">{{express.contact.phone}}</div>
 	</div>
 	<div class="tab-show express-content">
 		<h1>物流跟踪</h1>

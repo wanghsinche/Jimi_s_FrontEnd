@@ -22,7 +22,7 @@
 	<div ng-if='currContact!==undefined'class="chose-contact-btn"><a ui-sref="chooseContact">&gt;</a></div>
 </div>
 <div class="order-row">
-	<h3>配送方式 {{info.way}}</h3>
+	<h3>配送方式&nbsp;<span>{{info.way}}</span></h3>
 	<button class="btn-pill" ng-click="setPosttime(i)" ng-class="{'active':i===currPosttime}" ng-repeat="i in info.posttime">{{i}}</button>	
 </div>
 
