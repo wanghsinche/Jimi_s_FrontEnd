@@ -13,6 +13,13 @@ requirejs(['common'],function(){
 						callback(data);
 					});
 				},
+				postDelContact:function(contact,callfinish){
+					$http.post('json/x3-deleteContact.json',{id:contact.id})
+					.success(function(data){
+						alert('删除成功');
+						callfinish(data);
+					});
+				},				
 				postNewContact:function(newContact,callfinish){
 					if(newContact.name===''||newContact.phone===''||newContact.text===''){
 						alert("information is not complete");
@@ -85,7 +92,7 @@ requirejs(['common'],function(){
 			//get contact when it is first time load controller
 			if ($rootScope.contact===undefined) {
 				contactServ.getContact(function(data){
-					$rootScope.contact=data.contact;
+					$rootScope.contact=data.lst;
 					// sliceContact(3);
 					//if user has set currcontact, don't rewrite currcontact
 					if ($rootScope.currContact===undefined) {
@@ -117,6 +124,18 @@ requirejs(['common'],function(){
 					$scope.contact_f=$rootScope.contact===undefined?[]:$rootScope.contact;
 				}
 			};
+			$scope.deleteContact=function(i){
+				contactServ.postNewContact(i,function(data){
+					contactServ.getContact(function(data){
+						$rootScope.contact=data.lst;
+						// sliceContact(3);
+						//if user has set currcontact, don't rewrite currcontact
+						if ($rootScope.currContact===undefined) {
+							$rootScope.currContact=data.contact[0];
+						}
+					});						
+				});
+			};
 			$scope.switchAddContact=function(flag){
 				$scope.addContactFlag=flag;
 			};
@@ -144,6 +163,7 @@ requirejs(['common'],function(){
 			};
 			$scope.$on('addevent',function(e,msg){
 				if(msg==='done'){$state.go('chooseContact');}
+				$scope.switchAddContact(false);
 			});
 			
 

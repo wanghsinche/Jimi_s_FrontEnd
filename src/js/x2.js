@@ -24,8 +24,8 @@ requirejs(['common'],function(){
 				// 	$state.go('detail');
 				// }
 			};
-			var id=dectServ.getParameterByName('id');
-			$http.get('json/x2.json?id='+id)//?id=id
+			$rootScope.id=dectServ.getParameterByName('id');
+			$http.get('json/x2.json?id='+$rootScope.id)//?id=id
 			.success(function(data){
 				$rootScope.lst=data.lst;
 				$rootScope.opt=data.opt;
@@ -96,8 +96,9 @@ requirejs(['common'],function(){
 				$scope.good=(finalLst!==undefined&&finalLst.length!==0)?finalLst[0]:'';
 				return $scope.good!=='';
 			};
+			//发送下单请求这里要修改的
 			$scope.comfirm=function(){
-				$window.location.replace('/x3.html?id='+$scope.good.id+'&num='+$scope.num);
+				$window.location.replace('/x3.html?cateid='+$scope.good.cateid+'&num='+$scope.num+'&id='+$rootScope.id);
 			};
 			$scope.addNum=function(add){
 				if(add){$scope.num++;}else{$scope.num--;}
