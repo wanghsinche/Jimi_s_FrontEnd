@@ -1,11 +1,10 @@
 @import 'x-layout.less';
 @import 'x3-common.less';
 
-@media (max-width: 800px) {
 	//x-order-view
 	.order-row{
-		padding-left: 1em;
-		border-top: 1em solid @greyColor + 30;
+		padding:0 1em 0 1em;
+		border-top: 1em solid @xgreyColor;
 		// border-bottom: 30px solid @greyColor;
 		div{
 			vertical-align: middle;
@@ -14,7 +13,7 @@
 			width: 100%;
 			margin: 0 0 0.5em 0;
 			padding: 0.5em 0 0.5em 0;
-			border-bottom:1px solid @greyColor; 
+			border-bottom:2px solid @xgreyColor; 
 			span{
 				color:@greyColor;
 				font-size: 0.8em;
@@ -76,6 +75,7 @@
 				position: relative;
 				line-height: 1.5em;
 				width: 48%;
+				margin: 0.5em 0 0.5em 0;
 				&:before{
 					content: '';
 					position: absolute;
@@ -110,6 +110,7 @@
 			}			
 			.location{
 				// width: 48%;
+				margin: 0 0 0.5em 0;
 				color:@greyColor;
 				word-wrap: break-word;
 				
@@ -129,7 +130,7 @@
 		}		
 		.price-row{
 			text-align: right;
-			border-bottom:1px solid @greyColor; 
+			border-bottom:2px solid @xgreyColor; 
 			padding: 0.5em 0 0.5em 0;
 			span{
 			}
@@ -140,7 +141,7 @@
 			}
 			.value{
 				width: 7em;
-				margin-right: 1em;
+				// margin-right: 1em;
 			}
 			select{
 				
@@ -167,10 +168,14 @@
 	.chose-item{
 		width: 100%;
 		padding: 0.5em 0 0 0.5em;
+		border-bottom:2px solid @xgreyColor;
+		&.addContact{
+			border-bottom:1em solid @xgreyColor;			
+		} 
 		// border-bottom: 1em solid @greyColor + 30;
 		.inner{
 			position: relative;
-			border-bottom: 1px solid @greyColor;
+			border-bottom: 2px solid @xgreyColor;
 			padding-left: 30px;
 			span{
 				display: inline-block;
@@ -197,8 +202,15 @@
 			}
 		}
 		.addContact{
-			border-bottom: 1px solid @greyColor;
-			padding: 5px 0 5px 0;
+			position: relative;
+			border-bottom: 2px solid @xgreyColor;
+			padding: 1em 0 1em 0;
+			// &.name{
+			// 	border-bottom: 2px solid @xgreyColor;
+			// }
+			// &.phone{
+			// 	border-bottom: 1em solid @xgreyColor;
+			// }			
 			span{
 				display: inline-block;
 				width: 4em;
@@ -217,14 +229,33 @@
 			// 	border: 0;
 			// }
 			.location-bar{
+
 				display: inline-block;
-				span{
-					height: 1.5em;
-					padding-left: 0.5em;
+				// width: 70%;
+				// span{
+				// 	height: 1.5em;
+				// 	padding-left: 0.5em;
+				// 	vertical-align: middle;
+				// 	overflow: hidden;
+				// 	background: @xgreyColor;
+				// }
+				select{
+					width:6em;
+					line-height: 1.6em;
+					@media @verySmall {
+						width: 5em;
+					}
+					// margin-right:2%;
 					vertical-align: middle;
-					overflow: hidden;
-					background: @greyColor + 30;
+				   background: transparent;
+				   padding-left: 5px;
+				   border: 1px solid #ccc;
+				   -webkit-appearance: none;
+				   -moz-appearance: none;
+				   appearance: none;
+				    background: url('@{image}/Triangle.png')  no-repeat 98% 50%;
 				}
+
 			}
 		}
 		&.add-contact-btn{
@@ -258,11 +289,11 @@
 		}
 		&::before{
 			top:0;
-			border-bottom: 1px solid @greyColor - 20;			
+			border-bottom: 2px solid @xgreyColor;			
 		}
 		&::after{
 			bottom: 0;
-			border-top: 1px solid @greyColor - 20;			
+			border-top: 2px solid @xgreyColor;			
 		}		
 		.ui-col{
 			display: inline-block;
@@ -289,10 +320,11 @@
 			.hongbao{
 				// text-align: center;
 				.item{
+					display: inline-block;
 					position: relative;
-					max-width: 300px;
+					width: 300px;
 					padding-left: 30px;
-					margin:0 auto 1em auto;
+					margin:0 0 1em 0;
 					// background: url('@{image}/hongbao.png');
 					// background-size: 167% 100%;
 					&.active::before{
@@ -314,8 +346,8 @@
 					&.used{
 						*{color:@greyColor !important;}
 						.right{
-							background: url('/image/hongbao.png');
-						    background-position-x: 100%;
+							background: url('/image/used.png') no-repeat;
+						    background-position-x: 50%;
 						    background-size: auto 100%;
 						}						
 					}
@@ -335,6 +367,7 @@
 					}
 					.right{
 						width: auto;
+						// text-align: center;
 						h1,h2,h3{
 							margin: 1em 0 0 0;
 							font-size: 0.8em;
@@ -366,4 +399,3 @@
 			}
 		}		
 	}
-}

@@ -1,0 +1,47 @@
+<div class="chose-item">
+	<div class=" addContact noborder">
+		<span>姓名</span>
+		<input type="text" ng-model="newContact.name">
+	</div>
+	<div class=" addContact ">
+		<span>电话</span>
+		<input type="tel" ng-model="newContact.phone">
+	</div>	
+</div>
+<div class="chose-item">
+	<div class=" addContact noborder clearfix" ng-click="switchOpt()">
+		<span>地区</span>
+		<div class="location-bar">
+		<span >{{newContact.location.p}}</span>-
+		<span >{{newContact.location.c}}</span>-
+		<span >{{newContact.location.d}}</span>			
+		</div>
+	</div>
+	<div class=" addContact ">
+		<span>详细地址</span>
+		<input type="text" ng-model="newContact.location.text">
+	</div>	
+</div>
+<div class="ui-sites" ng-show="showOpt">
+	<div class="ui-col">
+		<ul>
+			<li></li><li></li>
+			<li ng-repeat="i in sites" ng-click="set_p(i.n);">{{i.n}}</li>
+		</ul>		
+	</div>
+	<div class="ui-col">
+		<ul>
+			<li></li><li></li>
+			<li ng-repeat="i in t_c" ng-click="set_c(i.n);">{{i.n}}</li>
+		</ul>		
+	</div>
+	<div class="ui-col">
+		<ul>
+			<li></li><li></li>
+			<li ng-repeat="i in t_d" ng-click="set_d(i.n);">{{i.n}}</li>
+		</ul>		
+	</div>	
+</div>
+<div class="comfirm-row">
+	<button class="btn-pill comfirm-btn" ng-click="postNewContact();">保存</button>	
+</div>

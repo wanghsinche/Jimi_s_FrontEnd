@@ -56,9 +56,10 @@
 	</div>
 	<div class="price-row">
 		<span class="price-total">合计￥{{info.totalPrice}}</span>
-		<button class="btn-pill comfirm-btn" ng-click="postPay();">支付</button>	
+		<button ng-if="uaData.ispc==true" class="btn-pill comfirm-btn" ng-click="postPay();">支付</button>	
 	</div>	
 </div>
+<button ng-if="uaData.ispc==false" class="btn-pill comfirm-btn" ng-click="postPay();">支付</button>	
 <div class="module" ng-if="payDialog">
 	<div class="module-background" ng-click="setpayDialog(false)"></div>
 	<div class="module-window ">

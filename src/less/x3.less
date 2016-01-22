@@ -46,7 +46,7 @@
 					margin: 0;
 					vertical-align: middle;
 				}
-				button{
+				.btn-pill{
 					height: 2em;
 					width: 6em;
 					// margin: 0 3em 0 3em 0;
@@ -60,6 +60,20 @@
 					display: inline-block;
 					margin: 0 0 0 2em;
 					color: @greyColor;
+					font-weight: normal;
+				}
+				.btn-del{
+					// visibility: hidden;
+					float: right;
+					padding: 0;
+					margin-right: 2em;
+					font-size: 1em;
+					font-weight: 100;
+				}
+				&:hover{
+					.btn-del{
+						visibility: visible;
+					}
 				}
 				.info-row-left{
 					width: 55%;
@@ -74,7 +88,7 @@
 				}
 				.info-row-right{
 					width: 40%;
-					background: @greyColor + 30;
+					background: @xgreyColor;
 					.right{
 						display: inline-block;
 						padding: 10px 0px 10px 20px;

@@ -1,45 +1,31 @@
-<div class="chose-item">
-	<div class=" addContact noborder">
+<div class="chose-item addContact">
+	<div class=" addContact name">
 		<span>姓名</span>
 		<input type="text" ng-model="newContact.name">
 	</div>
-	<div class=" addContact ">
+	<div class=" addContact phone">
 		<span>电话</span>
 		<input type="tel" ng-model="newContact.phone">
 	</div>	
 </div>
-<div class="chose-item">
-	<div class=" addContact noborder clearfix" ng-click="switchOpt()">
-		<span>地区</span>
+<div class="chose-item addContact">
+	<div class=" addContact clearfix" ng-click="switchOpt()">
+		<span>省市区</span>
 		<div class="location-bar">
-		<span >{{newContact.location.p}}</span>-
-		<span >{{newContact.location.c}}</span>-
-		<span >{{newContact.location.d}}</span>			
+			<select name="" id="" ng-model="newContact.location.p"  ng-change="newContact.location.c='';newContact.location.d='';t_c=f_n(newContact.location.p,sites).s;">
+				<option value="{{i.n}}" ng-repeat="i in sites">{{i.n}}</option>
+			</select>
+			<select name="" id="" ng-model="newContact.location.c"  ng-change="t_d=f_n(newContact.location.c,t_c).s;newContact.location.d='';">
+				<option value="{{i.n}}" ng-repeat="i in t_c">{{i.n}}</option>
+			</select>
+			<select name="" id="" ng-model="newContact.location.d"  ng-change="">
+				<option value="{{i.n}}" ng-repeat="i in t_d">{{i.n}}</option>
+			</select>			
 		</div>
 	</div>
 	<div class=" addContact ">
 		<span>详细地址</span>
 		<input type="text" ng-model="newContact.location.text">
-	</div>	
-</div>
-<div class="ui-sites" ng-show="showOpt">
-	<div class="ui-col">
-		<ul>
-			<li></li><li></li>
-			<li ng-repeat="i in sites" ng-click="set_p(i.n);">{{i.n}}</li>
-		</ul>		
-	</div>
-	<div class="ui-col">
-		<ul>
-			<li></li><li></li>
-			<li ng-repeat="i in t_c" ng-click="set_c(i.n);">{{i.n}}</li>
-		</ul>		
-	</div>
-	<div class="ui-col">
-		<ul>
-			<li></li><li></li>
-			<li ng-repeat="i in t_d" ng-click="set_d(i.n);">{{i.n}}</li>
-		</ul>		
 	</div>	
 </div>
 <div class="comfirm-row">

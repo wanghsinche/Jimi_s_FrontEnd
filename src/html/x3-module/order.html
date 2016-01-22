@@ -3,7 +3,9 @@
 	<div class="info-item border-bottom">
 		<h2>收货人<a href="javascript:;" ng-click="switchAddContact(true)">新增收货地址</a></h2>
 		<div class="info-row" ng-repeat="i in contact.slice(0,showlength===undefine?3:showlength)">
-			<button class="btn-pill" ng-click="setContact(i)" ng-class="{'active':i===currContact}">{{i.name}}</button><h3>{{i.location.p}}{{i.location.c}}{{i.location.d}}{{i.location.text}}  {{i.phone}}</h3>
+			<button class="btn-pill" ng-click="setContact(i)" ng-class="{'active':i===currContact}">{{i.name}}</button>
+			<h3>{{i.location.p}}{{i.location.c}}{{i.location.d}}{{i.location.text}}  {{i.phone}}</h3>
+			<button ng-click="deleteContact(i)"class="change-num btn-del">&#x2716;</button>		
 		</div>
 		<div class="more"><a href="javascript:;" ng-click="showlength=contact.length">more</a></div>
 	</div>
@@ -30,11 +32,11 @@
 <div class="order-row">
 	<div class="price-row">
 		<span class="title">原价</span>
-		<span class="value price-ori">{{info.detail.oripri}}</span>
+		<span class="value price-ori">￥{{info.detail.oripri}}</span>
 	</div>
 	<div class="price-row">
 		<span class="title">邮费</span>
-		<span class="value">{{info.detail.postfee}}</span>
+		<span class="value">￥{{info.detail.postfee}}</span>
 	</div>
 	<div class="price-row">
 		<span class="title">红包</span>

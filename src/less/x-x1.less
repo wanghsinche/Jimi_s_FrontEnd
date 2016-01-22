@@ -26,7 +26,8 @@
 			color:@xfooterBackgroundColor; 
 		}
 		&:after{
-			background: @greyColor+10;
+			// background: @greyColor+10;
+			background: @xgreyColor;			
 		}
 		&.noline{
 			background: @backgroundColor;		
@@ -44,5 +45,8 @@
 				font-size: 0.6em;
 			}
 		}			
+	}
+	.brandzone{
+		border-bottom:2px solid @xgreyColor; 
 	}
 }

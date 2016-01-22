@@ -53,13 +53,28 @@
 								color:@greyColor;
 							}				
 						}
-					}			
+					}	
+					.right-right{
+						display:block;
+						float: right;
+						width: auto;
+						height: 100%;
+						a{
+							display: block;
+							height: 35px;
+							width: 35px;
+							margin-top: 40px;
+							background:url('@{image}/sprite.png');
+						    background-size: 100%;
+    						background-position-y: 49%;	
+						}
+					}							
 				}
 			}
 			.x-time-row{
 				time{
 					position: relative;
-					padding-left: 30px;
+					padding-left: 2em;
 					line-height: 3em;
 					font-size: 0.8em;
 					color:@greyColor;
@@ -67,12 +82,12 @@
 					    content: '';
 					    position: absolute;
 					    display: block;
-					    height: 25px;
-					    width: 25px;
-					    top: -5px;
+					    height: 15px;
+					    width: 15px;
+					    top: 0px;
 					    left: 0;
 					    background: url('/image/sprite.png') no-repeat;
-					    background-size: 25px;
+					    background-size: 15px;
 					    background-position: 00% 65%	
 					}
 				}
@@ -106,40 +121,12 @@
 			    background-position: 00% 57%				
 			}
 			.left{			
-				width: 53%;
-				// .name{
-				// 	padding-left: 2em;
-				// 	position: relative;
-				// 	&:before{
-				// 		content: '';
-				// 		position: absolute;
-				// 		display: block;
-				// 		height: 25px;
-				// 		width: 25px;
-				// 		top:0;
-				// 		left: 0;
-				// 		background: url('@{image}/sprite.png') no-repeat;						
-				// 		background-size: 100%;
-				// 		background-position: 100% 72%;
-				// 	}
-				// }			
+				width: 53%;		
 			}
-			// .phone{
-			// 	padding-left: 25px;
-			// 	position: relative;
-			// 	&:before{
-			// 		content: '';
-			// 		position: absolute;
-			// 		display: block;
-			// 		height: 25px;
-			// 		width: 25px;
-			// 		top:0;
-			// 		left: 0;
-			// 		background: url('@{image}/sprite.png') no-repeat;						
-			// 	    background-size: 70% 900%;
-			// 	    background-position: 10% 83%;
-			// 	}
-			// }		
+			.right{
+				// float: right;
+				// text-align: right;
+			}		
 			.left,.right{
 				display: inline-block;
 				vertical-align: top;
@@ -151,12 +138,12 @@
 			}
 		}
 		.express-content{
-			border-top: 1em solid @greyColor + 30;
+			border-top: 1em solid @xgreyColor;
 			padding: 0 0 0 1em;
 			h1{
 				padding: 0.5em 0 0.5em 0;
 				margin: 0;
-				border-bottom: 1px solid @greyColor + 30;
+				border-bottom: 1px solid @xgreyColor;
 				font-size: 1em;
 				font-weight: normal;
 			}

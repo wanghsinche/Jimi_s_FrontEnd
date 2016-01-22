@@ -18,6 +18,8 @@ requirejs(['common'],function(){
 					.success(function(data){
 						alert('删除成功');
 						callfinish(data);
+					}).error(function(data){
+						alert('失败 ：'+data);
 					});
 				},				
 				postNewContact:function(newContact,callfinish){
@@ -92,11 +94,11 @@ requirejs(['common'],function(){
 			//get contact when it is first time load controller
 			if ($rootScope.contact===undefined) {
 				contactServ.getContact(function(data){
-					$rootScope.contact=data.lst;
+					$rootScope.contact=data.data;
 					// sliceContact(3);
 					//if user has set currcontact, don't rewrite currcontact
 					if ($rootScope.currContact===undefined) {
-						$rootScope.currContact=data.contact[0];
+						$rootScope.currContact=data.data.length===0?undefined:data.data[0];
 					}
 				});				
 			}						
@@ -125,7 +127,11 @@ requirejs(['common'],function(){
 				}
 			};
 			$scope.deleteContact=function(i){
-				contactServ.postNewContact(i,function(data){
+				if(!confirm('确定删除该联系人？')){
+					return;
+				}
+				
+				contactServ.postDelContact(i,function(data){
 					contactServ.getContact(function(data){
 						$rootScope.contact=data.lst;
 						// sliceContact(3);
@@ -144,8 +150,10 @@ requirejs(['common'],function(){
 				$scope.dropdownActive=!$scope.dropdownActive;
 			};
 			$scope.useHongBao=function(i){
-				$rootScope.hongBao=i;
-				$scope.switchDropdown();
+				if(i.available===true){
+					$rootScope.hongBao=i;
+					$scope.switchDropdown();					
+				}
 			};	
 			$scope.postOrder=function(){
 				var id=dectServ.getParameterByName('id');
@@ -206,7 +214,7 @@ requirejs(['common'],function(){
 					if (data==='success') {
 						console.log(data);
 						contactServ.getContact(function(data){
-							$rootScope.contact=data.contact;
+							$rootScope.contact=data.data;
 							alert('成功');
 							$scope.$emit('addevent','done');
 						});
@@ -223,7 +231,7 @@ requirejs(['common'],function(){
 			};
 			if ($rootScope.contact===undefined) {
 				contactServ.getContact(function(data){
-					$rootScope.contact=data.contact;
+					$rootScope.contact=data.data;
 					//if user has set currcontact, don't rewrite currcontact
 					if ($rootScope.currContact===undefined) {
 						$rootScope.currContact=data.contact[0];
@@ -245,7 +253,9 @@ requirejs(['common'],function(){
 				break;
 			}
 			$scope.useHongBao=function(i){
-				$rootScope.hongBao=i;
+				if(i.available===true){
+					$rootScope.hongBao=i;
+				}	
 				// $state.go('order');
 			};			
 			$scope.getNumber = function(num) {
