@@ -316,15 +316,27 @@
 	}
 	//x-hongbao-view
 	.tabview{
+		.tab-navi{
+			a{
+				width: 49%;
+			}
+		}
 		.tab-show{
+			background: @xgreyColor;
 			.hongbao{
-				// text-align: center;
+				text-align: center;
 				.item{
 					display: inline-block;
 					position: relative;
+					@media @middle{
+						width: 90%;
+					}
 					width: 300px;
 					padding-left: 30px;
-					margin:0 0 1em 0;
+					// border-bottom: 1em solid @xgreyColor;
+					margin:0.5em;
+					background: @backgroundColor;
+					text-align: left;					
 					// background: url('@{image}/hongbao.png');
 					// background-size: 167% 100%;
 					&.active::before{
@@ -358,7 +370,7 @@
 						span{
 							vertical-align: bottom;
 							&.large{
-								font-size: 1.5em;
+								font-size: 2em;
 							}
 							&.small{
 								font-size: 1em;
